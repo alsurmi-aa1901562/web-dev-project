@@ -1,55 +1,78 @@
-<!-- Review Paper Form -->
-<form>
-  <h2>Review Paper</h2>
-
-  <!-- Select Paper to Review -->
-  <div>
-    <label for="paper-select"><b>Select Paper to Review:</b></label>
-    <select id="paper-select" name="paper-select">
-      <option value="paper-1">Paper 1</option>
-      <option value="paper-2">Paper 2</option>
-      <option value="paper-3">Paper 3</option>
-    </select>
-  </div>
-  <br />
-  <!-- Overall Evaluation -->
-  <div>
-    <label for="overall-evaluation"><b>Overall Evaluation:</b></label>
-    <select id="overall-evaluation" name="overall-evaluation">
-      <option value="2">Strong Accept</option>
-      <option value="1">Accept</option>
-      <option value="0">Borderline</option>
-      <option value="-1">Reject</option>
-      <option value="-2">Strong Reject</option>
-    </select>
-  </div>
-  <br />
-  <!-- Paper Contribution -->
-  <div>
-    <label for="paper-contribution"><b>Paper Contribution:</b></label>
-    <select id="paper-contribution" name="paper-contribution">
-      <option value="5">Major and Significant Contribution</option>
-      <option value="4">Clear Contribution</option>
-      <option value="3">Minor Contribution</option>
-      <option value="2">No Obvious Contribution</option>
-      <option value="1">No Obvious Contribution</option>
-    </select>
-  </div>
-
-  <!-- Paper Strengths -->
-  <div>
-    <label for="paper-strengths"><b>Paper Strengths:</b></label>
-    <textarea id="paper-strengths" name="paper-strengths"></textarea>
-  </div>
-
-  <!-- Paper Weaknesses -->
-  <div>
-    <label for="paper-weaknesses"><b>Paper Weaknesses:</b></label>
-    <textarea id="paper-weaknesses" name="paper-weaknesses"></textarea>
-  </div>
-
-  <!-- Submit Button -->
-  <div>
-    <button type="submit">Submit Review</button>
-  </div>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Document</title>
+</head>
+<header>
+    <h1>Review Paper</h1>
+  </header>
+<body>
+      <main>
+        <form>
+          <!-- Select Paper to Review -->
+          <div>
+            <label for="paper-select"><b>Select Paper to Review:</b></label>
+            <select id="paper-select" name="paper-select">
+              <option value="paper-1">Paper 1</option>
+              <option value="paper-2">Paper 2</option>
+              <option value="paper-3">Paper 3</option>
+            </select>
+          </div>
+          <br />
+      
+          <!-- Overall Evaluation -->
+          <div>
+            <label for="overall-evaluation"><b>Overall Evaluation:</b></label>
+            <select id="overall-evaluation" name="overall-evaluation">
+              <option value="2">Strong Accept</option>
+              <option value="1">Accept</option>
+              <option value="0">Borderline</option>
+              <option value="-1">Reject</option>
+              <option value="-2">Strong Reject</option>
+            </select>
+          </div>
+          <br />
+      
+          <!-- Paper Contribution -->
+          <div>
+            <label for="paper-contribution"><b>Paper Contribution:</b></label>
+            <select id="paper-contribution" name="paper-contribution">
+              <option value="5">Major and Significant Contribution</option>
+              <option value="4">Clear Contribution</option>
+              <option value="3">Minor Contribution</option>
+              <option value="2">No Obvious Contribution</option>
+              <option value="1">No Obvious Contribution</option>
+            </select>
+          </div>
+      <br>
+          <!-- Paper Strengths -->
+          <div>
+            <label for="paper-strengths"><b>Paper Strengths:</b></label>
+            <textarea id="paper-strengths" name="paper-strengths"></textarea>
+          </div>
+          <br>
+      
+          <!-- Paper Weaknesses -->
+          <div>
+            <label for="paper-weaknesses"><b>Paper Weaknesses:</b></label>
+            <textarea id="paper-weaknesses" name="paper-weaknesses"></textarea>
+          </div>
+      <br>
+          <!-- Submit Button -->
+          <div>
+            <button type="submit">Submit Review</button>
+          </div>
+        </form>
+      </main>
+      
+      <footer>
+        <p>&copy; 2023 Conference Management System</p>
+      </footer>
+      
+</body>
+</html>

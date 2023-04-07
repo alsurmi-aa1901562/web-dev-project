@@ -1,70 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/dc67e7f896.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
-</head>
-<body>
-    <header>
-<img src="/app/Images/f849c1ccb01e1189b315d63936a3435d.gif" alt="Conference Logo" width="150">
-
-    </header>
+  </head>
+  <header>
+    <img
+      src="/app/Images/f849c1ccb01e1189b315d63936a3435d.gif"
+      alt="Conference Logo"
+      width="150"
+    />
+  </header>
+  <body>
     <section>
-        <h2>Submit Paper</h2>
-        <aside>
-            <img src="/app/Images/getty_499517325_111832.jpg" alt="Conference Photo" width="400">
-        </aside>
-        <form>
-          <label for="paper-title"><b>Paper Title:</b></label>
-          <input type="text" id="paper-title" name="paper-title" required>
-    
-          <label for="paper-abstract"><b>Abstract:</b></label>
-          <textarea id="paper-abstract" name="paper-abstract" required></textarea>
-    
-          <fieldset>
-            <br>
-            <legend><b>Authors:</b></legend>
-            <div class="author">
-              <label for="author-name-1"><b>Name:</b></label>
-              <input type="text" id="author-name-1" name="author-name-1" required>
-    
-              <label for="author-email-1"><b>Email:</b></label>
-              <input type="email" id="author-email-1" name="author-email-1" required>
-    
-              <label for="author-affiliation-1"><b>Affiliation:</b></label>
-              <input type="text" id="author-affiliation-1" name="author-affiliation-1" required>
-            </div>
-            <br>
-            <div class="author">
-              <label for="author-name"><b>Name:</b></label>
-              <input type="text" id="author-name" name="author-name-2">
-    
-              <label for="author-email-2"><b>Email:</b></label>
-              <input type="email" id="author-email-2" name="author-email-2">
-    
-              <label for="author-affiliation-2"><b>Affiliation:</b></label>
-              <input type="text" id="author-affiliation-2" name="author-affiliation-2">
-              <br><br>
-              <label for="presenter-2">Presenter:</label>
-              <input type="checkbox" id="presenter-2" name="presenter" value="2">
-            </div>
-          </fieldset>
-          <br>
-          <label for="paper-pdf"><b>Upload Paper PDF:</b></label>
-          <input type="file" id="paper-pdf" name="paper-pdf" accept="application/pdf" required>
-    
-          <button type="submit">Submit Paper
+      <h2>Submit Paper</h2>
+      <aside>
+        <img
+          src="/app/Images/getty_499517325_111832.jpg"
+          alt="Conference Photo"
+          width="400"
+        />
+      </aside>
+      <form>
+        <label for="paper-title"><b>Paper Title:</b></label>
+        <input type="text" id="paper-title" name="paper-title" required />
 
-          </button>
-        </form>
-      </section>
-      <br>
-    <footer>
-        © Conference. All rights reserved, 2023
-    </footer>
-</body>
+        <label for="paper-abstract"><b>Abstract:</b></label>
+        <textarea id="paper-abstract" name="paper-abstract" required></textarea>
+
+        <fieldset>
+          <br />
+          <legend><b>Authors:</b></legend>
+          <div class="author">
+            <label for="author-name-1"><b>Name:</b></label>
+            <input
+              type="text"
+              id="author-name-1"
+              name="author-name-1"
+              required
+            />
+
+            <label for="author-email-1"><b>Email:</b></label>
+            <input
+              type="email"
+              id="author-email-1"
+              name="author-email-1"
+              required
+            />
+
+            <label for="author-affiliation-1"><b>Affiliation:</b></label>
+            <input
+              type="text"
+              id="author-affiliation-1"
+              name="author-affiliation-1"
+              required
+            />
+          </div>
+          <br />
+          <div class="author">
+            <label for="author-name"><b>Name:</b></label>
+            <input type="text" id="author-name" name="author-name-2" />
+
+            <label for="author-email-2"><b>Email:</b></label>
+            <input type="email" id="author-email-2" name="author-email-2" />
+
+            <label for="author-affiliation-2"><b>Affiliation:</b></label>
+            <input
+              type="text"
+              id="author-affiliation-2"
+              name="author-affiliation-2"
+            />
+            <br /><br />
+            <label for="presenter-2">Presenter:</label>
+            <input
+              type="checkbox"
+              id="presenter-2"
+              name="presenter"
+              value="2"
+            />
+          </div>
+        </fieldset>
+        <br />
+        <label for="paper-pdf"
+          ><b>Upload Paper PDF: </b><i class="fa-solid fa-file-pdf"></i
+        ></label>
+        <input
+          type="file"
+          id="paper-pdf"
+          name="paper-pdf"
+          accept="application/pdf"
+          required
+        />
+        <button type="submit">Submit Paper</button>
+      </form>
+    </section>
+    <br />
+    <footer>© Conference. All rights reserved, 2023</footer>
+  </body>
 </html>
