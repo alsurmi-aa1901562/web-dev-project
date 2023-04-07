@@ -4,22 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Conference Management System Login</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<title>Login Page</title>
 </head>
     
-<body>
-	<h1>Login</h1>
-    <div class="login-form">
-	<form action="#" method="post">
+<body class="login-body">
 
-		<label for="username">Username:</label>
-        <input type="text" id="username" name="username"><br><br>
-		
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br><br>
-		
-        <input type="submit" value="Login">
-	</form>
-</div>
+
+    <div id="class-form">
+
+	    <form action="#" method="get|post" id="login-form">
+
+            <h1 id="login-label">Login</h1>
+		    <label for="username" class="field-label">Username</label>
+            <div class="input-field">
+                <i class="fa fa-user icon"></i>
+                <input type="text" id="username" name="username" placeholder="Type your username" class="form-field">
+		    </div>
+
+            <label for="password" class="field-label">Password</label>
+            <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Type your password" class="form-field">
+		    </div>
+            <input type="submit" value="Login" id="login">
+	    </form>
+    </div>
 </body>
 </html>
