@@ -1,29 +1,29 @@
 /* ================Fonts================= */
 @font-face {
     font-family: Poppins-Regular;
-    src: url('../fonts/poppins/Poppins-Regular.ttf'); 
-  }
-  
-  @font-face {
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
     font-family: Poppins-Medium;
-    src: url('../fonts/poppins/Poppins-Medium.ttf'); 
-  }
-  
-  @font-face {
+    src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
     font-family: Poppins-Bold;
-    src: url('../fonts/poppins/Poppins-Bold.ttf'); 
-  }
-  
-  @font-face {
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
     font-family: Poppins-SemiBold;
-    src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
-  }
+    src: url('../fonts/poppins/Poppins-SemiBold.ttf');
+}
 
 i {
     opacity: 30%;
 }
 
-#login-form{
+#login-form {
     padding: 2.5rem;
 }
 
@@ -38,11 +38,11 @@ i {
     /* border-style: solid;
     border-width: thin; 
     border-color: red;  */
-    width: 100%;  
+    width: 100%;
     min-height: 100vh;
 }
 
-#class-form{
+#class-form {
     /* border-style: solid;
     border-width: thin; 
     border-color: red;  */
@@ -52,17 +52,19 @@ i {
     border-radius: 10px;
     overflow: hidden;
 }
-.input-field{
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom: 2px solid #d9d9d9;
-  margin-bottom:3rem;
-    
+
+.input-field {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2px solid #d9d9d9;
+    margin-bottom: 3rem;
+
 }
-.form-field{    
+
+.form-field {
     font-size: 16px;
     color: #333333;
     line-height: 1.5;
@@ -72,19 +74,20 @@ i {
     padding: 0 7px 0 30px;
     box-sizing: border-box;
     outline: none;
-	border: none;
+    border: none;
     width: 100%;
     position: relative;
     font-family: Poppins-Medium;
     font-size: 16px;
-    
+
 }
-.field-label{
+
+.field-label {
     font-family: Poppins-Regular;
     font-size: 14px;
 }
 
-#login-label{
+#login-label {
     display: block;
     font-family: Poppins-Bold;
     font-size: 2.5rem;
@@ -95,7 +98,7 @@ i {
     font-size: 39px;
 }
 
-#login{
+#login {
     font-family: Poppins-Medium;
     font-size: 16px;
     color: #fff;
@@ -119,4 +122,9 @@ i {
     background-position: right center;
     transition: background-position 0.3s ease, background-image 0.3s ease;
     cursor: pointer;
+}
+
+footer {
+    font-size: 13px;
+    text-align: center;
 }
