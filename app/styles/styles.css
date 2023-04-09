@@ -28,7 +28,7 @@ i {
 }
 
 .login-body {
-    background-image: url("/Images/bg-login.jpg");
+    background-image: url("../images/bg-login.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
