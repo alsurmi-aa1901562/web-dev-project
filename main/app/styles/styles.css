@@ -126,7 +126,7 @@ i {
 /*==================Submit Form page=================*/
 
 .submission-page{
-    background-image: url("/Images/desktop-wallpaper-iphone-11-pro-in-2020-light-purple-gradient-thumbnail.jpg");
+    background-image: url("/main/app/images/bg-submit.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -240,7 +240,7 @@ label{
     height: 2.5rem;
     background: #8964aa;
     border: none;
-    border-radius: 25px;
+    border-radius: 2rem;
     transition: background-position 0.3s ease, background-image 0.3s ease;
     background-size: 100% 100%;
     margin-top: 1rem;
@@ -257,3 +257,18 @@ legend{
     font-family: Poppins-Bold;
     font-size: 25px;
 }
+
+.button_plus {
+    width: 8rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    border-color: #a15dee;
+    font-family: Poppins-Medium;
+    font-size: 12px;
+  
+  }
+  .button_plus:hover {
+    background-color: #ab7ec5;
+    transition: 0.2s;
+  }
