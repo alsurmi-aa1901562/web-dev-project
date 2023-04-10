@@ -292,7 +292,7 @@ legend{
     grid-template-areas:
     "nav nav"
     "aside main";
-    background-image: url("/main/app/images/bg-submit.jpg");
+    background-image: url("../images/bg-submit.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
