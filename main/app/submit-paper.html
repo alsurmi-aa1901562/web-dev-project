@@ -8,8 +8,15 @@
     	<title>Submission Page</title>
 </head>
 
-<body class="submission-page">
+<body>
+  <header>
+    <img src="/main/app/images/Header.png">
+  </header>
+  <div id="body">
+  <nav>
+    <p id="logout" class="logout" ><a href="/main/app/login.html">Logout</a></p>
 
+  </nav>
 
   <aside class="aside">
     <div id="form-title">
@@ -17,57 +24,61 @@
     </div>
   </aside>
 
-  <section class="main-section">
-    <form id="submission-form">
+  <main class="submission-page"> 
+    <section class="main-section">
+      <form id="submission-form">
 
-      <div id="Paper-information-form">
-        <fieldset>
-          <legend><b>Paper Information</b></legend>
+        <div id="Paper-information-form">
+          <fieldset>
+            <legend><b>Paper Information</b></legend>
 
-          <label for="paper-title" class="form_label"><b>Paper Title</b></label>
-          <input type="text" id="paper-title" class="form_input" name="paper-title" required/>
+            <label for="paper-title" class="form_label"><b>Paper Title</b></label>
+            <input type="text" id="paper-title" class="form_input" name="paper-title" required/>
 
-          <label for="paper-abstract" class="form_label"><b>Abstract</b></label>
-          <textarea id="paper-abstract"  class="form_input" name="paper-abstract" required></textarea>
-        </fieldset>
-      </div>
+            <label for="paper-abstract" class="form_label"><b>Abstract</b></label>
+            <textarea id="paper-abstract"  class="form_input" name="paper-abstract" required></textarea>
+          </fieldset>
+        </div>
 
-      <div id="authors-information-form">
-        <fieldset id="all-authors-information-field">
-           <legend><b>Authors</b></legend>
-           <fieldset id="author#">
-            <legend><b>Author 1 </b></legend>
-              <label for="author-name"><b>Name</b></label>
-              <input type="text" id="author-name" name="author-name" required />
-  
-              <label for="author-email"><b>Email</b></label>
-              <input type="email" id="author-email" name="author-email" required />
-  
-              <label for="author-affiliation"><b>Affiliation</b></label>
-              <input type="text" id="author-affiliation" name="author-affiliation-1" required />
-              <div id="presenter-declaration">
-                <label for="presenter"><b>Presenter</b></label>
-                <input type="checkbox" id="presenter-checkbox" name="presenter" value="2" />
-              </div>          
-           </fieldset>
-           <button type="button" class="button_plus" id="add_author_btn"> Add Author</button>
-        </fieldset>
-      </div>
+        <div id="authors-information-form">
+          <fieldset id="all-authors-information-field">
+            <legend><b>Authors</b></legend>
+            <fieldset id="author#">
+              <legend><b>Author 1</b></legend>
+                <label for="author-name"><b>Name</b></label>
+                <input type="text" id="author-name" name="author-name" required />
+    
+                <label for="author-email"><b>Email</b></label>
+                <input type="email" id="author-email" name="author-email" required />
+    
+                <label for="author-affiliation"><b>Affiliation</b></label>
+                <input type="text" id="author-affiliation" name="author-affiliation-1" required />
+                <div id="presenter-declaration">
+                  <label for="presenter"><b>Presenter</b></label>
+                  <input type="checkbox" id="presenter-checkbox" name="presenter" value="2" />
+                </div>          
+            </fieldset>
+            <button type="button" class="button_plus" id="add_author_btn"> Add Author</button>
+          </fieldset>
+        </div>
 
-      <div id="upload-from">
-        <fieldset>
-          <legend><b>Upload Paper</b></legend>
-          <input type="file" id="paper-pdf" name="paper-pdf" accept="application/pdf" required>
-        </fieldset>
-      </div>
-      <div id="submit-btn">
-        <button type="submit" id="submit-paper-btn">submit</button>
-      </div>
+        <div id="upload-from">
+          <fieldset>
+            <legend><b>Upload Paper</b></legend>
+            <input type="file" id="paper-pdf" name="paper-pdf" accept="application/pdf" required>
+          </fieldset>
+        </div>
+        <div id="submit-btn">
+          <button type="submit" id="submit-paper-btn">submit</button>
+        </div>
 
-    </form>
-  </section>
+      </form>
+    </section>
 
+  </main>
+
+  <script src="scripts/Submit.js">
+  </script>
+  </div>
 </body>
-<script src="scripts/Submit.js"></script>
-
 </html>
