@@ -1,69 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <script src="https://kit.fontawesome.com/dc67e7f896.js" crossorigin="anonymous"></script>
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    	<title>Submission Page</title>
 </head>
-<header>
-  <img src="/app/Images/f849c1ccb01e1189b315d63936a3435d.gif" alt="Conference Logo" width="150" />
-</header>
 
-<body>
-  <section>
-    <h2>Submit Paper</h2>
-    <aside>
-      <img src="/app/Images/getty_499517325_111832.jpg" alt="Conference Photo" width="400" />
-    </aside>
-    <form>
-      <label for="paper-title"><b>Paper Title:</b></label>
-      <input type="text" id="paper-title" name="paper-title" required />
+<body class="submission-page">
 
-      <label for="paper-abstract"><b>Abstract:</b></label>
-      <textarea id="paper-abstract" name="paper-abstract" required></textarea>
 
-      <fieldset>
-        <br />
-        <legend><b>Authors:</b></legend>
-        <div class="author">
-          <label for="author-name-1"><b>Name:</b></label>
-          <input type="text" id="author-name-1" name="author-name-1" required />
+  <aside class="aside">
+    <div id="form-title">
+      <p>Submit a paper</p>
+    </div>
+  </aside>
 
-          <label for="author-email-1"><b>Email:</b></label>
-          <input type="email" id="author-email-1" name="author-email-1" required />
+  <section class="main-section">
+    <form id="submission-form">
 
-          <label for="author-affiliation-1"><b>Affiliation:</b></label>
-          <input type="text" id="author-affiliation-1" name="author-affiliation-1" required />
-        </div>
-        <br />
-        <div class="author">
-          <label for="author-name"><b>Name:</b></label>
-          <input type="text" id="author-name" name="author-name-2" />
+      <div id="Paper-information-form">
+        <fieldset>
+          <legend><b>Paper Information</b></legend>
 
-          <label for="author-email-2"><b>Email:</b></label>
-          <input type="email" id="author-email-2" name="author-email-2" />
+          <label for="paper-title" class="form_label"><b>Paper Title</b></label>
+          <input type="text" id="paper-title" class="form_input" name="paper-title" required/>
 
-          <label for="author-affiliation-2"><b>Affiliation:</b></label>
-          <input type="text" id="author-affiliation-2" name="author-affiliation-2" />
-          <br /><br />
-          <label for="presenter-2">Presenter:</label>
-          <input type="checkbox" id="presenter-2" name="presenter" value="2" />
-        </div>
-      </fieldset>
-      <br />
-      <label for="paper-pdf"><b>Upload Paper PDF: </b><i class="fa-solid fa-upload"></i></label>
-      <input type="file" id="paper-pdf" name="paper-pdf" accept="application/pdf" required />
-      <button type="submit">Submit Paper</button>
+          <label for="paper-abstract" class="form_label"><b>Abstract</b></label>
+          <textarea id="paper-abstract"  class="form_input" name="paper-abstract" required></textarea>
+        </fieldset>
+      </div>
+
+      <div id="authors-information-form">
+        <fieldset>
+           <legend><b>Authors</b></legend>
+           <fieldset id="author#">
+              <label for="author-name"><b>Name</b></label>
+              <input type="text" id="author-name" name="author-name" required />
+  
+              <label for="author-email"><b>Email</b></label>
+              <input type="email" id="author-email" name="author-email" required />
+  
+              <label for="author-affiliation"><b>Affiliation</b></label>
+              <input type="text" id="author-affiliation" name="author-affiliation-1" required />
+              <div id="presenter-declaration">
+                <label for="presenter"><b>Presenter</b></label>
+                <input type="checkbox" id="presenter-checkbox" name="presenter" value="2" />
+              </div>          
+           </fieldset>
+        </fieldset>
+      </div>
+
+      <div id="upload-from">
+        <fieldset>
+          <legend><b>Upload Paper</b></legend>
+          <input type="file" id="paper-pdf" name="paper-pdf" accept="application/pdf" required>
+        </fieldset>
+      </div>
+      <div id="submit-btn">
+        <button type="submit" id="submit-paper-btn">submit</button>
+      </div>
+
     </form>
   </section>
-  <br />
-  <footer>
-    <p>&copy; Conference. All rights reserved, 2023</p>
-  </footer>
+
 </body>
 
 </html>

@@ -89,8 +89,6 @@ i {
 
 #login-label {
     display: block;
-    font-family: Poppins-Bold;
-    font-size: 2.5rem;
     color: #333333;
     text-align: center;
     margin-bottom: 3rem;
@@ -124,7 +122,138 @@ i {
     cursor: pointer;
 }
 
-footer {
-    font-size: 13px;
+
+/*==================Submit Form page=================*/
+
+.submission-page{
+    background-image: url("/Images/desktop-wallpaper-iphone-11-pro-in-2020-light-purple-gradient-thumbnail.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    border-style: solid;
+    border-width: thin; 
+    border-color: red;
+    margin: 0%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+}
+
+.aside {
+    min-height: 100vh;
+    opacity: 80%;
+    font-family: Poppins-Regular;
+    font-size: 14px;
+}
+
+.main-section{
+    /* border-style: solid;
+    border-width: thin; 
+    border-color: red; */
+    overflow: hidden;
+    padding: 1rem;
+    background: #fff;
+    display: inline-block;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+#submission-form{
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+#form-title{
+    padding: 0.5rem;
+    background: #fff;
+    overflow: hidden;
+    margin-top: 6rem;
     text-align: center;
+}
+
+fieldset {
+    border-radius: 1rem;
+    margin: 0;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    border-style: double;
+    border-style: dashed;
+    }
+
+#authors-information-form,#Paper-information-form{
+    max-width: 100%;
+    width: 100%;
+
+}
+
+input , textarea{
+    border: thin solid black;
+    border-left: 0rem;
+    border-top: 0rem;
+    border-right: 0rem; 
+    padding: 0.5rem;
+    font-family: Poppins-Medium;
+    font-size: 12px;
+    color: #2e2e2e;
+    
+    
+}
+label{
+    margin: 0.5rem;  
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    
+    
+}
+#presenter-checkbox{
+    margin: 0.7rem;
+    
+}
+#presenter-declaration{
+    display: flex;
+    justify-content:space-between;
+    border-bottom: thin solid black;
+    margin-top: 1rem;
+    width: 50%;
+}
+
+#submit-paper-btn {
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    padding: 0 20px;
+    width: 8rem;
+    height: 2.5rem;
+    background: #8964aa;
+    border: none;
+    border-radius: 25px;
+    transition: background-position 0.3s ease, background-image 0.3s ease;
+    background-size: 100% 100%;
+    margin-top: 1rem;
+}
+#submit-paper-btn:hover {
+    background: -webkit-linear-gradient(right, #e953e9, #63cfd1);
+    background-size: 200% 100%;
+    background-position: right center;
+    transition: background-position 0.3s ease, background-image 0.3s ease;
+    cursor: pointer;
+}
+
+legend{
+    font-family: Poppins-Bold;
+    font-size: 25px;
 }
