@@ -216,7 +216,7 @@ fieldset {
     font-size: 16px;
     display: flex;
     flex-direction: column;
-    border-style: double;
+    /* border-style: double; */
     border-style: dashed;
     }
 
@@ -277,11 +277,25 @@ label{
 
 legend{
     font-family: Poppins-Bold;
-    font-size: 25px;
-    
+    font-size: 25px; 
 }
 
-.button_plus {
+.author-card-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    flex-basis: 100%;
+    width: 100%;
+    background-color: transparent;
+    background: none;
+    flex-grow: 1;
+}
+.divider{
+    flex-grow: 1;
+}
+
+.button_plus,.button_minus {
     width: 8rem;
     height: 2.5rem;
     cursor: pointer;
@@ -291,7 +305,7 @@ legend{
     font-size: 12px;
   
   }
-  .button_plus:hover {
+  .button_plus:hover , .button_minus:hover{
     background-color: #ab7ec5;
     transition: 0.2s;
   }
