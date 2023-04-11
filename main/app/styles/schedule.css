@@ -1,84 +1,223 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-  }
-  
-  header {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #444;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
     text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 25px;
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  nav {
-    background-color: #666;
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 10px;
-  }
-  
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  section {
-    margin: 20px;
-    width: 650px;
-  }
-  
-  h2 {
-    font-size: 1.5em;
     margin-top: 0;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #333;
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  aside {
-    background-color: #eee;
-    padding: 10px;
-    width: 100%;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    border-bottom: 2px solid #ccc;
+    padding: 1rem;
     text-align: center;
 }
-  
-  footer {
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    color: #333;
+    text-shadow: 1px 1px #ccc;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #555;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #f5f5f5;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff9900;
+}
+
+/* Main Content Styles */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+section {
+    flex-basis: 30%;
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+section h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
     width: 100%;
+    margin-top: 1rem;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.5rem;
+}
+
+th {
     background-color: #333;
     color: #fff;
-    padding: 10px;
+}
+
+td:first-child {
+    font-weight: bold;
+}
+
+/* Sidebar Styles */
+aside {
     text-align: center;
-  }
+    flex-basis: 25%;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+aside h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 800px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        flex-basis: 90%;
+    }
+
+    aside {
+        flex-basis: 90%;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav li {
+        margin: 0 1rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    td,
+    th {
+        font-size: 0.9rem;
+    }
+
+    aside h3 {
+        font-size: 1.2rem;
+    }
+
+    li {
+        font-size: 1rem;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section {
+        flex-basis: 80%;
+    }
+
+    aside {
+        flex-basis: 80%;
+    }
+}
