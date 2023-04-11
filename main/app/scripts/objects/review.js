@@ -1,5 +1,3 @@
-import {nanoid} from nanoid;
-
 export class Review {
     #id;
     #paper;
@@ -7,8 +5,8 @@ export class Review {
     #score;
     #status;
 
-    constructor(paper, reviewers, score, status) {
-        this.#id = nanoid();
+    constructor(id, paper, reviewers, score, status) {
+        this.#id = id;
         this.#paper = paper;
         this.#reviewers = reviewers;
         this.#score = score;
@@ -37,6 +35,10 @@ export class Review {
     }
 
     // Setters
+    set id(id) {
+        this.#id = id;
+    }
+
     set paper(paper) {
         this.#paper = paper;
     }

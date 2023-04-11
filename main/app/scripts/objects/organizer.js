@@ -1,13 +1,11 @@
-import {nanoid} from nanoid;
-
 export class Organizer {
     #id;
     #name;
     #username;
     #password;
 
-    constructor(name, username, password) {
-        this.#id = nanoid();
+    constructor(id, name, username, password) {
+        this.#id = id;
         this.#name = name;
         this.#username = username;
         this.#password = password;
@@ -31,6 +29,10 @@ export class Organizer {
     }
 
     // Setters
+    set id(id) {
+        this.#id = id;
+    }
+
     set name(name) {
         this.#name = name;
     }

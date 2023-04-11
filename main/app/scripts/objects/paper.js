@@ -1,5 +1,3 @@
-import {nanoid} from nanoid;
-
 export class Paper {
     #id;
     #title;
@@ -7,8 +5,8 @@ export class Paper {
     #contributedAuthors;
     #paperPDFPath;
 
-    constructor(title, abstract, contributedAuthors, paperPDFPath) {
-        this.#id = nanoid();
+    constructor(id, title, abstract, contributedAuthors, paperPDFPath) {
+        this.#id = id;
         this.#title = title;
         this.#abstract = abstract;
         this.#contributedAuthors = contributedAuthors;
@@ -37,6 +35,10 @@ export class Paper {
     }
 
     // Setters
+    set id(id) {
+        this.#id = id;
+    }
+
     set title(title) {
         this.#title = title;
     }

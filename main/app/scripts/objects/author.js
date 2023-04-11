@@ -1,5 +1,3 @@
-import {nanoid} from nanoid;
-
 export class Author {
     #id;
     #name;
@@ -7,16 +5,9 @@ export class Author {
     #isPresentor;
     #username;
     #password;
-
-    constructor(name, email, isPresentor) {
-        this.#id = nanoid();
-        this.#name = name;
-        this.#email = email;
-        this.#isPresentor = isPresentor;
-    }
-
-    constructor(name, email, isPresentor, username, password) {
-        this.#id = nanoid();
+    
+    constructor(id, name, email, isPresentor, username, password) {
+        this.#id = id;
         this.#name = name;
         this.#email = email;
         this.#isPresentor = isPresentor;
@@ -50,6 +41,10 @@ export class Author {
     }
 
     // Setters
+    set id(id) {
+        this.#id = id;
+    }
+
     set name(name) {
         this.#name = name;
     }
