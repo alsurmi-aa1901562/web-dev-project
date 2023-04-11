@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import { nanoid } from "nanoid";
 
-const path = "data/authors.json"
+const path = "data/authors.json";
 
 export async function createAuthor(author) {
     const data = await fs.readFile(path);
@@ -25,13 +25,11 @@ export async function readAuthors(type) {
     const data = await fs.readFile(path);
     let authors = JSON.parse(data);
 
-    if(type) {
-        if(type === null || type ==="null") {
-            authors = authors.filter((a) => a.username === null);
-        }
-        else {
-            authors = authors.filter((a) => a.username != null);
-        }
+    if(type === null || type ==="null") {
+        authors = authors.filter((a) => a.username === null);
+    }
+    else {
+        authors = authors.filter((a) => a.username != null);
     }
     
 
@@ -57,6 +55,7 @@ export async function updateAuthor(id, body) {
         author.isPresentor = body.isPresentor;
         author.username = body.username;
         author.password = body.password;
+        
         await fs.writeFile(path, JSON.stringify(authors));
         return author;
     }
@@ -70,7 +69,7 @@ export async function deleteAuthor(id) {
 
     const index = authors.findIndex((a) => a.id === id);
 
-    if(index) {
+    if(index >= 0) {
         const author = authors[index];
         authors.splice(index, 1);
         await fs.writeFile(path, JSON.stringify(authors));

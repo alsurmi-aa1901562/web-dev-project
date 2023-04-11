@@ -1,10 +1,10 @@
-import * as repo from "./repository.js"
+import * as repo from "./repository.js";
 
 export async function GET(request, {params}) {
     try {
-        const username = new URL(request.url).searchParams.get("type")?.toLowerCase();
+        const type = new URL(request.url).searchParams.get("type")?.toLowerCase();
 
-        const authors = await repo.readAuthors(username);
+        const authors = await repo.readAuthors(type);
         return Response.json(authors, {status: 200});
 
     } catch (error) {
@@ -16,6 +16,11 @@ export async function GET(request, {params}) {
 export async function POST(request, {params}) {
     try {
         const body = await request.json();
+        
+        if(typeof body.username === "string"  && typeof body.password === "string"){
+            body.username = body.username.trim();
+            body.password = body.password.trim();
+        }
 
         if("id" in body && "name" in body && "email" in body && "isPresentor" in body && "username" in body && "password" in body) {
             const author = await repo.createAuthor({

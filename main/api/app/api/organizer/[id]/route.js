@@ -1,14 +1,15 @@
-import * as repo from "../repository.js"
+import * as repo from "../repository.js";
 
 export async function GET(request, {params}) {
     try {
         const{ id } = params;
-        const author = await repo.readAuthor(id);
-        if (author) {
-            return Response.json(author, {status: 200});
+
+        const organizer = await repo.readOrganizer(id);
+        if (organizer) {
+            return Response.json(organizer, {status: 200});
         }
         
-        return Response.json({error: "Author Not Found!"}, {status: 404}); 
+        return Response.json({error: "Organizer Not Found!"}, {status: 404}); 
     } catch (error) {
         console.error("error -", error.message);
         return Response.json({message: "Internal server error."}, { status: 500 });
@@ -24,15 +25,18 @@ export async function PUT(request, {params}) {
             body.username = body.username.trim();
             body.password = body.password.trim();
         }
+        else{
+            return Response.json({error: "Invalid Parameters Posted (Username or Password is undefined or NOT a String Type)"}, {status: 400}); 
+        }
 
-        if("name" in body && "email" in body && "isPresentor" in body && "username" in body && "password" in body) {
-            const author = await repo.updateAuthor(id, body);
+        if(("name" in body && "username" in body && "password" in body) && (body.username && body.password) && (body.username != "null" && body.password != "null")) {
+            const organizer = await repo.updateOrganizer(id, body);
 
-            if (author) {
-                return Response.json(author, {status: 200});
+            if (organizer) {
+                return Response.json(organizer, {status: 200});
             }
 
-            return Response.json({error: "Author Not Found!"}, {status: 404}); 
+            return Response.json({error: "Organizer Not Found!"}, {status: 404}); 
         }
          
         return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 
@@ -45,13 +49,13 @@ export async function PUT(request, {params}) {
 export async function DELETE(request, {params}) {
     try {
         const{ id } = params;
-        const author = await repo.deleteAuthor(id);
+        const organizer = await repo.deleteOrganizer(id);
 
-        if(author) {
-            return  Response.json({message: "Deleted Author!"}, {status: 200});
+        if(organizer) {
+            return  Response.json({message: "Deleted Organizer!"}, {status: 200});
         }
 
-        return Response.json({error: "Author Not Found!"}, {status: 404}); 
+        return Response.json({error: "Organizer Not Found!"}, {status: 404}); 
     } catch (error) {
         console.error("error -", error.message);
         return Response.json({message: "Internal server error."}, { status: 500 });
