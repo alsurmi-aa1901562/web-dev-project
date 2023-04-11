@@ -26,13 +26,10 @@ export async function readAuthors(type) {
     let authors = JSON.parse(data);
 
     if(type) {
-        console.log("has content")
         if(type === null || type ==="null") {
-            console.log("is null")
             authors = authors.filter((a) => a.username === null);
         }
-        else{
-            console.log("not null")
+        else {
             authors = authors.filter((a) => a.username != null);
         }
     }
