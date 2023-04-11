@@ -5,9 +5,10 @@ body {
   }
   
   header {
+    text-align: center;
     background-color: #333;
     color: #fff;
-    padding: 10px;
+    padding: 25px;
   }
   
   h1 {
@@ -18,7 +19,7 @@ body {
     background-color: #666;
     color: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 10px;
   }
   
@@ -75,6 +76,7 @@ body {
 }
   
   footer {
+    width: 100%;
     background-color: #333;
     color: #fff;
     padding: 10px;
