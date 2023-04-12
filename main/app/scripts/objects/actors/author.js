@@ -1,15 +1,19 @@
 export class Author {
     #id;
-    #name;
+    #fname;
+    #lname;
     #email;
+    #affiliation;
     #isPresentor;
     #username;
     #password;
     
-    constructor(id, name, email, isPresentor, username, password) {
+    constructor(id, fname, lname, email, affiliation, isPresentor, username, password) {
         this.#id = id;
-        this.#name = name;
+        this.#fname = fname;
+        this.#lname = lname;
         this.#email = email;
+        this.#affiliation = affiliation;
         this.#isPresentor = isPresentor;
         this.#username = username;
         this.#password = password;
@@ -20,8 +24,12 @@ export class Author {
         return this.#id;
     }
 
-    get name() {
-        return this.#name;
+    get fname() {
+        return this.#fname;
+    }
+
+    get lname() {
+        return this.#lname;
     }
 
     get email() {
@@ -45,8 +53,12 @@ export class Author {
         this.#id = id;
     }
 
-    set name(name) {
-        this.#name = name;
+    set fname(fname) {
+        this.#fname = fname;
+    }
+
+    set lname(lname) {
+        this.#lname = lname;
     }
 
     set email(email) {
@@ -67,13 +79,14 @@ export class Author {
 
     // Methods
     toString() {
-        return `Author #${this.#id}: [Name: ${this.#name}], [Email: ${this.#email}], [Presentor: ${this.#isPresentor}], [Username: ${this.#username}]`;
+        return `Author #${this.#id}: [First Name: ${this.#fname}], [Last Name: ${this.#lname}], [Email: ${this.#email}], [Presentor: ${this.#isPresentor}], [Username: ${this.#username}]`;
     }
 
     toJSON() {
         return {
             id: this.#id,
-            name: this.#name,
+            fname: this.#fname,
+            lname: this.#lname,
             email: this.#email,
             isPresentor: this.#isPresentor,
             username: this.#username,
