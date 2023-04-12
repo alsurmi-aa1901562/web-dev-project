@@ -1,50 +1,83 @@
 export class Users {
-    #authors;
-    #reviewers;
-    #organizers;
+    #id;
+    #fname;
+    #lname;
+    #email;
+    #password;
+    #role;
 
-    constructor(authors, reviewers, organizers) {
-        this.#authors = authors;
-        this.#reviewers = reviewers;
-        this.#organizers = organizers;
+    constructor(id, fname, lname, email, password, role) {
+        this.#id = id;
+        this.#fname = fname;
+        this.#lname = lname;
+        this.#email = email;
+        this.#password = password;
+        this.#role = role;
     }
 
     // Getters
-    get authors() {
-        return this.#authors;
+    get id() {
+        return this.#id;
     }
 
-    get reviewers() {
-        return this.#reviewers;
+    get fname() {
+        return this.#fname;
     }
 
-    get organizers() {
-        return this.#organizers;
+    get lname() {
+        return this.#lname;
+    }
+
+    get email() {
+        return this.#email;
+    }
+
+    get password() {
+        return this.#password;
+    }
+
+    get role() {
+        return this.#role;
     }
 
     // Settors
-    set authors(authors) {
-        this.#authors = authors;
+    set id(id) {
+        this.#id = id;
     }
 
-    set reviewers(reviewers) {
-        this.#reviewers = reviewers;
+    set fname(firstName) {
+        this.#fname = firstName;
     }
 
-    set organizers(organizers) {
-        this.#organizers = organizers;
+    set lname(lastName) {
+        this.#lname = lastName;
+    }
+
+    set email(email){
+        this.#email = email;
+    }
+
+    set password(password) {
+        this.#password = password;
+    }
+
+    set role(role) {
+        this.#role = role;
     }
 
     // Methods
     toString() {
-        return `[Authors: {${this.#authors}}, [Reviewers: {${this.#reviewers}}], [Organizers: {${this.#organizers}}]`;
+        return `USER #${this.#id}: [First Name: ${this.#fname}], [Last Name: ${this.#lname}], [Email: ${this.#email}], [Password: ${this.#password}], [Role: ${this.#role}]`;
     }
 
     toJSON() {
         return {
-            authors: this.#authors,
-            reviewers: this.#reviewers,
-            organizers: this.#organizers
+            id: this.#id,
+            first_name: this.#fname,
+            last_name: this.#lname,
+            email: this.#email,
+            password: this.#password,
+            role: this.#role
         }
     }
 }
