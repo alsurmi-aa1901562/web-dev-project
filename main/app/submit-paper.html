@@ -46,11 +46,17 @@
 
         <div id="authors-information-form">
           <fieldset id="all-authors-information-field">
-            <legend><b>Authors</b></legend>
-            <fieldset id="author#">
-              <legend><b>Author 1</b></legend>
-                <label for="author-name"><b>Name</b></label>
-                <input type="text" id="author-name" name="author-name" required />
+            <legend>Authors</legend>
+            <fieldset id="author1">
+              <legend class="author-card-header">
+                <p> Author 1 </p>
+                <hr class="divider">
+              </legend>
+                <label for="author-first-name"><b>First Name</b></label>
+                <input type="text" id="author-first-name" name="author-first-name" required />
+
+                <label for="author-last-name"><b>Last Name</b></label>
+                <input type="text" id="author-last-name" name="author-last-name" required />
     
                 <label for="author-email"><b>Email</b></label>
                 <input type="email" id="author-email" name="author-email" required />
@@ -81,8 +87,9 @@
 
   </main>
 
+
+  </div>
   <script src="scripts/Submit.js">
   </script>
-  </div>
 </body>
 </html>

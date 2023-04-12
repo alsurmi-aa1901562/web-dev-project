@@ -1,84 +1,127 @@
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #f7f7f7;
   }
   
+  /* Header styles */
   header {
-    text-align: center;
     background-color: #333;
     color: #fff;
-    padding: 25px;
+    text-align: center;
+    padding: 20px;
   }
   
-  h1 {
+  header h1 {
     margin: 0;
   }
   
+  /* Navigation styles */
   nav {
-    background-color: #666;
-    color: #fff;
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
+    justify-content: space-evenly;
+    background-color: #444;
+    color: #fff;
+    padding: 20px;
   }
   
   nav a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    margin: 0 10px;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
   }
   
+  nav a:hover {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Main styles */
   main {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
+    justify-content: space-between;
+    margin: 20px;
   }
   
   section {
-    margin: 20px;
-    width: 650px;
-  }
-  
-  h2 {
-    font-size: 1.5em;
-    margin-top: 0;
+    flex-basis: 49%;
+    margin-bottom: 20px;
   }
   
   table {
+    
     border-collapse: collapse;
     width: 100%;
   }
+
   
-  th, td {
-    border: 1px solid #ccc;
+  table th,
+  table td {
+    border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
   }
   
-  th {
+  table th {
     background-color: #333;
     color: #fff;
-    font-weight: bold;
   }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
+  footer{
+    text-align: center;
   }
-  
+  /* Aside styles */
   aside {
-    background-color: #eee;
-    padding: 20px;
-    width: 100%;
     text-align: center;
-}
+    flex-basis: 30%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #eee;
+  }
   
-  footer {
-    width: 100%;
+  /* Form styles */
+  form {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  section h2{
+    text-align: center;
+
+  }
+  form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  form input,
+  form textarea {
+    display: block;
+    width: 95%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  form button {
+    display: block;
     background-color: #333;
     color: #fff;
-    padding: 10px;
-    text-align: center;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
+  
+  form button:hover {
+    background-color: #444;
+  }
+  

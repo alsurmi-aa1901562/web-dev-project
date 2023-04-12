@@ -5,28 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Review Page</title>
 </head>
-<header>
-    <h1>Review Paper</h1>
-</header>
 
-<body>
-    <main>
-        <form>
-            <!-- Select Paper to Review -->
-            <div>
-                <label for="paper-select"><b>Select Paper to Review:</b></label>
-                <select id="paper-select" name="paper-select">
-                    <option value="paper-1">Paper 1</option>
-                    <option value="paper-2">Paper 2</option>
-                    <option value="paper-3">Paper 3</option>
-                </select>
-            </div>
-            <br />
 
-            <!-- Overall Evaluation -->
+<body id="body-review">
+    <header>
+    </header>
+    <nav>
+        <div id="credentials">
+          <p id="Nav-userName"> Username : ahmed</p>
+          <p id="Nav-Id"> Id: 2018051600</p>
+        </div>
+        <p id="logout" class="logout" ><a href="/main/app/login.html" >Logout</a></p>
+    </nav>
+
+    <aside class="aside">
+        <div id="form-title">
+          <p>Review Papers</p>
+        </div>
+    </aside>
+
+    <main class="main-section-review">
+        <p id="review-papers-header">Assigned Papers for review</p>
+        <section id="papers-cards">
+            <section class="paper-card">   
+                <p class="paper-title">Title</p>
+                <p class="authors">Khaled Mohamed</p>
+                <div class="abstract">
+                    <button type="button" class="abstract-collapsible">Abstract</button>
+                    <div class="abstract-content">
+                      <p>abstract</p>
+                    </div>
+                </div >
+                <div class="download">
+                    <p>Paper Link: <a href="" class="download-link">Download paper</a></p>
+                </div>
+                <button type="button" class="review-button" id="review-btn">Review Paper</button>
+                
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <p>Some text in the Modal..</p>
+                    </div>
+                  
+                </div>
+            </section>
+        </section>
+
+        
+        <!-- <form>
+            Overall Evaluation
             <div>
                 <label for="overall-evaluation"><b>Overall Evaluation:</b></label>
                 <select id="overall-evaluation" name="overall-evaluation">
@@ -39,7 +71,7 @@
             </div>
             <br />
 
-            <!-- Paper Contribution -->
+            Paper Contribution
             <div>
                 <label for="paper-contribution"><b>Paper Contribution:</b></label>
                 <select id="paper-contribution" name="paper-contribution">
@@ -51,26 +83,28 @@
                 </select>
             </div>
             <br>
-            <!-- Paper Strengths -->
+            Paper Strengths
             <div>
                 <label for="paper-strengths"><b>Paper Strengths:</b></label>
                 <textarea id="paper-strengths" name="paper-strengths"></textarea>
             </div>
             <br>
 
-            <!-- Paper Weaknesses -->
+            Paper Weaknesses
             <div>
                 <label for="paper-weaknesses"><b>Paper Weaknesses:</b></label>
                 <textarea id="paper-weaknesses" name="paper-weaknesses"></textarea>
             </div>
             <br>
-            <!-- Submit Button -->
+            Submit Button
             <div>
                 <button type="submit">Submit Review</button>
             </div>
-        </form>
+        </form> -->
     </main>
 
+    <script src="scripts/Review.js">
+    </script>
 </body>
 
 </html>
