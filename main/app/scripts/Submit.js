@@ -66,14 +66,3 @@ function removeAuthor(authorID) {
     }
   }
 }
-
-
-
-// const previousdelete = document.getElementById(authorID);
-// if(author_count>2){
-//   const Delbutton = document.createElement('button');
-//   Delbutton.type = "button";
-//   Delbutton.className = "button_minus";
-//   Delbutton.onclick = "removeAuthor('${newAuthor.id}')";
-//   Delbutton.id="remove${author_count-1}";
-// }
