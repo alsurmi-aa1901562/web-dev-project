@@ -329,8 +329,8 @@ legend{
 } */
 
 
-/*==================Paper Card in reviewer page=================*/
-.main-section-review{
+/*==================review paper=================*/
+.main-section-review,.main-section-administer{
     size: 80%;
     background-color: white;
     display: flex;
@@ -348,7 +348,7 @@ legend{
     
 }
 
-#body-review{
+#body-review,#body-admin{
     background-image: url("../images/bg-submit.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -516,4 +516,23 @@ legend{
 .form_input{
     margin-right: 5rem;
     margin-left: 0.75rem;
+}
+
+/*==================create-modify schedule=================*/
+#day-schedule{
+    padding: 4rem;
+}
+#date-section{
+    font-family: Poppins-bold;
+    font-size: 20px;
+}
+#session-section{
+    padding: 1rem;
+    font-family: Poppins-Medium;
+    font-size: 16px;
+}
+#papers-section{
+    padding-left: 2rem;
+    font-family: Poppins-Regular;
+    font-size: 14px;
 }
