@@ -49,7 +49,41 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                       <span class="close">&times;</span>
-                      <p>Some text in the Modal..</p>
+                      <h1 class="paper-title">paper title</h1>
+                      <form id="review-form">
+                            <div class="review-form-field">
+                                <label for="overall-evaluation" class="form_label"><b>Overall Evaluation:</b></label>
+                                <select class="form_input" id="overall-evaluation" name="overall-evaluation">
+                                    <option value="2">Strong Accept</option>
+                                    <option value="1">Accept</option>
+                                    <option value="0">Borderline</option>
+                                    <option value="-1">Reject</option>
+                                    <option value="-2">Strong Reject</option>
+                                </select>
+                            </div>
+                            <div  class="review-form-field">
+                                <label for="paper-contribution" class="form_label"><b>Paper Contribution:</b></label>
+                                <select class="form_input" id="paper-contribution" name="paper-contribution">
+                                    <option value="5">Major and Significant Contribution</option>
+                                    <option value="4">Clear Contribution</option>
+                                    <option value="3">Minor Contribution</option>
+                                    <option value="2">No Obvious Contribution</option>
+                                    <option value="1">No Obvious Contribution</option>
+                                </select>
+                            </div>
+                            <div class="review-form-field">
+                                <label for="paper-strengths" class="form_label"><b>Paper Strengths:</b></label>
+                                <textarea class="form_input" id="paper-strengths" name="paper-strengths"></textarea>
+                            </div>
+                            <div class="review-form-field">
+                                <label for="paper-weaknesses" class="form_label"><b>Paper Weaknesses:</b></label>
+                                <textarea class="form_input" id="paper-weaknesses" name="paper-weaknesses"></textarea>
+                            </div>
+                            <div class="review-form-field">
+                                <button type="submit" id="submit-review-btn">Submit Review</button>
+                            </div>
+                      </form>
+
                     </div>
                   
                 </div>
@@ -57,50 +91,7 @@
         </section>
 
         
-        <!-- <form>
-            Overall Evaluation
-            <div>
-                <label for="overall-evaluation"><b>Overall Evaluation:</b></label>
-                <select id="overall-evaluation" name="overall-evaluation">
-                    <option value="2">Strong Accept</option>
-                    <option value="1">Accept</option>
-                    <option value="0">Borderline</option>
-                    <option value="-1">Reject</option>
-                    <option value="-2">Strong Reject</option>
-                </select>
-            </div>
-            <br />
-
-            Paper Contribution
-            <div>
-                <label for="paper-contribution"><b>Paper Contribution:</b></label>
-                <select id="paper-contribution" name="paper-contribution">
-                    <option value="5">Major and Significant Contribution</option>
-                    <option value="4">Clear Contribution</option>
-                    <option value="3">Minor Contribution</option>
-                    <option value="2">No Obvious Contribution</option>
-                    <option value="1">No Obvious Contribution</option>
-                </select>
-            </div>
-            <br>
-            Paper Strengths
-            <div>
-                <label for="paper-strengths"><b>Paper Strengths:</b></label>
-                <textarea id="paper-strengths" name="paper-strengths"></textarea>
-            </div>
-            <br>
-
-            Paper Weaknesses
-            <div>
-                <label for="paper-weaknesses"><b>Paper Weaknesses:</b></label>
-                <textarea id="paper-weaknesses" name="paper-weaknesses"></textarea>
-            </div>
-            <br>
-            Submit Button
-            <div>
-                <button type="submit">Submit Review</button>
-            </div>
-        </form> -->
+ 
     </main>
 
     <script src="scripts/review-page.js">
