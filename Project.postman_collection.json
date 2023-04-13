@@ -7,18 +7,18 @@
 	},
 	"item": [
 		{
-			"name": "Author Route",
+			"name": "User Route",
 			"item": [
 				{
 					"name": "ID Route",
 					"item": [
 						{
-							"name": "/api/author/:id",
+							"name": "/api/user/:id",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/author/:id",
+									"raw": "http://localhost:3000/api/user/:id",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -26,13 +26,13 @@
 									"port": "3000",
 									"path": [
 										"api",
-										"author",
+										"user",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "X-nH_W8PfhaIzAfdO97Jd"
+											"value": "YCPwILKe_dWvVD_TmK4N-"
 										}
 									]
 								}
@@ -40,16 +40,16 @@
 							"response": []
 						},
 						{
-							"name": "/api/author/:id",
+							"name": "/api/user/:id",
 							"request": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Dummy Name (No USER/ No PASS)\",\r\n    \"email\": \"dummyemail@email.com\",\r\n    \"isPresentor\": true,\r\n    \"username\": \"john doe\",\r\n    \"password\": null\r\n}"
+									"raw": "{\r\n    \"id\": 999,\r\n    \"fname\": \"DUMMY\",\r\n    \"lname\": \"DUMB\",\r\n    \"email\": \"dummy@dumb.com\",\r\n    \"password\": \"dummydumb321\",\r\n    \"role\": \"organizer\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:3000/api/author/:id",
+									"raw": "http://localhost:3000/api/user/:id",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -57,13 +57,13 @@
 									"port": "3000",
 									"path": [
 										"api",
-										"author",
+										"user",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "X-nH_W8PfhaIzAfdO97Jd"
+											"value": "YCPwILKe_dWvVD_TmK4N-"
 										}
 									]
 								}
@@ -71,12 +71,12 @@
 							"response": []
 						},
 						{
-							"name": "/api/author/:id",
+							"name": "/api/user/:id",
 							"request": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/author/:id",
+									"raw": "http://localhost:3000/api/user/:id",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -84,13 +84,13 @@
 									"port": "3000",
 									"path": [
 										"api",
-										"author",
+										"user",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "X-nH_W8PfhaIzAfdO97Jd"
+											"value": "YCPwILKe_dWvVD_TmK4N-"
 										}
 									]
 								}
@@ -100,12 +100,12 @@
 					]
 				},
 				{
-					"name": "/api/author",
+					"name": "/api/user",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/author",
+							"raw": "http://localhost:3000/api/user",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -113,17 +113,12 @@
 							"port": "3000",
 							"path": [
 								"api",
-								"author"
+								"user"
 							],
 							"query": [
 								{
 									"key": "type",
-									"value": "null",
-									"disabled": true
-								},
-								{
-									"key": "type",
-									"value": "a",
+									"value": "author",
 									"disabled": true
 								}
 							]
@@ -132,16 +127,16 @@
 					"response": []
 				},
 				{
-					"name": "/api/author",
+					"name": "/api/user",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"Dummy Name (No USER/ No PASS\",\r\n    \"email\": \"dummyemail@email.com\",\r\n    \"isPresentor\": true,\r\n    \"username\": null,\r\n    \"password\": null\r\n}"
+							"raw": "{\r\n    \"id\": 999,\r\n    \"fname\": \"DUMMY\",\r\n    \"lname\": \"DUMB\",\r\n    \"email\": \"dummy@dumb.com\",\r\n    \"password\": \"dummydumb321\",\r\n    \"role\": \"author\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/author",
+							"raw": "http://localhost:3000/api/user",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -149,7 +144,424 @@
 							"port": "3000",
 							"path": [
 								"api",
-								"author"
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session Route",
+			"item": [
+				{
+					"name": "ID Route",
+					"item": [
+						{
+							"name": "/api/session/:id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/session/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"session",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "dzxvDBKhNXrOtUCw4lzSa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/session/:id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\": \"10-03-2022\",\r\n    \"location\": \"dummylocation\",\r\n    \"title\": \"A Dummy Book Title 2\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/session/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"session",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "dzxvDBKhNXrOtUCw4lzSa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/session/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/session/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"session",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "dzxvDBKhNXrOtUCw4lzSa"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/api/session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 999,\r\n    \"date\": \"10-03-2022\",\r\n    \"location\": \"dummylocation\",\r\n    \"title\": \"A Dummy Book Title\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"session"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paper Route",
+			"item": [
+				{
+					"name": "ID Route",
+					"item": [
+						{
+							"name": "/api/paper/:id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/paper/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"paper",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "kdkA8bcmQ66rzqZ2uQUOB"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/paper/:id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Dummy Title 2\",\r\n    \"abstract\": \"The Dummy Abstract Is an Abstract 2\",\r\n    \"authors\": [],\r\n    \"pdfPath\": \"dummy/path/dummy.pdf\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/paper/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"paper",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "kdkA8bcmQ66rzqZ2uQUOB"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/paper/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/paper/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"paper",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4EBYmaVm588PpWNXuywwe"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/api/paper",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/paper",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"paper"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/paper",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0\",\r\n    \"title\": \"Dummy Title\",\r\n    \"abstract\": \"The Dummy Abstract Is an Abstract\",\r\n    \"authors\": [],\r\n    \"pdfPath\": \"dummy/path/dummy.pdf\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/paper",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"paper"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schedule",
+			"item": [
+				{
+					"name": "ID Route",
+					"item": [
+						{
+							"name": "/api/schedule/:id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/schedule/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"schedule",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "NJqjS6Cq2Bwy31ZXF64ag"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/schedule/:id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\": \"30/4/2023\",\r\n    \"sessions\": []\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/schedule/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"schedule",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "NJqjS6Cq2Bwy31ZXF64ag"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/schedule/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/schedule/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"schedule",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "NJqjS6Cq2Bwy31ZXF64ag"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/api/schedule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/schedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"date\": \"12/4/2023\",\r\n    \"sessions\": []\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/schedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"schedule"
 							]
 						}
 					},

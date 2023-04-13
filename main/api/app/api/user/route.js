@@ -4,8 +4,8 @@ export async function GET(request, {params}) {
     try {
         const type = new URL(request.url).searchParams.get("type")?.toLowerCase();
 
-        const authors = await repo.readAuthors(type);
-        return Response.json(authors, {status: 200});
+        const users = await repo.readUsers(type);
+        return Response.json(users, {status: 200});
 
     } catch (error) {
         console.error("error -", error.message);
@@ -17,22 +17,25 @@ export async function POST(request, {params}) {
     try {
         const body = await request.json();
         
-        if(typeof body.username === "string"  && typeof body.password === "string"){
-            body.username = body.username.trim();
+        if(typeof body.fname === "string" && typeof body.lname === "string" && typeof body.email === "string" && typeof body.password === "string" && typeof body.role === "string"){
+            body.fname = body.fname.trim();
+            body.lname = body.lname.trim();
+            body.email = body.email.trim();
             body.password = body.password.trim();
+            body.role = body.role.trim();
         }
 
-        if("id" in body && "name" in body && "email" in body && "isPresentor" in body && "username" in body && "password" in body) {
-            const author = await repo.createAuthor({
+        if("id" in body && "fname" in body && "lname" in body && "email" in body && "password" in body && "role" in body) {
+            const user = await repo.createUser({
                 id: body.id,
-                name: body.name,
+                fname: body.fname,
+                lname: body.lname,
                 email: body.email,
-                isPresentor: body.isPresentor,
-                username: body.username,
-                password: body.password
+                password: body.password,
+                role: body.role.toLowerCase()
             });
 
-            return Response.json(author, {status: 201});
+            return Response.json(user, {status: 201});
         }
 
         return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 

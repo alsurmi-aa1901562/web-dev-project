@@ -2,8 +2,8 @@ import * as repo from "./repository.js";
 
 export async function GET(request, {params}) {
     try {
-        const papers = await repo.readPapers();
-        return Response.json(papers, {status: 200});
+        const sessions = await repo.readSessions();
+        return Response.json(sessions, {status: 200});
 
     } catch (error) {
         console.error("error -", error.message);
@@ -15,18 +15,15 @@ export async function POST(request, {params}) {
     try {
         const body = await request.json();
 
-        if("id" in body && "title" in body && "abstract" in body && "authors" in body && "pdfPath" in body) {
-            if(Array.isArray(body.authors)){
-                const paper = await repo.createPaper({
-                    id: body.id,
-                    title: body.title,
-                    abstract: body.abstract,
-                    authors: body.authors,
-                    pdfPath: body.pdfPath
-                });
+        if("id" in body && "date" in body && "location" in body && "title") {
+            const session = await repo.createSession({
+                id: body.id,
+                date: body.date,
+                location: body.location,
+                title: body.title
+            });
 
-                return Response.json(paper, {status: 201});
-            }
+            return Response.json(session, {status: 201});
         }
 
         return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 

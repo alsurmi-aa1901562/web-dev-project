@@ -72,12 +72,12 @@ export class Users {
 
     toJSON() {
         return {
-            id: this.#id,
-            first_name: this.#fname,
-            last_name: this.#lname,
-            email: this.#email,
-            password: this.#password,
-            role: this.#role
+            "id": this.#id,
+            "fname": this.#fname,
+            "lname": this.#lname,
+            "email": this.#email,
+            "password": this.#password,
+            "role": this.#role
         }
     }
 }

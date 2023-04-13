@@ -2,8 +2,8 @@ import * as repo from "./repository.js";
 
 export async function GET(request, {params}) {
     try {
-        const papers = await repo.readPapers();
-        return Response.json(papers, {status: 200});
+        const schedules = await repo.readSchedules();
+        return Response.json(schedules, {status: 200});
 
     } catch (error) {
         console.error("error -", error.message);
@@ -15,17 +15,15 @@ export async function POST(request, {params}) {
     try {
         const body = await request.json();
 
-        if("id" in body && "title" in body && "abstract" in body && "authors" in body && "pdfPath" in body) {
-            if(Array.isArray(body.authors)){
-                const paper = await repo.createPaper({
+        if("id" in body && "date" in body && "sessions" in body) {
+            if(Array.isArray(body.sessions)){
+                const schedule = await repo.createSchedule({
                     id: body.id,
-                    title: body.title,
-                    abstract: body.abstract,
-                    authors: body.authors,
-                    pdfPath: body.pdfPath
+                    date: body.date,
+                    sessions: body.sessions
                 });
 
-                return Response.json(paper, {status: 201});
+                return Response.json(schedule, {status: 201});
             }
         }
 

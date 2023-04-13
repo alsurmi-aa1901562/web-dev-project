@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import { nanoid } from "nanoid";
 
-const path = "data/paper.json";
+const path = "data/papers.json";
 
 export async function createPaper(paper) {
     const data = await fs.readFile(path);
@@ -68,25 +68,4 @@ export async function deletePaper(id) {
     }
 
     return null;
-}
-
-// Author CRUD
-export async function createAuthor(paperid, author) {
-    const data = await fs.readFile(path);
-    const papers = JSON.parse(data);
-
-    const paper = papers.find((p) => p.id === id)
-
-    author.id = nanoid();
-
-    author = {
-        ...author,
-        created: new Date()
-    }
-
-    authors.push(author);
-
-    await fs.writeFile(path, JSON.stringify(authors));
-
-    return author;
 }

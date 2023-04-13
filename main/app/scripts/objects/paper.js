@@ -2,15 +2,15 @@ export class Paper {
     #id;
     #title;
     #abstract;
-    #contributedAuthors;
-    #paperPDFPath;
+    #authors;
+    #pdfPath;
 
-    constructor(id, title, abstract, contributedAuthors, paperPDFPath) {
+    constructor(id, title, abstract, authors, pdfPath) {
         this.#id = id;
         this.#title = title;
         this.#abstract = abstract;
-        this.#contributedAuthors = contributedAuthors;
-        this.#paperPDFPath = paperPDFPath;
+        this.#authors = authors;
+        this.#pdfPath = pdfPath;
     }
 
     // Getters
@@ -26,12 +26,12 @@ export class Paper {
         return this.#abstract;
     }
 
-    get contributedAuthors() {
-        return this.#contributedAuthors;
+    get authors() {
+        return this.#authors;
     }
 
-    get paperPDFPath() {
-        return this.#paperPDFPath;
+    get pdfPath() {
+        return this.#pdfPath;
     }
 
     // Setters
@@ -47,17 +47,17 @@ export class Paper {
         this.#abstract = abstract;
     }
 
-    set contributedAuthors(contributedAuthors) {
-        this.#contributedAuthors = contributedAuthors;
+    set authors(authors) {
+        this.#authors = authors;
     }
 
-    set paperPDFPath(paperPDFPath) {
-        this.#paperPDFPath = paperPDFPath;
+    set pdfPath(pdfPath) {
+        this.#pdfPath = pdfPath;
     }
 
     // Methods
     toString() {
-        return `Paper #${this.#id}: [Title: ${this.#title}], [Abstract: ${this.#abstract}], [Contributed Authors: ${this.#contributedAuthors}], [Path to Paper: ${this.#paperPDFPath}]`;
+        return `Paper #${this.#id}: [Title: ${this.#title}], [Abstract: ${this.#abstract}], [Authors: ${this.#authors}], [Path to Paper: ${this.#pdfPath}]`;
     }
 
     toJSON() {
@@ -65,8 +65,8 @@ export class Paper {
             id: this.#id,
             title: this.#title,
             abstract: this.#abstract,
-            contributedAuthors: this.#contributedAuthors,
-            paperPDFPath: this.#paperPDFPath,
+            authors: this.#authors,
+            pdfPath: this.#pdfPath,
         }
     }
 }
