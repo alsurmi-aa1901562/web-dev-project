@@ -1,3 +1,17 @@
+// Default DOM Method
+document.addEventListener("DOMContentLoaded", async () => {
+  const getLogInfo = JSON.parse(localStorage.getItem("logInfo"));
+ 
+  document.getElementById("Nav-userName").innerHTML = `Username: ${getLogInfo.username.replace("@author.com", "")}`
+  document.getElementById("Nav-Id").innerHTML = `ID: ${getLogInfo.identity}`;
+
+  
+});
+
+
+
+
+// Prior Dev
 const Add_btn = document.getElementById('add_author_btn');
 const Remove_btn = document.getElementById('remove_author_btn');
 const Authors =document.getElementById('all-authors-information-field');

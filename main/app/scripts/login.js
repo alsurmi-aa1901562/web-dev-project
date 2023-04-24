@@ -1,8 +1,44 @@
 // Global Variables
 const usersURL = "http://localhost:3000/api/user";
 
+// Create Loading 
+async function load() {
+    const form = document.getElementById("login-form");
+    form.remove();
+
+    const tempDiv = document.createElement("div");
+    tempDiv.style.width = "50%";
+    tempDiv.style.display = "block";
+    tempDiv.style.margin = "auto";
+    tempDiv.style.paddingTop = "50%";
+
+    const loadingIMG = document.createElement("img");
+    loadingIMG.src = "images/loading-animation.gif";
+    loadingIMG.style.width = "50%";
+    loadingIMG.style.display = "block";
+    loadingIMG.style.margin = "auto";
+
+    const loadingText = document.createElement("p");
+    loadingText.innerHTML="Loading... Please Wait.";
+    loadingText.style.textAlign = "center";
+    loadingText.style.fontFamily ="Poppins-Medium";
+
+    const classForm = document.getElementById("class-form");
+    classForm.style.height = "33rem";
+    tempDiv.appendChild(loadingIMG)
+    tempDiv.appendChild(loadingText)
+    classForm.appendChild(tempDiv);
+
+    await new Promise(resolve => setTimeout(resolve, 2500));
+
+    classForm.remove();
+    const body = document.getElementById("main-body");
+    body.remove();
+
+}
+
 // Method to Handle Page Direction
-async function goToPage(num, user, pass) {
+async function goToPage(num, user, id) {
     if(num === 0) {
 
     }
@@ -14,11 +50,13 @@ async function goToPage(num, user, pass) {
 
         const data = {
             username: `${user}`,
-            password: `${pass}`
+            identity: `${id}`
         }
 
-        localStorage.setItem("logger", JSON.stringify(data));
-
+        localStorage.setItem("logInfo", JSON.stringify(data));
+        
+        await load();
+        
         window.location.href = "submit-paper.html"  
     }
 }
@@ -117,7 +155,8 @@ document.addEventListener("DOMContentLoaded", async () =>{
                         
                     }
                     else if(username.includes("author")) {
-                       goToPage(2);
+                        console.log(u.id)
+                        goToPage(2, username, u.id);
                     }
                 }
                 else {
