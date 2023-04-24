@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", async () =>{
         });
     } catch (error) {
         errorCreate(0);
-        console.log(error);
     }
 
     // Initializing Variables
@@ -118,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () =>{
                         
                     }
                     else if(username.includes("author")) {
-                       
+                       goToPage(2);
                     }
                 }
                 else {
@@ -162,8 +161,10 @@ document.addEventListener("DOMContentLoaded", async () =>{
         pointer.style.left = e.pageX + "px";
     });
 
+    // Event Listener for Touch Movements
     document.addEventListener("touchmove", (e) => {
-        
+        pointer.style.top = e.pageY + "px";
+        pointer.style.left = e.pageX + "px";
     });
 });
 
