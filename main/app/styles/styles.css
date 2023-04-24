@@ -28,7 +28,7 @@ i {
 }
 
 .login-body {
-    background-image: url("../images/bg-login.jpg");
+    background-image: url("../images/bg-test.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -42,6 +42,20 @@ i {
     min-height: 100vh;
 }
 
+#pointer-follow {
+    width: 0.5em;
+    height: 0.5em;
+    background-color: #333333;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0px 0px 50px 5px black;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
 #class-form {
     /* border-style: solid;
     border-width: thin; 
@@ -53,6 +67,16 @@ i {
     overflow: hidden;
 }
 
+#class-form:hover{
+    transform: scale(1.025);
+    transition: 0.25s ease-in-out;
+}
+
+#class-form:not(:hover) {
+    transform: scale(1);
+    transition: 0.25s ease-in-out;
+}
+
 .input-field {
     width: auto;
     height: auto;
@@ -62,6 +86,35 @@ i {
     border-bottom: 2px solid #d9d9d9;
     margin-bottom: 3rem;
 
+}
+
+.input-field:hover {
+    transform: scale(1.025);
+}
+
+#login-label:hover {
+    transform: scale(1.025);
+}
+
+#error-message {
+    font-size: 12px;
+    color: #333333;
+    line-height: 1.5;
+    display: block;
+    height: 55px;
+    background: transparent;
+    padding: 0 7px 0 30px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-family: Poppins-Medium;
+}
+
+#error-status {
+    color: palevioletred;
 }
 
 .form-field {
@@ -120,6 +173,13 @@ i {
     background-position: right center;
     transition: background-position 0.3s ease, background-image 0.3s ease;
     cursor: pointer;
+    transform: scale(1.045);
+    transition: 0.25s ease-in-out;
+}
+
+#login:not(:hover) {
+    transform: scale(1);
+    transition: 0.25s ease-in-out;
 }
 
 
