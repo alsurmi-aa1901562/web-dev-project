@@ -299,6 +299,51 @@ fieldset {
     width: 100%;
 }
 
+#Paper-information-form:hover, 
+#authors-information-form:hover, 
+#upload-form:hover, 
+#authors-collections:hover {
+    transform: scale(1.015);
+    transition: 0.25s ease-in-out;
+}
+
+#Paper-information-form:not(:hover), 
+#authors-information-form:not(:hover), 
+#upload-form:not(:hover), 
+#authors-collections:not(:hover) {
+    transform: scale(1);
+    transition: 0.25s ease-in-out;
+}
+
+#paper-title:hover, 
+#paper-abstract:hover, 
+#author-first-name:hover, 
+#author-last-name:hover, 
+#author-email:hover, 
+#author-affiliation:hover, 
+#add_author_btn:hover, 
+#paper-pdf:hover, 
+.button_minus:hover, 
+#submit-paper-btn:hover {
+    transform: scale(1.035);
+    transition: 0.2s ease-in-out; 
+}
+
+#paper-title:not(:hover), 
+#paper-abstract:not(:hover), 
+#author-first-name:not(:hover), 
+#author-last-name:not(:hover),
+ #author-email:not(:hover), 
+ #author-affiliation:not(:hover),
+ #submit-paper-btn:not(:hover), 
+ #add_author_btn:not(:hover), 
+ #paper-pdf:not(:hover), 
+ .button_minus:not(:hover) {
+    transform: scale(1);
+    transition: 0.2s ease-in-out; 
+}
+
+
 input , textarea{
     border: thin solid black;
     border-left: 0rem;
@@ -345,8 +390,15 @@ label{
     background: -webkit-linear-gradient(right, #e953e9, #63cfd1);
     background-size: 200% 100%;
     background-position: right center;
-    transition: background-position 0.3s ease, background-image 0.3s ease;
+    transition: background-position 0.3s, background-image 0.3s;
     cursor: pointer;
+}
+
+#submit-paper-btn:not(:hover) {
+    background: -webkit-linear-gradient(left, #e953e9, #63cfd1);
+    transition: background-position 0.3s, background-image 0.3s;
+    transform: scale(1);
+    transition: 0.2s ease-in-out; 
 }
 
 legend{
@@ -374,14 +426,10 @@ legend{
     height: 2.5rem;
     cursor: pointer;
     border-radius: 2rem;
-    border-color: #a15dee;
+    border-color: #b27bf1;
     font-family: Poppins-Medium;
     font-size: 12px;
   
-}
-.button_plus:hover , .button_minus:hover{
-    background-color: #ab7ec5;
-    transition: 0.2s;
 }
 
 #body{

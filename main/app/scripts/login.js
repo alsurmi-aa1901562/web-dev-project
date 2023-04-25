@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", async () =>{
                         
                     }
                     else if(username.includes("author")) {
-                        console.log(u.id)
                         goToPage(2, username, u.id);
                     }
                 }
