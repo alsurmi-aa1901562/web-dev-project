@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Schedule administration</title>
 </head>
 <body id="body-admin">
@@ -25,34 +26,39 @@
     </aside>
 
     <main class="main-section-administer">
-        <section id="day-schedule">
-            <details>
-              <summary id="date-section">Date</summary>
-              
-              <details>
-                <summary id="session-section">session1</summary>
-                <div id="papers-section">
-                    <p>paper review session1</p>
-                    <p>paper review session2</p>
-                    <p>paper review session3</p>
-                </div>
-              </details>
 
-              <details>
-                <summary id="session-section">session2</summary>
-                <div id="papers-section">
-                    <p>paper review session1</p>
-                    <p>paper review session2</p>
-                    <p>paper review session3</p>
+      <section id="day-schedule">
+        <button class="accordion">Date</button>
+        <div id="session-enclosure" class="panel">
+          <div id="session-heading">
+            <p>Sessions</p>
+            <button class="fa fa-plus" aria-hidden="true"> Add Session</button>
+          </div>
+          <div id="session">
+            <button class="accordion">Session</button>
+            <div id="event-enclosure" class="panel">
+              <div id="events-heading">
+                <p>Sessions</p>
+                <div id="session-buttons">
+                  <button class="fa fa-plus" aria-hidden="true"> Add Event</button>
+                  <button class="fa fa-trash-o"> Delete Session</button>
                 </div>
-              </details>
-
-            </details>
-          </section>
-            
+              </div>
+              <div id="all-events">
+                <div id="event">
+                  <p>Event 1</p>
+                  <div id="event-buttons">
+                    <button class="fa fa-edit" > Update event</button>
+                    <button class="fa fa-trash-o"> Delete event</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
+      </section>
 
     </main>
+    <script src="/main/app/scripts/create-modify-schedule.js"></script>
 </body>
 </html>
