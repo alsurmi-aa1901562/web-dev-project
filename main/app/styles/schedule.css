@@ -49,55 +49,63 @@ header div {
 #login {
   margin-left: 78%;
 }
-@media screen and (max-width: 1230px){
+
+@media screen and (max-width: 1230px) {
 
   #login {
     margin-left: 70%;
   }
 
 }
-@media screen and (max-width: 1000px){
+
+@media screen and (max-width: 1000px) {
 
   #login {
     margin-left: 65%;
   }
 
 }
-@media screen and (max-width: 920px){
+
+@media screen and (max-width: 920px) {
 
   #login {
     margin-left: 60%;
   }
 
 }
-@media screen and (max-width: 760px){
+
+@media screen and (max-width: 760px) {
 
   #login {
     margin-left: 55%;
   }
 
 }
-@media screen and (max-width: 675px){
+
+@media screen and (max-width: 675px) {
 
   #login {
     margin-left: 50%;
   }
 
 }
-@media screen and (max-width: 620px){
+
+@media screen and (max-width: 620px) {
 
   #login {
     margin-left: 42%;
   }
 
 }
-@media screen and (max-width: 555px){
+
+@media screen and (max-width: 555px) {
 
   #login {
     margin-left: 30%;
   }
 
 }
+
 #login:hover {
   transform: scale(1.045);
   transition: 0.25s ease-in-out;
