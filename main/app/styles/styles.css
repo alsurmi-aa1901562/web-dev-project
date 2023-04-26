@@ -66,7 +66,7 @@ i {
     overflow: hidden;
 }
 
-#class-form:hover{
+#class-form:hover {
     transform: scale(1.025);
     transition: 0.25s ease-in-out;
 }
@@ -183,29 +183,31 @@ i {
 
 
 /*==================Submit Form page=================*/
-body{
+body {
     margin: 0%;
 }
 
-nav{
+nav {
     grid-area: nav;
     padding-right: 3rem;
     padding-left: 3rem;
     display: flex;
     justify-content: space-between;
 
-    
+
 }
-#credentials{
+
+#credentials {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     font-family: Poppins-Regular;
     font-size: 16px;
     color: rgb(255, 255, 255);
     /* margin-left: 10rem; */
     flex-basis: 40%
 }
-.logout{
+
+.logout {
     font-family: Poppins-Regular;
     font-size: 16px;
     color: white;
@@ -225,10 +227,11 @@ nav{
 }
 
 
-a{
+a {
     all: unset;
     cursor: pointer;
 }
+
 .aside {
     height: 100%;
     width: 100%;
@@ -240,33 +243,36 @@ a{
     border-width: thin; 
     border-color: red; */
 }
-.submission-page{
+
+.submission-page {
     grid-area: main;
     /* height: 100%;
     width: 100%; */
 }
-img{
+
+img {
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size:contain;
+    background-size: contain;
     width: 100%;
     height: 100%;
 
 }
 
-.main-section{
+.main-section {
     /* overflow: hidden; */
     padding: 1rem;
     background: #fff;
-    display: inline-block;  
+    display: inline-block;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0%;
     border-radius: 3rem;
-   
+
 }
-#submission-form{
+
+#submission-form {
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -274,7 +280,7 @@ img{
     padding: 2rem;
 }
 
-#form-title{
+#form-title {
     padding: 0.5rem;
     background: #fff;
     overflow: hidden;
@@ -292,85 +298,91 @@ fieldset {
     flex-direction: column;
     /* border-style: double; */
     border-style: dashed;
-    }
+}
 
-#authors-information-form,#Paper-information-form{
+#authors-information-form,
+#Paper-information-form {
     max-width: 100%;
     width: 100%;
 }
 
-#Paper-information-form:hover, 
-#authors-information-form:hover, 
-#upload-form:hover, 
+#Paper-information-form:hover,
+#authors-information-form:hover,
+#upload-form:hover,
 #authors-collections:hover {
     transform: scale(1.015);
     transition: 0.25s ease-in-out;
 }
 
-#Paper-information-form:not(:hover), 
-#authors-information-form:not(:hover), 
-#upload-form:not(:hover), 
+#Paper-information-form:not(:hover),
+#authors-information-form:not(:hover),
+#upload-form:not(:hover),
 #authors-collections:not(:hover) {
     transform: scale(1);
     transition: 0.25s ease-in-out;
 }
 
-#paper-title:hover, 
-#paper-abstract:hover, 
-#author-first-name:hover, 
-#author-last-name:hover, 
-#author-email:hover, 
-#author-affiliation:hover, 
-#add_author_btn:hover, 
-#paper-pdf:hover, 
-.button_minus:hover, 
+#paper-title:hover,
+#paper-abstract:hover,
+#author-first-name:hover,
+#author-last-name:hover,
+#author-email:hover,
+#author-affiliation:hover,
+#add_author_btn:hover,
+#paper-pdf:hover,
+.button_minus:hover,
 #submit-paper-btn:hover {
     transform: scale(1.035);
-    transition: 0.2s ease-in-out; 
+    transition: 0.2s ease-in-out;
 }
 
-#paper-title:not(:hover), 
-#paper-abstract:not(:hover), 
-#author-first-name:not(:hover), 
+#paper-title:not(:hover),
+#paper-abstract:not(:hover),
+#author-first-name:not(:hover),
 #author-last-name:not(:hover),
- #author-email:not(:hover), 
- #author-affiliation:not(:hover),
- #submit-paper-btn:not(:hover), 
- #add_author_btn:not(:hover), 
- #paper-pdf:not(:hover), 
- .button_minus:not(:hover) {
+#author-email:not(:hover),
+#author-affiliation:not(:hover),
+#submit-paper-btn:not(:hover),
+#add_author_btn:not(:hover),
+#paper-pdf:not(:hover),
+.button_minus:not(:hover) {
     transform: scale(1);
-    transition: 0.2s ease-in-out; 
+    transition: 0.2s ease-in-out;
 }
 
 
-input , textarea{
+input,
+textarea {
     border: thin solid black;
     border-left: 0rem;
     border-top: 0rem;
-    border-right: 0rem; 
+    border-right: 0rem;
     padding: 0.5rem;
     font-family: Poppins-Medium;
     font-size: 12px;
     color: #2e2e2e;
 }
-label{
-    margin: 0.5rem;  
+
+label {
+    margin: 0.5rem;
     font-family: Poppins-Regular;
-    font-size: 14px;  
+    font-size: 14px;
 }
-#presenter-checkbox{
-    margin: 0.7rem;  
+
+#presenter-checkbox {
+    margin: 0.7rem;
 }
-#presenter-declaration{
+
+#presenter-declaration {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     border-bottom: thin solid black;
     margin-top: 1rem;
     width: 50%;
 }
 
-#submit-paper-btn,#submit-review-btn {
+#submit-paper-btn,
+#submit-review-btn {
     font-family: Poppins-Medium;
     font-size: 16px;
     color: #fff;
@@ -386,7 +398,9 @@ label{
     background-size: 100% 100%;
     margin-top: 1rem;
 }
-#submit-paper-btn:hover ,#submit-review-btn:hover{
+
+#submit-paper-btn:hover,
+#submit-review-btn:hover {
     background: -webkit-linear-gradient(right, #e953e9, #63cfd1);
     background-size: 200% 100%;
     background-position: right center;
@@ -398,15 +412,15 @@ label{
     background: -webkit-linear-gradient(left, #e953e9, #63cfd1);
     transition: background-position 0.3s, background-image 0.3s;
     transform: scale(1);
-    transition: 0.2s ease-in-out; 
+    transition: 0.2s ease-in-out;
 }
 
-legend{
+legend {
     font-family: Poppins-Bold;
-    font-size: 25px; 
+    font-size: 25px;
 }
 
-.author-card-header{
+.author-card-header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -417,11 +431,13 @@ legend{
     background: none;
     flex-grow: 1;
 }
-.divider{
+
+.divider {
     flex-grow: 1;
 }
 
-.button_plus,.button_minus {
+.button_plus,
+.button_minus {
     width: 8rem;
     height: 2.5rem;
     cursor: pointer;
@@ -429,21 +445,22 @@ legend{
     border-color: #b27bf1;
     font-family: Poppins-Medium;
     font-size: 12px;
-  
+
 }
 
-#body{
+#body {
     display: grid;
-    grid-template-columns: 1fr 6fr ;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr 19fr;
     grid-template-areas:
-    "nav nav"
-    "aside main";
+        "nav nav"
+        "aside main";
     background-image: url("../images/bg-submit.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
+
 /* body{
     display: flex;
     flex-direction: column;
@@ -452,7 +469,8 @@ legend{
 
 
 /*==================review paper=================*/
-.main-section-review,.main-section-administer{
+.main-section-review,
+.main-section-administer {
     size: 80%;
     background-color: white;
     display: flex;
@@ -467,10 +485,11 @@ legend{
     grid-area: main;
     padding: 4rem;
     padding-top: 0;
-    
+
 }
 
-#body-review,#body-admin{
+#body-review,
+#body-admin {
     background-image: url("../images/bg-submit.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -481,19 +500,20 @@ legend{
     border-width: thin; 
     border-color: red; */
     display: grid;
-    grid-template-columns: 1fr 6fr ;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr 19fr;
     grid-template-areas:
-    "nav nav"
-    "aside main";
+        "nav nav"
+        "aside main";
 }
 
 
-#review-papers-header{
+#review-papers-header {
     font-family: Poppins-Bold;
     font-size: 35px;
-    
+
 }
+
 /* #papers-cards{
     border-style: solid;
     border-width: thin; 
@@ -501,7 +521,7 @@ legend{
     padding: 2rem;
 } */
 
-.paper-card{
+.paper-card {
     /* border-style: solid;
     border-width: thin; 
     border-color: red; */
@@ -510,8 +530,9 @@ legend{
     background-color: #eee7f0;
     margin: 1.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
+
 }
+
 .abstract-collapsible {
     background-color: transparent;
     color: #444;
@@ -524,6 +545,7 @@ legend{
     /* font-family: Poppins-Bold;
     font-size: 35px; */
 }
+
 .abstract-content {
     padding: 0 18px;
     display: none;
@@ -531,45 +553,51 @@ legend{
     background-color: #f1f1f1;
 
 }
+
 .abstract-collapsible:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
     font-size: 13px;
-    color: rgb(255, 255, 255); /* Change color to blue */
+    color: rgb(255, 255, 255);
+    /* Change color to blue */
     float: right;
     margin-left: 5px;
     opacity: 60%;
 }
+
 .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
     opacity: 60%;
 }
 
-.paper-title{
+.paper-title {
     font-family: Poppins-Medium;
     font-size: 22px;
     color: #2e2e2e;
     margin-top: 0;
 }
 
-.authors, .abstract-collapsible{
+.authors,
+.abstract-collapsible {
     font-family: Poppins-Medium;
     font-size: 15px;
     color: #2e2e2e;
 }
 
-.download{
+.download {
     font-family: Poppins-Medium;
     font-size: 15px;
     color: #2e2e2e;
 }
 
-.abstract-content{
+.abstract-content {
     font-family: Poppins-Regular;
     font-size: 12px;
     color: #2e2e2e;
 }
 
-.review-button{
+.review-button {
     width: 8rem;
     height: 2.5rem;
     cursor: pointer;
@@ -577,65 +605,77 @@ legend{
     border-color: #a15dee;
     font-family: Poppins-Medium;
     font-size: 12px;
-  
+
 }
-.review-button:hover{
+
+.review-button:hover {
     background-color: #937ec5;
     transition: 0.2s;
 }
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
     border-radius: 2rem;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
+}
+
+/* Modal Content/Box */
+.modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
+    /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     border-radius: 1rem;
-    width: 50%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .close {
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-#review-form{
+#review-form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.review-form-field{
+
+.review-form-field {
     padding: 1rem;
     display: flex;
     flex-direction: column;
 }
 
-.form_input{
+.form_input {
     margin-right: 5rem;
     margin-left: 0.75rem;
 }
@@ -654,8 +694,9 @@ legend{
     transition: 0.4s;
 }
 
-.active, .accordion:hover {
-    background-color: #ccc; 
+.active,
+.accordion:hover {
+    background-color: #ccc;
 }
 
 .panel {
@@ -664,61 +705,70 @@ legend{
     background-color: white;
     overflow: hidden;
 }
+
 .accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: #777;
     float: right;
     margin-left: 5px;
-  }
-  
-  .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
-  }
+}
 
-#day-schedule{
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+#day-schedule {
     margin: 3rem;
     margin-left: 1rem;
     /* border-style: solid;
     border-width: thin; 
     border-color: red; */
 }
-#date-enclosure{
+
+#date-enclosure {
     padding: 1rem;
     font-family: Poppins-bold;
     font-size: 20px;
 }
-#session-enclosure{
+
+#session-enclosure {
     padding: 1rem;
     font-family: Poppins-Medium;
     font-size: 16px;
     /* background-color: #eee; */
     border-style: solid;
-    border-width: thin; 
+    border-width: thin;
     border-color: #b1abab;
 }
- #event-enclosure{
+
+#event-enclosure {
     font-family: Poppins-Regular;
     font-size: 14px;
-    padding: 1rem;    
+    padding: 1rem;
     border-style: solid;
-    border-width: thin; 
+    border-width: thin;
     border-color: #b1abab;
 }
-#events-heading,#session-heading{
+
+#events-heading,
+#session-heading {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
 }
-#all-events{
+
+#all-events {
     border-style: solid;
-    border-width: thin; 
+    border-width: thin;
     border-color: #b1abab;
-    background-color: #eee;  
+    background-color: #eee;
 }
-#event{
+
+#event {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
 }
-
