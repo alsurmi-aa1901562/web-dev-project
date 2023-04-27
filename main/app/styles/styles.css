@@ -208,6 +208,27 @@ nav{
     display: flex;
     justify-content: space-between; 
 }
+
+#Nav-userName:hover {
+    transform: scale(1.035);
+    transition: 0.15s ease-in-out; 
+}
+
+#Nav-userName:not(:hover) {
+    transform: scale(1);
+    transition: 0.15s ease-in-out; 
+}
+
+#Nav-Id:hover {
+    transform: scale(1.035);
+    transition: 0.15s ease-in-out; 
+}
+
+#Nav-Id:not(:hover) {
+    transform: scale(1);
+    transition: 0.15s ease-in-out; 
+}
+
 #credentials{
     display: flex;
     justify-content:space-between;
@@ -296,6 +317,16 @@ img{
     overflow: hidden;
     /* margin-top: 6rem; */
     text-align: center;
+}
+
+#form-title:hover{
+    transform: scale(1.035);
+    transition: 0.15s ease-in-out;
+}
+
+#form-title:not(:hover){
+    transform: scale(1);
+    transition: 0.15s ease-in-out;
 }
 
 fieldset {
@@ -512,6 +543,16 @@ legend{
     font-family: Poppins-Bold;
     font-size: 35px;
     
+}
+
+#review-papers-header:hover {
+    transform: scale(1.035);
+    transition: 0.15s ease-in-out;
+}
+
+#review-papers-header:not(:hover) {
+    transform: scale(1);
+    transition: 0.15s ease-in-out;
 }
 /* #papers-cards{
     border-style: solid;

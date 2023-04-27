@@ -100,11 +100,11 @@
         "pdfPath": "dummy/path/dummy.pdf",
         "reviewers": [
             {
-                "contribution": "",
-                "evaluation": "-999",
+                "contribution": "3",
+                "evaluation": "1",
                 "id": "6",
-                "strengths": "",
-                "weaknesses": ""
+                "strengths": "Blah Blah",
+                "weaknesses": "Even More Blah Blah"
             },
             {
                 "contribution": "",
