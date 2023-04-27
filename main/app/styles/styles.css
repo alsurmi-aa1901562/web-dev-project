@@ -794,4 +794,22 @@ legend{
     justify-content: space-between;
     padding: 0.5rem;
 }
+#delete-btn{
+    width: 6rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    border-color: #eb0808;
+    font-family: Poppins-Medium;
+    font-size: 12px;
+}
+#add-session-btn,#add-event-btn{
+    width: 6rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    border-color: #b27bf1;
+    font-family: Poppins-Medium;
+    font-size: 12px;
+}
 
