@@ -480,6 +480,12 @@ legend{
     
 }
 
+#seperator {
+    border-top: 5px solid #bbb;
+    border-radius: 5px;
+    width: 100%;
+}
+
 #body-review,#body-admin{
     background-image: url("../images/bg-submit.jpg");
     background-repeat: no-repeat;
