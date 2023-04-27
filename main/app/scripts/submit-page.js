@@ -1,6 +1,8 @@
 // Global Variables
 const institutionsURL = "http://localhost:3000/api/institutions";
 const uploadURL = "http://localhost:3000/api/upload";
+const paperURL = "http://localhost:3000/api/paper";
+const usersURL = "http://localhost:3000/api/user";
 
 // Add Author Method
 async function addAuthor() {
@@ -32,10 +34,9 @@ async function addAuthor() {
     legend.appendChild(paragraph);
     legend.appendChild(hr);
 
-    if(authorsGroup.childElementCount > 1){
+    if(authorsGroup.childElementCount >= 1){
       legend.appendChild(removeBtn);
     }
-    
 
     const firstNameLabel = document.createElement("label");
     firstNameLabel.setAttribute("for", "author-first-name");
@@ -115,15 +116,13 @@ async function addAuthor() {
       presenterInput.setAttribute("type", "checkbox");
       presenterInput.setAttribute("id", `presenter-checkbox-${count + 1}`);
       presenterInput.setAttribute("name", `presenter-checkbox-${count + 1}`);
+
       if(count > 0) {
         presenterInput.checked = false;
       }
       else {
         presenterInput.checked = true;
       }
-        
-      
-      
 
     presentorDiv.appendChild(presenterLabel);
     presentorDiv.appendChild(presenterInput);
@@ -239,6 +238,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   
        authors.push(author);
       }
+
       // TODO : Upload FILE
 
       // const formdata = new FormData();
@@ -246,10 +246,38 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // const request = await fetch(uploadURL, {
       //   method: "POST",
-      //   body: formdata,
+      //   body: {
+      //     "STUFF": `${formdata}`,
+      //   }
       // });
+
+      // TODO: ABOVE ^
+      const usersRes = await fetch(usersURL + "?type=reviewer");
+      let reviewers = await usersRes.json();
       
+      const shuffleReviewers = reviewers.sort(() => 0.5 - Math.random());
+      shuffleReviewers.splice(2, shuffleReviewers.length);
       
+      const request = await fetch(paperURL, {
+        method: "POST",
+        body: JSON.stringify({
+          "id": "0",
+          "title": `${title}`,
+          "abstract": `${abstract}`,
+          "authors": [authors],
+          "pdfPath": "dummy/path/dummy.pdf",
+          "reviewers": [
+            {
+              "id": `${shuffleReviewers[0].id}`,
+              "score": "0"
+            },
+            {
+              "id": `${shuffleReviewers[1].id}`,
+              "score": "0"
+            },
+          ]
+        })
+      })
 
     }
     else{
@@ -261,7 +289,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       document.getElementById("upload-form").parentNode.insertBefore(errorMessage, document.getElementById("upload-form").nextSibling);
     }
-    console.log(authors);
   });
 
 });

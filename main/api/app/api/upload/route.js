@@ -14,22 +14,24 @@ export async function GET(request, {params}) {
 export async function POST(req, {params}) {
     try {
 
-        const rand = await req;
+        const rand = await req.json();
         console.log(rand);
-        // const form = formidable();
-        // form.parse(await req.body, async (err, fields, files) => {
-        //     if (err) {
-        //       console.log(err);
-        //       return res.status(500).send(err);
-        //     }
+
+
+        const form = formidable();
+        form.parse(await req.body, async (err, fields, files) => {
+            if (err) {
+              console.log(err);
+              return res.status(500).send(err);
+            }
         
-        //     const file = files.file;
-        //     const tempPath = file.path;
+            const file = files.file;
+            const tempPath = file.path;
         
-        //     // Do something with the file here
+            // Do something with the file here
         
-        //     res.status(200).json({ success: true });
-        //   });
+            res.status(200).json({ success: true });
+          });
 
     } catch (error) {
         console.error("error -", error.message);

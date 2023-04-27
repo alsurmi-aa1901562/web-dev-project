@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "abstract": "Lmao",
+        "authors": [
+            [
+                {
+                    "affiliation": "Qatar University",
+                    "email": "a@a.com",
+                    "fname": "asdf",
+                    "isPresentor": "true",
+                    "lname": "asdf"
+                }
+            ]
+        ],
+        "created": "2023-04-27T01:51:29.246Z",
+        "id": "wRPpOEBRTtHxpFT0RvUrn",
+        "pdfPath": "dummy/path/dummy.pdf",
+        "reviewers": [
+            {
+                "id": "6",
+                "score": "0"
+            },
+            {
+                "id": "4",
+                "score": "0"
+            }
+        ],
+        "title": "Lmao"
+    }
+]
