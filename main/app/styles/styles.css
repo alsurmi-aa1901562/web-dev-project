@@ -203,13 +203,10 @@ body{
 }
 
 nav{
-    grid-area: nav;
-    padding-right: 3rem;
-    padding-left: 3rem;
+    /* grid-area: nav; */
+    width: 90%;
     display: flex;
-    justify-content: space-between;
-
-    
+    justify-content: space-between; 
 }
 #credentials{
     display: flex;
@@ -217,8 +214,8 @@ nav{
     font-family: Poppins-Regular;
     font-size: 16px;
     color: rgb(255, 255, 255);
-    /* margin-left: 10rem; */
-    flex-basis: 40%
+    gap: 90px;
+    padding: 10px;
 }
 .logout{
     font-family: Poppins-Regular;
@@ -245,20 +242,24 @@ a{
     cursor: pointer;
 }
 .aside {
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     opacity: 80%;
     font-family: Poppins-Regular;
     font-size: 14px;
-    grid-area: aside;
+    margin-bottom: 1rem;
+    /* grid-area: aside; */
     /* border-style: solid;
     border-width: thin; 
     border-color: red; */
 }
 .submission-page{
-    grid-area: main;
-    /* height: 100%;
-    width: 100%; */
+    /* grid-area: main; */
+    height: 100%;
+    width: 70%; 
+        /* border-style: solid;
+    border-width: thin; 
+    border-color: red; */
 }
 img{
     background-repeat: no-repeat;
@@ -293,7 +294,7 @@ img{
     padding: 0.5rem;
     background: #fff;
     overflow: hidden;
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
     text-align: center;
 }
 
@@ -444,27 +445,25 @@ legend{
 }
 
 #body{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 6fr ;
     grid-template-rows: 1fr 19fr;
     grid-template-areas:
     "nav nav"
-    "aside main";
+    "aside main"; */
     background-image: url("../images/bg-submit.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-}
-/* body{
     display: flex;
     flex-direction: column;
-    align-content: stretch  
-} */
+    align-items: center;
+}
 
 
 /*==================review paper=================*/
 .main-section-review,.main-section-administer{
-    size: 80%;
+    width: 70%;
     background-color: white;
     display: flex;
     /* border-style: solid;
@@ -475,7 +474,7 @@ legend{
     display: flex;
     flex-direction: column;
     margin-top: 0;
-    grid-area: main;
+    /* grid-area: main; */
     padding: 4rem;
     padding-top: 0;
     
@@ -488,15 +487,18 @@ legend{
     background-size: cover;
     height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     /* border-style: solid;
     border-width: thin; 
     border-color: red; */
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 6fr ;
     grid-template-rows: 1fr 19fr;
     grid-template-areas:
     "nav nav"
-    "aside main";
+    "aside main"; */
 }
 
 
