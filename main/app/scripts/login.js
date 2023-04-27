@@ -40,10 +40,28 @@ async function load() {
 // Method to Handle Page Direction
 async function goToPage(num, user, id) {
     if(num === 0) {
+        const data = {
+            username: `${user}`,
+            identity: `${id}`
+        }
 
+        localStorage.setItem("logInfo", JSON.stringify(data));
+        
+        await load();
+        
+        window.location.href = "review-paper.html"  
     }
     else if(num === 1) {
+        const data = {
+            username: `${user}`,
+            identity: `${id}`
+        }
 
+        localStorage.setItem("logInfo", JSON.stringify(data));
+        
+        await load();
+        
+        window.location.href = "create-modify-schedule.html";  
     }
     else if(num === 2) {
         // Saving ID and Password Locally
@@ -149,7 +167,7 @@ document.addEventListener("DOMContentLoaded", async () =>{
                 if(u.password === password) {
                     username.toLowerCase();
                     if(username.includes("reviewer")) {
-                        
+                        goToPage(0, username, u.id);
                     }
                     else if(username.includes("organizer")) {
                         

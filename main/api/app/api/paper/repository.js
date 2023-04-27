@@ -45,6 +45,7 @@ export async function updatePaper(id, body) {
         paper.abstract = body.abstract;
         paper.contributedAuthors = body.contributedAuthors;
         paper.paperPDFPath = body.paperPDFPath;
+        paper.reviewers = body.reviewers;
 
         await fs.writeFile(path, JSON.stringify(papers));
         return paper;

@@ -382,7 +382,7 @@ label{
     width: 50%;
 }
 
-#submit-paper-btn,#submit-review-btn {
+#submit-paper-btn,.submit-review-btn {
     font-family: Poppins-Medium;
     font-size: 16px;
     color: #fff;
@@ -398,7 +398,7 @@ label{
     background-size: 100% 100%;
     margin-top: 1rem;
 }
-#submit-paper-btn:hover ,#submit-review-btn:hover{
+#submit-paper-btn:hover ,.submit-review-btn:hover{
     background: -webkit-linear-gradient(right, #e953e9, #63cfd1);
     background-size: 200% 100%;
     background-position: right center;

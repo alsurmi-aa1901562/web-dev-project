@@ -168,6 +168,10 @@ function removeAuthor(author) {
   selector.remove();
 }
 
+function logout() {
+  localStorage.clear();
+}
+
 // Default DOM Method
 document.addEventListener("DOMContentLoaded", async () => {
   // Grabbing Saves From Login
@@ -264,16 +268,22 @@ document.addEventListener("DOMContentLoaded", async () => {
           "id": "0",
           "title": `${title}`,
           "abstract": `${abstract}`,
-          "authors": [authors],
+          "authors": authors,
           "pdfPath": "dummy/path/dummy.pdf",
           "reviewers": [
             {
               "id": `${shuffleReviewers[0].id}`,
-              "score": "0"
+              "evaluation": "-999",
+              "contribution": "",
+              "strengths": "",
+              "weaknesses": ""
             },
             {
               "id": `${shuffleReviewers[1].id}`,
-              "score": "0"
+              "evaluation": "-999",
+              "contribution": "",
+              "strengths": "",
+              "weaknesses": ""
             },
           ]
         })
@@ -291,4 +301,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
+  // Animation Section for Pointer
+
+  let pointer = document.getElementById("pointer-follow");
+
+  // Event Listener for Mouse Movements
+  document.addEventListener("mousemove", (e) => {
+      pointer.style.top = e.pageY + "px";
+      pointer.style.left = e.pageX + "px";
+  });
+
+  // Event Listener for Touch Movements
+  document.addEventListener("touchmove", (e) => {
+      pointer.style.top = e.pageY + "px";
+      pointer.style.left = e.pageX + "px";
+  });
 });
