@@ -16,7 +16,6 @@ export async function GET(request, {params}) {
 export async function POST(request, {params}) {
     try {
         const body = await request.json();
-        
         if(typeof body.fname === "string" && typeof body.lname === "string" && typeof body.email === "string" && typeof body.password === "string" && typeof body.role === "string"){
             body.fname = body.fname.trim();
             body.lname = body.lname.trim();

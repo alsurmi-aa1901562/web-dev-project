@@ -112,6 +112,21 @@ i {
     font-family: Poppins-Medium;
 }
 
+#error-message-submit {
+    font-size: 12px;
+    color: #333333;
+    line-height: 1.5;
+    display: block;
+    background: transparent;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    width: 100%;
+    position: relative;
+    font-family: Poppins-Medium;
+}
+
 #error-status {
     color: palevioletred;
 }
@@ -301,44 +316,40 @@ fieldset {
 
 #Paper-information-form:hover, 
 #authors-information-form:hover, 
-#upload-form:hover, 
-#authors-collections:hover {
+#upload-form:hover 
+/*#authors-collections:hover*/ {
     transform: scale(1.015);
     transition: 0.25s ease-in-out;
 }
 
 #Paper-information-form:not(:hover), 
 #authors-information-form:not(:hover), 
-#upload-form:not(:hover), 
-#authors-collections:not(:hover) {
+#upload-form:not(:hover) 
+/*#authors-collections:not(:hover)*/ {
     transform: scale(1);
     transition: 0.25s ease-in-out;
 }
 
 #paper-title:hover, 
 #paper-abstract:hover, 
-#author-first-name:hover, 
-#author-last-name:hover, 
-#author-email:hover, 
-#author-affiliation:hover, 
+#paper-pdf:hover {
+    transform: scale(1.015);
+    transition: 0.2s ease-in-out; 
+}
+
 #add_author_btn:hover, 
-#paper-pdf:hover, 
-.button_minus:hover, 
-#submit-paper-btn:hover {
+#submit-paper-btn:hover,
+.button_minus:hover {
     transform: scale(1.035);
     transition: 0.2s ease-in-out; 
 }
 
 #paper-title:not(:hover), 
 #paper-abstract:not(:hover), 
-#author-first-name:not(:hover), 
-#author-last-name:not(:hover),
- #author-email:not(:hover), 
- #author-affiliation:not(:hover),
- #submit-paper-btn:not(:hover), 
- #add_author_btn:not(:hover), 
- #paper-pdf:not(:hover), 
- .button_minus:not(:hover) {
+#submit-paper-btn:not(:hover), 
+#add_author_btn:not(:hover), 
+#paper-pdf:not(:hover),
+.button_minus:not(:hover) {
     transform: scale(1);
     transition: 0.2s ease-in-out; 
 }

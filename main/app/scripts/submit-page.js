@@ -1,18 +1,15 @@
-// Default DOM Method
-document.addEventListener("DOMContentLoaded", async () => {
-  // Grabbing Saves From Login
-  const getLogInfo = JSON.parse(localStorage.getItem("logInfo"));
- 
-  document.getElementById("Nav-userName").innerHTML = `Username: ${getLogInfo.username.replace("@author.com", "")}`
-  document.getElementById("Nav-Id").innerHTML = `ID: ${getLogInfo.identity}`;
+// Global Variables
+const institutionsURL = "http://localhost:3000/api/institutions";
+const uploadURL = "http://localhost:3000/api/upload";
 
-  // Add Author
-  const addBtn = document.getElementById("add_author_btn");
-  const authorsGroup = document.getElementById('authors-collections');
-
-  addBtn.addEventListener("click", () => {
+// Add Author Method
+async function addAuthor() {
+    const authorsGroup = document.getElementById('authors-collections');
     const newAuthor = document.createElement('fieldset');
     const count = authorsGroup.childElementCount;
+
+    const res = await fetch(institutionsURL);
+    let institutions = await res.json();
     
     newAuthor.id = `author${count + 1}`;
 
@@ -28,13 +25,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       const removeBtn = document.createElement("button");
       removeBtn.setAttribute("type", "button");
       removeBtn.setAttribute("class", "button_minus");
-      removeBtn.setAttribute("onclick", `removeAuthor(author${count + 1})`);
+      removeBtn.setAttribute("onclick", `removeAuthor("author${count + 1}")`);
       removeBtn.setAttribute("id", `removeBtn${count + 1}`);
       removeBtn.innerHTML = "Remove";
 
     legend.appendChild(paragraph);
     legend.appendChild(hr);
-    legend.appendChild(removeBtn);
+
+    if(authorsGroup.childElementCount > 1){
+      legend.appendChild(removeBtn);
+    }
+    
 
     const firstNameLabel = document.createElement("label");
     firstNameLabel.setAttribute("for", "author-first-name");
@@ -46,8 +47,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const firstNameInput = document.createElement("input");
     firstNameInput.setAttribute("type", "text");
-    firstNameInput.setAttribute("id", `author-first-name-${count}`);
-    firstNameInput.setAttribute("name", "author-first-name");
+    firstNameInput.setAttribute("id", `author-first-name-${count + 1}`);
+    firstNameInput.setAttribute("name", `author-first-name-${count + 1}`);
     firstNameInput.required = true;
 
     const lastNameLabel = document.createElement("label");
@@ -60,8 +61,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const lastNameInput = document.createElement("input");
     lastNameInput.setAttribute("type", "text");
-    lastNameInput.setAttribute("id", `author-last-name-${count}`);
-    lastNameInput.setAttribute("name", "author-last-name");
+    lastNameInput.setAttribute("id", `author-last-name-${count + 1}`);
+    lastNameInput.setAttribute("name", `author-last-name-${count + 1}`);
     lastNameInput.required = true;
 
     const emailLabel = document.createElement("label");
@@ -73,90 +74,194 @@ document.addEventListener("DOMContentLoaded", async () => {
     emailLabel.appendChild(emailBreak);
 
     const emailInput = document.createElement("input");
-    emailInput.setAttribute("type", "text");
-    emailInput.setAttribute("id", `author-email-${count}`);
-    emailInput.setAttribute("name", "author-email");
+    emailInput.setAttribute("type", "email");
+    emailInput.setAttribute("id", `author-email-${count + 1}`);
+    emailInput.setAttribute("name", `author-email-${count + 1}`);
     emailInput.required = true;
 
+    const affiliationSelectionLabel = document.createElement("label");
+    affiliationSelectionLabel.setAttribute("for", "author-affiliation");
+
+      const affiliationSelectionBreak = document.createElement("b");
+      affiliationSelectionBreak.innerHTML = "Affiliation";
+
+    affiliationSelectionLabel.appendChild(affiliationSelectionBreak);
+
+    const affiliationSelectionInput = document.createElement("select");
+    affiliationSelectionInput.setAttribute("id", `author-affiliation-${count + 1}`);
+    affiliationSelectionInput.setAttribute("name", `author-affiliation-${count + 1}`);
+    affiliationSelectionInput.required = true;
+
+    institutions.forEach((e) => {
+      const option = document.createElement("option");
+      option.setAttribute("id", `${e.name}-${count + 1}`);
+      option.innerHTML = `${e.name}`;
+
+      affiliationSelectionInput.appendChild(option);
+    });
+
+    const presentorDiv = document.createElement("div");
+    presentorDiv.setAttribute("id", "presenter-declaration");
+
+      const presenterLabel = document.createElement("label");
+      presenterLabel.setAttribute("for", "presenter");
+
+        const presenterBreak = document.createElement("b");
+        presenterBreak.innerHTML = "Presenter";
+
+      presenterLabel.appendChild(presenterBreak);
+
+      const presenterInput = document.createElement("input");
+      presenterInput.setAttribute("type", "checkbox");
+      presenterInput.setAttribute("id", `presenter-checkbox-${count + 1}`);
+      presenterInput.setAttribute("name", `presenter-checkbox-${count + 1}`);
+      if(count > 0) {
+        presenterInput.checked = false;
+      }
+      else {
+        presenterInput.checked = true;
+      }
+        
+      
+      
+
+    presentorDiv.appendChild(presenterLabel);
+    presentorDiv.appendChild(presenterInput);
+
+    const css = `
+    #author-first-name-${count + 1}:hover, 
+    #author-last-name-${count + 1}:hover, 
+    #author-email-${count + 1}:hover, 
+    #author-affiliation-${count + 1}:hover, 
+    #author${count + 1}:hover{
+      transform: scale(1.015);
+      transition: 0.25s ease-in-out;
+    }
+    #author-first-name-${count + 1}:not(:hover), 
+    #author-last-name-${count + 1}:not(:hover),
+    #author-email-${count + 1}:not(:hover), 
+    #author-affiliation-${count + 1}:not(:hover),
+    #author${count + 1}:not(:hover) {
+      transform: scale(1);
+      transition: 0.25s ease-in-out;
+    }
+    `
+    const style = document.createElement('style');
+    style.innerHTML = css;
+
+    newAuthor.appendChild(legend);
+    newAuthor.appendChild(firstNameLabel);
+    newAuthor.appendChild(firstNameInput);
+    newAuthor.appendChild(lastNameLabel);
+    newAuthor.appendChild(lastNameInput);
+    newAuthor.appendChild(emailLabel);
+    newAuthor.appendChild(emailInput);
+    newAuthor.appendChild(affiliationSelectionLabel);
+    newAuthor.appendChild(affiliationSelectionInput);
+    newAuthor.appendChild(presentorDiv);
+    newAuthor.appendChild(style);
+
+    authorsGroup.appendChild(newAuthor);
+}
+
+function removeAuthor(author) {
+  const selector = document.getElementById(author);
+  selector.remove();
+}
+
+// Default DOM Method
+document.addEventListener("DOMContentLoaded", async () => {
+  // Grabbing Saves From Login
+  const getLogInfo = JSON.parse(localStorage.getItem("logInfo"));
+ 
+  document.getElementById("Nav-userName").innerHTML = `Username: ${getLogInfo.username.replace("@author.com", "")}`
+  document.getElementById("Nav-Id").innerHTML = `ID: ${getLogInfo.identity}`;
+
+  // Add One Author by Default
+  const author = document.getElementById("author1");
+
+  if(!author){
+    addAuthor();
+  }
+
+  // Add Author Button 
+  const addBtn = document.getElementById("add_author_btn");
+
+  addBtn.addEventListener("click", async () => {
+    addAuthor();
   });
 
   // Form on Submission Section
-  const paperTitle = document.getElementById("paper-title").value;
-  const paperAbstract = document.getElementById("abstract-label").value;
+  document.getElementById("submission-form").addEventListener("submit", async (e) => {
+    // Prevent Refresh of Page
+    e.preventDefault();
+        
+    // Grabbing form data
+    const form = e.target;
+    const data = new FormData(form);
+
+    const title = data.get("paper-title");
+    const abstract = data.get("paper-title");
+
+    // Grabbing all Authors
+    let authors = [];
+    let presenterIsSelected = false;
+    const authorsGroup = document.getElementById('authors-collections');
+
+    if(authorsGroup.childElementCount == 1) {
+      data.set("presenter-checkbox-1","on");
+    }
+
+    for(let i = 1; i <= authorsGroup.childElementCount; i++) {
+      if(data.get(`presenter-checkbox-${i}`) != null){
+        presenterIsSelected = true;
+      }
+    }
+
+    if(presenterIsSelected) {
+      for(let i = 1; i <= authorsGroup.childElementCount; i++) {
+        let presenterValidation;
   
-  // TODO: grab the form
+        if(data.get(`presenter-checkbox-${i}`) == null){
+          presenterValidation = "false";
+        }
+        else{
+          presenterValidation = "true";
+        }
   
+        const author = {
+          "fname": `${data.get(`author-first-name-${i}`)}`,
+          "lname": `${data.get(`author-last-name-${i}`)}`,
+          "email": `${data.get(`author-email-${i}`)}`,
+          "affiliation": `${data.get(`author-affiliation-${i}`)}`,
+          "isPresentor": `${presenterValidation}`
+        }
+  
+       authors.push(author);
+      }
+      // TODO : Upload FILE
+
+      // const formdata = new FormData();
+      // formdata.append("file", data.get("paper-pdf"));
+
+      // const request = await fetch(uploadURL, {
+      //   method: "POST",
+      //   body: formdata,
+      // });
+      
+      
+
+    }
+    else{
+      const errorMessage = document.createElement("p");
+      errorMessage.innerHTML = "Uh oh! Please Select One Presentor!";
+      errorMessage.setAttribute("id", "error-message-submit");
+
+      errorMessage.style.fontSize = "small";
+
+      document.getElementById("upload-form").parentNode.insertBefore(errorMessage, document.getElementById("upload-form").nextSibling);
+    }
+    console.log(authors);
+  });
+
 });
-
-
-
-
-// // Prior Dev
-// const Add_btn = document.getElementById('add_author_btn');
-// const Remove_btn = document.getElementById('remove_author_btn');
-// const Authors =document.getElementById('all-authors-information-field');
-
-
-// Add_btn.addEventListener('click',addAuthor);
-// // Remove_btn.addEventListener('click',removeAuthor);
-
-// let author_count = 1;
-// function addAuthor() {
-
-//     console.log("button clicked");
-//     const newAuthor = document.createElement('fieldset');
-//     author_count=author_count+1;
-//     newAuthor.id = `author${author_count}`; // assign an id to the new fieldset
-//     newAuthor.innerHTML = ` 
-//               <legend class="author-card-header">
-//               <p> Author ${author_count} </p>
-//               <hr class="divider">
-//               <button type="button" class="button_minus" onclick="removeAuthor('${newAuthor.id}')" id="remove${author_count}"> Remove</button>
-//               </legend>
-              
-//               <label for="author-first-name"><b>First Name</b></label>
-//               <input type="text" id="author-first-name" name="author-first-name" required />
-
-//               <label for="author-last-name"><b>Last Name</b></label>
-//               <input type="text" id="author-last-name" name="author-last-name" required />
-  
-//               <label for="author-email"><b>Email</b></label>
-//               <input type="email" id="author-email" name="author-email" required />
-  
-//               <label for="author-affiliation"><b>Affiliation</b></label>
-//               <input type="text" id="author-affiliation" name="author-affiliation-1" required />
-//               <div id="presenter-declaration">
-//                 <label for="presenter"><b>Presenter</b></label>
-//                 <input type="checkbox" id="presenter-checkbox" name="presenter" value="2" />
-//               </div>           
-// `
-//     Authors.insertBefore(newAuthor, Add_btn);
-//     if(author_count>2){
-//       const removebutton = document.getElementById(`remove${author_count-1}`);
-//       removebutton.remove();}
-// }
-
-// function removeAuthor(authorID) {
-//   const authorFieldset = document.getElementById(authorID);
-//   authorFieldset.remove();
-//   author_count--;
-//   if (author_count > 1) {
-//     const prevAuthorID = `author${author_count}`;
-//     const prevAuthor = document.getElementById(prevAuthorID);
-//     const removeBtn = prevAuthor.querySelector('button');
-
-//     if (!removeBtn) {
-//       const newRemoveBtn = document.createElement('button');
-//       newRemoveBtn.type = "button";
-//       newRemoveBtn.className = "button_minus";
-//       newRemoveBtn.id = `remove${author_count}`;
-//       newRemoveBtn.textContent = "Remove";
-//       newRemoveBtn.addEventListener('click', () => {
-//         removeAuthor(prevAuthorID);
-//       });
-
-//       const legend = prevAuthor.querySelector('legend');
-//       legend.appendChild(newRemoveBtn);
-//     }
-//   }
-// }
