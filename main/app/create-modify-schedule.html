@@ -33,23 +33,6 @@
             <div id="session-heading">
               <p>Sessions</p>
               <button aria-hidden="true" id="add-session-btn"><i class="fa fa-plus"></i> Add Session</button>
-              
-              <div id="new-session-modal" class="modal">
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <p class="modal-title">Add a New Session</p>
-                  <form id="new-session-form" class="modal-form">
-                    <label for="Title" class="modal-form-label">Session Title</label>
-                    <input type="input" id="session-title" name="Title">
-                    <label for="Location" class="modal-form-label">Location</label>
-                    <input type="input" id="session-location" name="Location">
-                    <div id="form-submit-button">
-                      <input type="submit" class="modal-submit" id="new-session-submit-btn">
-                    </div>
-                  </form>
-                </div>
-              </div>
-
             </div>
             <div id="session">
               <button class="accordion" id="session-title">Session Title</button>
@@ -57,26 +40,7 @@
                 <div id="events-heading">
                   <p>Events</p>
                   <div id="session-buttons">
-
                     <button id="add-event-btn" aria-hidden="true"><i class="fa fa-plus"></i> Add Event</button>
-                    <div id="add-event-modal" class="modal">
-                      <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p class="modal-title">Add a New Event</p>
-                        <form id="new-event-form" class="modal-form">
-                          <label for="Title" class="modal-form-label">event Title</label>
-                          <input type="input" id="event-title" name="Title">
-                          <label for="Time" class="modal-form-label">Start Time</label>
-                          <input type="time" id="event-from-time" name="Time">
-                          <label for="Time" class="modal-form-label">End Time</label>
-                          <input type="time" id="event-to-time" name="Time">
-                          <div id="form-submit-button">
-                            <input type="submit" class="modal-submit" id="new-event-submit-btn">
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-
                   </div>
                 </div>
                 <div id="all-events">
@@ -84,73 +48,106 @@
                     <p id="event-title" class="event-title">Event title</p>
                     <p id="event-presenter" class="presenter">Event presenter</p>
                     <div id="event-buttons">
-                      <button  id="edit-event-btn"><i class="fa fa-edit"></i>  Edit Event</button>
-                      
-                      <div id="edit-event-Modal" class="modal">
-                        <div class="modal-content">
-                          <span class="close">&times;</span>
-                          <p class="modal-title">Edit Event</p>
-                          <form id="edit-event-form" class="modal-form">
-                            <label for="Title" class="modal-form-label">event Title</label>
-                            <input type="input" id="event-title" name="Title">
-                            <label for="Time" class="modal-form-label">Start Time</label>
-                            <input type="time" id="event-from-time" name="Time">
-                            <label for="Time" class="modal-form-label">End Time</label>
-                            <input type="time" id="event-to-time" name="Time">
-                            <div id="form-submit-button">
-                              <input type="submit" class="modal-submit" id="edit-event-submit-btn">
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                      
+                      <button  id="edit-event-btn"><i class="fa fa-edit"></i>  Edit Event</button>                                        
                       <button  id="delete-event-btn"> <i class="fa fa-trash"></i> Delete Event</button>
                     </div>
                   </div>
                 </div>
                 <div id="session-btns">
                   <button  id="edit-session-btn"><i class="fa fa-edit"></i>  Edit Session</button>
-                  <div id="edit-session-modal" class="modal">
-                    <div class="modal-content">
-                      <span class="close">&times;</span>
-                      <p class="modal-title">Edit Session</p>
-                      <form id="edit-session-form" class="modal-form">
-                        <label for="Title" class="modal-form-label">Session Title</label>
-                        <input type="input" id="session-title" name="Title">
-                        <label for="Location" class="modal-form-label">Location</label>
-                        <input type="input" id="session-location" name="Location">
-                        <div id="form-submit-button">
-                          <input type="submit" class="modal-submit" id="edit-session-submit-btn">
-                        </div>
-                      </form>
-                    </div>
-                  </div>
                   <button id="delete-session-btn"> <i class="fa fa-trash"></i> Delete Session</button>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        <button  id="add-date-btn"> <i class="fa fa-plus"></i> Add New Date</button>            
-        <div id="new-date-Modal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <p class="modal-title">Add a New Date</p>
-            <form id="new-date-form">
-              <label for="date" class="modal-form-label">Assigned Date:</label>
-              <input type="date" id="date" name="date">
-              <div id="form-submit-button">
-                <input type="submit" class="modal-submit" id="new-date-submit-btn">
-              </div>
-            </form>
-          </div>
-        </div>
-      
+        <button  id="add-date-btn"> <i class="fa fa-plus"></i> Add New Date</button>           
       </div>
-      
-
     </main>
+
+    <!-- All modals -->
+    <div id="new-session-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="modal-title">Add a New Session</p>
+        <form id="new-session-form" class="modal-form">
+          <label for="Title" class="modal-form-label">Session Title</label>
+          <input type="input" id="session-title" name="Title">
+          <label for="Location" class="modal-form-label">Location</label>
+          <input type="input" id="session-location" name="Location">
+          <div id="form-submit-button">
+            <input type="submit" class="modal-submit" id="new-session-submit-btn">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="new-date-Modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="modal-title">Add a New Date</p>
+        <form id="new-date-form">
+          <label for="date" class="modal-form-label">Assigned Date:</label>
+          <input type="date" id="date" name="date">
+          <div id="form-submit-button">
+            <input type="submit" class="modal-submit" id="new-date-submit-btn">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="edit-session-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="modal-title">Edit Session</p>
+        <form id="edit-session-form" class="modal-form">
+          <label for="Title" class="modal-form-label">Session Title</label>
+          <input type="input" id="session-title" name="Title">
+          <label for="Location" class="modal-form-label">Location</label>
+          <input type="input" id="session-location" name="Location">
+          <div id="form-submit-button">
+            <input type="submit" class="modal-submit" id="edit-session-submit-btn">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="add-event-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="modal-title">Add a New Event</p>
+        <form id="new-event-form" class="modal-form">
+          <label for="Title" class="modal-form-label">event Title</label>
+          <input type="input" id="event-title" name="Title">
+          <label for="Time" class="modal-form-label">Start Time</label>
+          <input type="time" id="event-from-time" name="Time">
+          <label for="Time" class="modal-form-label">End Time</label>
+          <input type="time" id="event-to-time" name="Time">
+          <div id="form-submit-button">
+            <input type="submit" class="modal-submit" id="new-event-submit-btn">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="edit-event-Modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="modal-title">Edit Event</p>
+        <form id="edit-event-form" class="modal-form">
+          <label for="Title" class="modal-form-label">event Title</label>
+          <input type="input" id="event-title" name="Title">
+          <label for="Time" class="modal-form-label">Start Time</label>
+          <input type="time" id="event-from-time" name="Time">
+          <label for="Time" class="modal-form-label">End Time</label>
+          <input type="time" id="event-to-time" name="Time">
+          <div id="form-submit-button">
+            <input type="submit" class="modal-submit" id="edit-event-submit-btn">
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script src="/main/app/scripts/create-modify-schedule.js"></script>
 </body>
 </html>
