@@ -794,7 +794,7 @@ legend{
     justify-content: space-between;
     padding: 0.5rem;
 }
-#delete-btn{
+#delete-session-btn,#delete-event-btn{
     width: 6rem;
     height: 2.5rem;
     cursor: pointer;
@@ -803,13 +803,42 @@ legend{
     font-family: Poppins-Medium;
     font-size: 12px;
 }
-#add-session-btn,#add-event-btn{
+#add-session-btn,#add-event-btn,#update-event-btn,#add-date-btn{
     width: 6rem;
     height: 2.5rem;
     cursor: pointer;
     border-radius: 2rem;
     border-color: #b27bf1;
-    font-family: Poppins-Medium;
+    font-family: Poppins-regular;
     font-size: 12px;
+}
+#update-event-btn,#add-session-btn{
+    width: 8rem;
+    font-family: Poppins-medium;
+}
+#add-date-btn{
+    width: 9rem;
+    font-family: Poppins-medium;
+}
+#add-session-btn:hover,
+#add-event-btn:hover, 
+#update-event-btn:hover, 
+#delete-session-btn:hover, 
+#delete-event-btn:hover {
+    transform: scale(1.035);
+    transition: 0.2s ease-in-out; 
+}
+
+#add-session-btn:not(:hover), 
+#add-event-btn:not(:hover), 
+#update-event-btn:not(:hover), 
+#delete-session-btn:not(:hover), 
+#delete-event-btn:not(:hover){
+    transform: scale(1);
+    transition: 0.2s ease-in-out; 
+}
+i{
+    color: rgb(70, 70, 70);
+    opacity: 80%;
 }
 

@@ -32,24 +32,24 @@
         <div id="session-enclosure" class="panel">
           <div id="session-heading">
             <p>Sessions</p>
-            <button class="fa fa-plus" aria-hidden="true" id="add-btn"> Add Session</button>
+            <button aria-hidden="true" id="add-session-btn"><i class="fa fa-plus"></i> Add Session</button>
           </div>
           <div id="session">
             <button class="accordion">Session</button>
             <div id="event-enclosure" class="panel">
               <div id="events-heading">
-                <p>Sessions</p>
+                <p>Events</p>
                 <div id="session-buttons">
-                  <button class="fa fa-plus" id="add-btn" aria-hidden="true"> Add Event</button>
-                  <button class="fa fa-trash-o" id="delete-btn"> Delete</button>
+                  <button id="add-event-btn" aria-hidden="true"><i class="fa fa-plus"></i> Add Event</button>
+                  <button id="delete-session-btn"> <i class="fa fa-trash"></i> Delete</button>
                 </div>
               </div>
               <div id="all-events">
                 <div id="event">
                   <p>Event 1</p>
                   <div id="event-buttons">
-                    <button class="fa fa-edit" id="add-btn"> Update Event</button>
-                    <button class="fa fa-trash-o" id="delete-btn"> Delete</button>
+                    <button  id="update-event-btn"><i class="fa fa-edit"></i>  Update Event</button>
+                    <button  id="delete-event-btn"> <i class="fa fa-trash"></i> Delete</button>
                   </div>
                 </div>
               </div>
@@ -57,6 +57,7 @@
           </div>
         </div>
       </section>
+      <button  id="add-date-btn"> <i class="fa fa-plus"></i> Add New Date</button>
 
     </main>
     <script src="/main/app/scripts/create-modify-schedule.js"></script>
