@@ -508,7 +508,20 @@ legend{
     /* grid-area: main; */
     padding: 4rem;
     padding-top: 0;
-    
+}
+
+.main-section:hover,
+.main-section-review:hover,
+.main-section-administer:hover {
+    transform: scale(1.005);
+    transition: 0.15s ease-in-out;
+}
+
+.main-section:not(:hover),
+.main-section-review:not(:hover),
+.main-section-administer:not(:hover) {
+    transform: scale(1);
+    transition: 0.15s ease-in-out;
 }
 
 #seperator {

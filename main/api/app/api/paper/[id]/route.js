@@ -19,8 +19,8 @@ export async function PUT(request, {params}) {
     try {
         const{ id } = params;
         const body = await request.json();
-
-        if("title" in body && "abstract" in body && "authors" in body && "pdfPath" in body) {
+        console.log(body);
+        if("title" in body && "abstract" in body && "authors" in body && "pdfPath" in body && "reviewers" in body) {
             if(Array.isArray(body.authors)){
                 const paper = await repo.updatePaper(id, body);
 

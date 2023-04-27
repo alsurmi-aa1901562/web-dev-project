@@ -243,7 +243,10 @@ async function createCard(type, paper, reviewerIndex) {
               const modalSubmitBtn = document.createElement("button");
               modalSubmitBtn.setAttribute("type", "submit");
               modalSubmitBtn.setAttribute("class", "submit-review-btn");
-              modalSubmitBtn.setAttribute("id", `submitReview${count + 1}`);
+              modalSubmitBtn.setAttribute("id", `submitReview`);
+              modalSubmitBtn.setAttribute("paperid", `${paper.id}`);
+              modalSubmitBtn.setAttribute("count", `${count + 1}`);
+              modalSubmitBtn.setAttribute("reviewerindex", `${reviewerIndex}`);
               modalSubmitBtn.innerHTML = "Submit"
 
             modalSubmitFormDiv.appendChild(modalSubmitBtn);
@@ -567,7 +570,10 @@ async function createCard(type, paper, reviewerIndex) {
               const modalSubmitBtn = document.createElement("button");
               modalSubmitBtn.setAttribute("type", "submit");
               modalSubmitBtn.setAttribute("class", "submit-review-btn");
-              modalSubmitBtn.setAttribute("id", `reviewed-submitReview${count + 1}`);
+              modalSubmitBtn.setAttribute("id", `reviewed-submitReview`);
+              modalSubmitBtn.setAttribute("paperid", `${paper.id}`);
+              modalSubmitBtn.setAttribute("count", `${count + 1}`);
+              modalSubmitBtn.setAttribute("reviewerindex", `${reviewerIndex}`);
               modalSubmitBtn.innerHTML = "Submit"
 
             modalSubmitFormDiv.appendChild(modalSubmitBtn);
@@ -584,7 +590,7 @@ async function createCard(type, paper, reviewerIndex) {
         modalContentDiv.appendChild(modalForm);
 
       modalDiv.appendChild(modalContentDiv);
-
+      
     paperSection.appendChild(paperTitle);
     paperSection.appendChild(paperAuthors);
     paperSection.appendChild(abstractDiv);
@@ -623,7 +629,8 @@ async function createCard(type, paper, reviewerIndex) {
             transition: 0.1s ease-in-out;
           }
 
-          #reviewed-submitReview${count + 1}:hover,
+          #submitReview:hover,
+          #reviewed-submitReview:hover,
           #reviewed-reviewbtn${count + 1}:hover{
             transform: scale(1.035);
             transition: 0.15s ease-in-out;
@@ -702,7 +709,6 @@ function closeModal(id, type) {
   }
 }
 
-
 // Default DOM 
 document.addEventListener("DOMContentLoaded", async () => {
   // Grabbing Saves From Login
@@ -711,10 +717,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("Nav-userName").innerHTML = `Username: ${getLogInfo.username.replace("@reviewer.com", "")}`
   document.getElementById("Nav-Id").innerHTML = `ID: ${getLogInfo.identity}`;
 
-  // Add Assigned Papers on Load
+  // Add Assigned and Reviewed Papers on Load
   const res = await fetch(paperURL);
   const papers = await res.json();
-  // TODO: ADD ASSIGNED PAPERS:
   papers.forEach((e, i) => {
     let reviewerIndex = -1;
     let evaluation;
@@ -731,59 +736,119 @@ document.addEventListener("DOMContentLoaded", async () => {
       reviewerIndex = -1;
       evaluation = 0;
     }
-    console.log(evaluation)
+
+
     if(evaluation == -999 && reviewerIndex >= 0) { // Add papers with no eval (DEFAULT = -999)
-      createCard(true , e);
+      createCard(true , e, reviewerIndex);
     }
     else if(evaluation >= -2 && evaluation <= 2 && reviewerIndex >= 0){
-      console.log(true)
+
       createCard(false, e, reviewerIndex);
     }
 
   });
-  
 
+  // Assigning Event Handlers to Submit Buttons
+  const submitbuttons = document.querySelectorAll("#submitReview");
+  for(let button of submitbuttons) {
+    console.log(button)
+    button.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const res = await fetch(paperURL + `/${button.getAttribute("paperid")}`);
+        const paper = await res.json();
+        console.log(button.getAttribute("reviewerindex"))
+        paper.reviewers[button.getAttribute("reviewerindex")].contribution = document.getElementById(`paper-contribution${button.getAttribute("count")}`).value;
+        paper.reviewers[button.getAttribute("reviewerindex")].evaluation = document.getElementById(`overall-evaluation${button.getAttribute("count")}`).value;
+        paper.reviewers[button.getAttribute("reviewerindex")].strengths = document.getElementById(`paper-strengths${button.getAttribute("count")}`).value;
+        paper.reviewers[button.getAttribute("reviewerindex")].weaknesses = document.getElementById(`paper-weaknesses${button.getAttribute("count")}`).value;
+
+        console.log(paper.reviewers[button.getAttribute("reviewerindex")].contribution)
+
+        const resPut = await fetch(paperURL + `/${button.getAttribute("paperid")}`, {
+          method: "PUT",
+          body: JSON.stringify(paper)
+        });
+    })
+  }
+
+  // Assigning Event Handlers to Update Buttons
+  const updatebuttons = document.querySelectorAll("#reviewed-submitReview");
+  for(let button of updatebuttons) {
+    console.log(button)
+    button.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const res = await fetch(paperURL + `/${button.getAttribute("paperid")}`);
+        const paper = await res.json();
+        console.log(button.getAttribute("reviewerindex"))
+        paper.reviewers[button.getAttribute("reviewerindex")].contribution = document.getElementById(`reviewed-paper-contribution${button.getAttribute("count")}`).value;
+        paper.reviewers[button.getAttribute("reviewerindex")].evaluation = document.getElementById(`reviewed-overall-evaluation${button.getAttribute("count")}`).value;
+        paper.reviewers[button.getAttribute("reviewerindex")].strengths = document.getElementById(`reviewed-paper-strengths${button.getAttribute("count")}`).value;
+        paper.reviewers[button.getAttribute("reviewerindex")].weaknesses = document.getElementById(`reviewed-paper-weaknesses${button.getAttribute("count")}`).value;
+
+        console.log(paper.reviewers[button.getAttribute("reviewerindex")].contribution)
+
+        const resPut = await fetch(paperURL + `/${button.getAttribute("paperid")}`, {
+          method: "PUT",
+          body: JSON.stringify(paper)
+        });
+    })
+  }
+
+  // Validation of Whether or Not Assigned Papers is Empty or Reviewed Papers
+
+  const card = document.getElementById("paper-card1");
+  const toReview = document.getElementById("toReviewPaperGroup");
+  const place = document.getElementById("elementsNAN");
+
+  const reviewedCard = document.getElementById("reviewed-paper-card1");
+  const reviewed = document.getElementById("reviewedPaperGroup");
+  const reviewedPlace = document.getElementById("reviewedElementsNAN");
+
+  if(!card){
+    const placementDiv = document.createElement("div");
+    placementDiv.id = "elementsNAN";
+
+      const noPapers = document.createElement("p");
+      noPapers.className = "authors";
+      noPapers.innerHTML = "Phew~ looks like there are no papers to review!"
+
+    placementDiv.appendChild(noPapers);
+    toReview.appendChild(placementDiv);
+  }
+  else if(place && card) {
+    place.remove();
+  }
+  
+  if(!reviewedCard){
+    const placementDiv = document.createElement("div");
+    placementDiv.id = "reviewedElementsNAN";
+
+      const noPapers = document.createElement("p");
+      noPapers.className = "authors";
+      noPapers.innerHTML = "Looks like you have not reviewed anything!"
+
+    placementDiv.appendChild(noPapers);
+    reviewed.appendChild(placementDiv);
+  }
+  else if(reviewedPlace && reviewedCard){
+    reviewedPlace.remove();
+  }
+
+  // Animation Section for Pointer
+
+  let pointer = document.getElementById("pointer-follow");
+
+  // Event Listener for Mouse Movements
+  document.addEventListener("mousemove", (e) => {
+      pointer.style.top = e.pageY + "px";
+      pointer.style.left = e.pageX + "px";
+  });
+
+  // Event Listener for Touch Movements
+  document.addEventListener("touchmove", (e) => {
+      pointer.style.top = e.pageY + "px";
+      pointer.style.left = e.pageX + "px";
+  });
 
 });
-
-var coll = document.getElementsByClassName("abstract-collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    console.log(true)
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("review-btn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+  
