@@ -1,3 +1,12 @@
+async function createDays() {
+  
+}
+
+// Default DOM
+document.addEventListener("DOMContentLoaded", async () => {
+  //TODO: Validate if the Schedule exists.. if it does then show the days and if not show a button that asks to create a schedule
+});
+
 //============================accordion setup======================
 var acc = document.getElementsByClassName("accordion");
 var i;

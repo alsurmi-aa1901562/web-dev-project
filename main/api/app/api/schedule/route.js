@@ -15,11 +15,12 @@ export async function POST(request, {params}) {
     try {
         const body = await request.json();
 
-        if("id" in body && "date" in body && "sessions" in body) {
+        if("id" in body && "fromDate" in body && "toDate" in body && "sessions" in body) {
             if(Array.isArray(body.sessions)){
                 const schedule = await repo.createSchedule({
                     id: body.id,
-                    date: body.date,
+                    fromDate: body.fromDate,
+                    toDate: body.toDate,
                     sessions: body.sessions
                 });
 
