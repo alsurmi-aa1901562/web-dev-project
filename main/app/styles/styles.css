@@ -919,3 +919,8 @@ justify-content: space-between;
     font-size: 18px;
     text-align: center;
 }
+#schedule-heading{
+    margin-top: 3rem;
+    font-family: poppins-bold;
+    font-size: 20px;
+}
