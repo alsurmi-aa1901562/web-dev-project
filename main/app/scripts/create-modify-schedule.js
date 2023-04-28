@@ -29,7 +29,7 @@ async function createEvents(events, underSessions, scheduleIndex, sessionIndex, 
     eventDivButtonsDiv.setAttribute("sessionIndex", `${sessionIndex}`);
     eventDivButtonsDiv.setAttribute("eventIndex", `${eventIndex}`);
 
-      const eventDivEditBtn = document.createElement("div");
+      const eventDivEditBtn = document.createElement("button");
       eventDivEditBtn.id = "edit-event-btn";
       eventDivEditBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
       eventDivEditBtn.setAttribute("sessionIndex", `${sessionIndex}`);
@@ -40,7 +40,7 @@ async function createEvents(events, underSessions, scheduleIndex, sessionIndex, 
 
       eventDivEditBtn.innerHTML = `${eventDivEditBtnIcon.outerHTML} Edit Event`;
 
-      const eventDivDeleteBtn = document.createElement("div");
+      const eventDivDeleteBtn = document.createElement("button");
       eventDivDeleteBtn.id = "delete-event-btn";
       eventDivDeleteBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
       eventDivDeleteBtn.setAttribute("sessionIndex", `${sessionIndex}`);
@@ -127,7 +127,7 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
         sessionBtn.innerHTML = `${session.title}`;
 
         const sessionEventDiv = document.createElement("div");
-        sessionEventDiv.id = "event-closure";
+        sessionEventDiv.id = "event-enclosure";
         sessionEventDiv.classList = "panel";
         sessionEventDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
         sessionEventDiv.setAttribute("sessionIndex", `${sessionIndex}`);
@@ -152,7 +152,7 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
             const eventHeadingParagraph = document.createElement("p");
             eventHeadingParagraph.innerHTML = "Events";
 
-            const eventHeadingSessionDiv = document.createElement("button");
+            const eventHeadingSessionDiv = document.createElement("div");
             eventHeadingSessionDiv.id = "session-buttons";
             eventHeadingSessionDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
             eventHeadingSessionDiv.setAttribute("sessionIndex", `${sessionIndex}`);
