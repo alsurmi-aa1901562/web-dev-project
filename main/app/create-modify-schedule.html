@@ -27,7 +27,7 @@
 
     <main class="main-section-administer">
       <div class="main-section-list" id="scheduleList">
-        <h3>Schedule: 28/3/2023 - 1/4/2023</h3>
+        <p id="schedule-heading">Schedule: 28/3/2023 - 1/4/2023</p>
         <div id="all-days">
           <section id="day-schedule">
             <button class="accordion">Date</button>
@@ -76,7 +76,8 @@
           <label for="Title" class="modal-form-label">Session Title</label>
           <input type="input" id="session-title" name="Title">
           <label for="Location" class="modal-form-label">Location</label>
-          <input type="input" id="session-location" name="Location">
+          <select id="select-location-session" name="Location">
+          </select>
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="new-session-submit-btn">
           </div>
@@ -90,7 +91,8 @@
         <p class="modal-title">Add a New Date</p>
         <form id="new-date-form">
           <label for="date" class="modal-form-label">Assigned Date:</label>
-          <input type="date" id="date" name="date">
+          <select id="select-date" name="date">
+          </select>
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="new-date-submit-btn">
           </div>
@@ -106,7 +108,8 @@
           <label for="Title" class="modal-form-label">Session Title</label>
           <input type="input" id="session-title" name="Title">
           <label for="Location" class="modal-form-label">Location</label>
-          <input type="input" id="session-location" name="Location">
+          <select id="select-location-session" name="Location">
+          </select>
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="edit-session-submit-btn">
           </div>
@@ -145,6 +148,24 @@
           <input type="time" id="event-to-time" name="Time">
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="edit-event-submit-btn">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="new-Schedule-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="modal-title">Create a new Schedule</p>
+        <form id="new-schedule-form" class="modal-form">
+          <label for="start-date" class="modal-form-label">Start Date</label>
+          <select id="schedule-from-date" name="start-date">
+          </select>
+          <label for="end-date" class="modal-form-label">End Date</label>
+          <select id="schedule-to-date" name="end-date">
+          </select>
+          <div id="form-submit-button">
+            <input type="submit" class="modal-submit" id="new-schedule-submit-btn">
           </div>
         </form>
       </div>
