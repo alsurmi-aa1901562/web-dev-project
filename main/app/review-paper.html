@@ -40,6 +40,55 @@
             <div id="reviewedPaperGroup"></div>
     </main>
 
+    <!--MODALS-->
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeButton">×</span>
+            <h1 class="paper-title" id="paper-title-modal"></h1>
+            <form>
+                <div class="review-form-field">
+                    <label for="overall-evaluation" class="form_lablel">
+                        <b>Overall Evaluation:</b>
+                    </label>
+                    <select class="form_input" id="overall-evaluation" name="overall-evaluation">
+                        <option value="2">Strong Accept</option>
+                        <option value="1">Accept</option>
+                        <option value="0">Borderline</option>
+                        <option value="-1">Reject</option>
+                        <option value="-2">Strong Reject</option>
+                    </select>
+                </div>
+                <div class="review-form-field">
+                    <label for="paper-contribution" class="form_lablel">
+                        <b>Paper Contribution:</b>
+                    </label>
+                    <select class="form_input" id="paper-contribution" name="paper-contribution">
+                        <option value="5">Major and Significant Contribution</option>
+                        <option value="4">Clear Contribution</option>
+                        <option value="3">Minor Contribution</option>
+                        <option value="2">No Obvious Contribution</option>
+                        <option value="1">No Obvious Contribution</option>
+                    </select>
+                </div>
+                <div class="review-form-field">
+                    <label for="paper-strengths" class="form_lablel">
+                        <b>Paper Strengths:</b>
+                    </label>
+                    <textarea class="form_input" id="paper-strengths" name="paper-strengths" required=""></textarea>
+                </div>
+                <div class="review-form-field">
+                    <label for="paper-weaknesses" class="form_lablel">
+                        <b>Paper Weakness:</b>
+                    </label>
+                    <textarea class="form_input" id="paper-weaknesses" name="paper-weaknesses" required=""></textarea>
+                </div>
+                <div class="review-form-field">
+                    <button type="submit" class="submit-review-btn" id="submitReview">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="scripts/review-page.js">
     </script>
 </body>
