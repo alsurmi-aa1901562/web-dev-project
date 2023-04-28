@@ -2,8 +2,63 @@
 const schedulesURL = "http://localhost:3000/api/schedule";
 
 //Method that Creates Events Elements
-async function createEvents() {
+async function createEvents(events, underSessions, scheduleIndex, sessionIndex, eventIndex) {
+  const eventDiv = document.createElement("div");
+  eventDiv.id = "event";
+  eventDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
+  eventDiv.setAttribute("sessionIndex", `${sessionIndex}`);
+  eventDiv.setAttribute("eventIndex", `${eventIndex}`);
 
+    const eventDivTitleParagraph = document.createElement("p");
+    eventDivTitleParagraph.id = "event-title";
+    eventDivTitleParagraph.setAttribute("scheduleIndex", `${scheduleIndex}`);
+    eventDivTitleParagraph.setAttribute("sessionIndex", `${sessionIndex}`);
+    eventDivTitleParagraph.setAttribute("eventIndex", `${eventIndex}`);
+    eventDivTitleParagraph.innerHTML = `${events.title}`;
+
+    const eventDivPresenterParagraph = document.createElement("p");
+    eventDivPresenterParagraph.id = "event-presenter";
+    eventDivPresenterParagraph.setAttribute("scheduleIndex", `${scheduleIndex}`);
+    eventDivPresenterParagraph.setAttribute("sessionIndex", `${sessionIndex}`);
+    eventDivPresenterParagraph.setAttribute("eventIndex", `${eventIndex}`);
+    eventDivPresenterParagraph.innerHTML = `${events.presenter}`;
+
+    const eventDivButtonsDiv = document.createElement("div");
+    eventDivButtonsDiv.id = "event-buttons";
+    eventDivButtonsDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
+    eventDivButtonsDiv.setAttribute("sessionIndex", `${sessionIndex}`);
+    eventDivButtonsDiv.setAttribute("eventIndex", `${eventIndex}`);
+
+      const eventDivEditBtn = document.createElement("div");
+      eventDivEditBtn.id = "edit-event-btn";
+      eventDivEditBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
+      eventDivEditBtn.setAttribute("sessionIndex", `${sessionIndex}`);
+      eventDivEditBtn.setAttribute("eventIndex", `${eventIndex}`);
+
+        const eventDivEditBtnIcon = document.createElement("i");
+        eventDivEditBtnIcon.classList = "fa fa-edit";
+
+      eventDivEditBtn.innerHTML = `${eventDivEditBtnIcon.outerHTML} Edit Event`;
+
+      const eventDivDeleteBtn = document.createElement("div");
+      eventDivDeleteBtn.id = "delete-event-btn";
+      eventDivDeleteBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
+      eventDivDeleteBtn.setAttribute("sessionIndex", `${sessionIndex}`);
+      eventDivDeleteBtn.setAttribute("eventIndex", `${eventIndex}`);
+
+        const eventDivDeleteBtnIcon = document.createElement("i");
+        eventDivDeleteBtnIcon.classList = "fa fa-edit";
+
+      eventDivDeleteBtn.innerHTML = `${eventDivDeleteBtnIcon.outerHTML} Delete Event`;
+
+    eventDivButtonsDiv.appendChild(eventDivEditBtn);
+    eventDivButtonsDiv.appendChild(eventDivDeleteBtn);
+
+  eventDiv.appendChild(eventDivTitleParagraph);
+  eventDiv.appendChild(eventDivPresenterParagraph);
+  eventDiv.appendChild(eventDivButtonsDiv);
+
+  underSessions.appendChild(eventDiv);
 }
 
 // Method that Creates Day Elements
@@ -39,7 +94,7 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
 
           const sessionHeadingBtnIcon = document.createElement("icon");
           sessionHeadingBtnIcon.classList = "fa fa-plus";
-          sessionHeadingBtn.innerHTML =`${sessionHeadingBtnIcon} Add Session`;
+          sessionHeadingBtn.innerHTML =`${sessionHeadingBtnIcon.outerHTML} Add Session`;
 
         sessionHeadingBtn.appendChild(sessionHeadingBtnIcon);
       
@@ -64,11 +119,80 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
         sessionEventDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
         sessionEventDiv.setAttribute("sessionIndex", `${sessionIndex}`);
 
-          session.events.forEach((e, i) => {
-            //TODO: create events!
-          });
+          const eventHeadingDiv = document.createElement("div");
+          eventHeadingDiv.id = "events-heading";
+          eventHeadingDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
+          eventHeadingDiv.setAttribute("sessionIndex", `${sessionIndex}`);
+
+            const eventHeadingParagraph = document.createElement("p");
+            eventHeadingParagraph.innerHTML = "Events";
+
+            const eventHeadingSessionDiv = document.createElement("button");
+            eventHeadingSessionDiv.id = "session-buttons";
+            eventHeadingSessionDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
+            eventHeadingSessionDiv.setAttribute("sessionIndex", `${sessionIndex}`);
+
+              const eventHeadingSessionBtn = document.createElement("button");
+              eventHeadingSessionBtn.id = "add-event-btn";
+              eventHeadingSessionBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
+              eventHeadingSessionBtn.setAttribute("sessionIndex", `${sessionIndex}`);
+              eventHeadingSessionBtn.setAttribute("aria-hidden", "true");
+
+                const eventHeadingSessionBtnIcon = document.createElement("icon");
+                eventHeadingSessionBtnIcon.classList = "fa fa-plus";
+
+              eventHeadingSessionBtn.innerHTML = `${eventHeadingSessionBtnIcon.outerHTML} Add Event`;
+            
+            eventHeadingSessionDiv.appendChild(eventHeadingSessionBtn);
+
+          eventHeadingDiv.appendChild(eventHeadingParagraph);
+          eventHeadingDiv.appendChild(eventHeadingSessionDiv);
+
+          const allEventsDiv = document.createElement("div");
+          allEventsDiv.id = "all-events";
+          allEventsDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
+          allEventsDiv.setAttribute("sessionIndex", `${sessionIndex}`);
+
+            session.events.forEach((e, i) => {
+              createEvents(e, allEventsDiv, scheduleIndex, sessionIndex, i);
+            });
+        
+          const eventSessionBtnDiv = document.createElement("div");
+          eventSessionBtnDiv.id = "session-btns";
+          eventSessionBtnDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
+          eventSessionBtnDiv.setAttribute("sessionIndex", `${sessionIndex}`);
+
+            const eventSessionEditBtn = document.createElement("button");
+            eventSessionEditBtn.id = "edit-session-btn";
+            eventSessionEditBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
+            eventSessionEditBtn.setAttribute("sessionIndex", `${sessionIndex}`);
+
+              const eventSessionEditBtnIcon = document.createElement("icon");
+              eventSessionEditBtnIcon.classList = "fa fa-edit";
+
+            eventSessionEditBtn.innerHTML = `${eventSessionEditBtnIcon.outerHTML} Edit Session`;
+
+            const eventSessionDeleteBtn = document.createElement("button");
+            eventSessionDeleteBtn.id = "delete-session-btn";
+            eventSessionDeleteBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
+            eventSessionDeleteBtn.setAttribute("sessionIndex", `${sessionIndex}`);
+
+              const eventSessionDeleteBtnIcon = document.createElement("icon");
+              eventSessionDeleteBtnIcon.classList = "fa fa-trash";
+
+            eventSessionDeleteBtn.innerHTML = `${eventSessionDeleteBtnIcon.outerHTML} Delete Session`;
+
+          eventSessionBtnDiv.appendChild(eventSessionEditBtn);
+          eventSessionBtnDiv.appendChild(eventSessionDeleteBtn);
+          
+        sessionEventDiv.appendChild(eventHeadingDiv);
+        sessionEventDiv.appendChild(allEventsDiv);
+        sessionEventDiv.appendChild(eventSessionBtnDiv);
+          
 
       sessionDiv.appendChild(sessionBtn);
+      sessionDiv.appendChild(sessionEventDiv);
+      
 
       sessionSection.appendChild(sessionHeading);
       sessionSection.appendChild(sessionDiv);
