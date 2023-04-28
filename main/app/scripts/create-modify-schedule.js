@@ -47,7 +47,7 @@ async function createEvents(events, underSessions, scheduleIndex, sessionIndex, 
       eventDivDeleteBtn.setAttribute("eventIndex", `${eventIndex}`);
 
         const eventDivDeleteBtnIcon = document.createElement("i");
-        eventDivDeleteBtnIcon.classList = "fa fa-edit";
+        eventDivDeleteBtnIcon.classList = "fa fa-trash";
 
       eventDivDeleteBtn.innerHTML = `${eventDivDeleteBtnIcon.outerHTML} Delete Event`;
 
@@ -94,12 +94,25 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
 
           const sessionHeadingBtnIcon = document.createElement("icon");
           sessionHeadingBtnIcon.classList = "fa fa-plus";
-          sessionHeadingBtn.innerHTML =`${sessionHeadingBtnIcon.outerHTML} Add Session`;
+        
+        sessionHeadingBtn.innerHTML =`${sessionHeadingBtnIcon.outerHTML} Add Session`;
 
-        sessionHeadingBtn.appendChild(sessionHeadingBtnIcon);
       
       sessionHeading.appendChild(sessionHeadingParagraph);
       sessionHeading.appendChild(sessionHeadingBtn);
+
+      // Event Listener to Open the Date
+      openDateBtn.addEventListener("click", () => {
+        if(openDateBtn.className.includes("active")){
+          openDateBtn.classList = "accordion";
+          sessionSection.style = "display: none;"
+        }
+        else{
+          openDateBtn.classList = "accordion active";
+          sessionSection.style = "display: block;"
+        }
+          
+      });
 
       const sessionDiv = document.createElement("div");
       sessionDiv.id = "session";
@@ -107,7 +120,7 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
       sessionDiv.setAttribute("sessionIndex", `${sessionIndex}`);
 
         const sessionBtn = document.createElement("button");
-        sessionBtn.classList = "accordian";
+        sessionBtn.classList = "accordion";
         sessionBtn.id = "session-title";
         sessionBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
         sessionBtn.setAttribute("sessionIndex", `${sessionIndex}`);
@@ -118,6 +131,18 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
         sessionEventDiv.classList = "panel";
         sessionEventDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
         sessionEventDiv.setAttribute("sessionIndex", `${sessionIndex}`);
+
+        // Event Listener to Open the Date
+        sessionBtn.addEventListener("click", () => {
+          if(sessionBtn.className.includes("active")){
+            sessionBtn.classList = "accordion";
+            sessionEventDiv.style = "display: none;"
+          }
+          else{
+            sessionBtn.classList = "accordion active";
+            sessionEventDiv.style = "display: block;"
+          }
+        });
 
           const eventHeadingDiv = document.createElement("div");
           eventHeadingDiv.id = "events-heading";
