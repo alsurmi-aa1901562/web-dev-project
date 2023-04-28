@@ -153,145 +153,6 @@
 			]
 		},
 		{
-			"name": "Session Route",
-			"item": [
-				{
-					"name": "ID Route",
-					"item": [
-						{
-							"name": "/api/session/:id",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/api/session/:id",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"session",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "dzxvDBKhNXrOtUCw4lzSa"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "/api/session/:id",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"date\": \"10-03-2022\",\r\n    \"location\": \"dummylocation\",\r\n    \"title\": \"A Dummy Book Title 2\"\r\n}"
-								},
-								"url": {
-									"raw": "http://localhost:3000/api/session/:id",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"session",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "dzxvDBKhNXrOtUCw4lzSa"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "/api/session/:id",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/api/session/:id",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"api",
-										"session",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "dzxvDBKhNXrOtUCw4lzSa"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "/api/session",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/session",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"session"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/api/session",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": 999,\r\n    \"date\": \"10-03-2022\",\r\n    \"location\": \"dummylocation\",\r\n    \"title\": \"A Dummy Book Title\"\r\n}"
-						},
-						"url": {
-							"raw": "http://localhost:3000/api/session",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"session"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Paper Route",
 			"item": [
 				{
@@ -317,7 +178,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "kdkA8bcmQ66rzqZ2uQUOB"
+											"value": "wRPpOEBRTtHxpFT0RvUrn"
 										}
 									]
 								}
@@ -411,7 +272,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"0\",\r\n    \"title\": \"Dummy Title\",\r\n    \"abstract\": \"The Dummy Abstract Is an Abstract\",\r\n    \"authors\": [],\r\n    \"pdfPath\": \"dummy/path/dummy.pdf\"\r\n}"
+							"raw": "{\r\n    \"id\": \"0\",\r\n    \"title\": \"Dummy Title\",\r\n    \"abstract\": \"The Dummy Abstract Is an Abstract\",\r\n    \"authors\": [],\r\n    \"reviewers\": [\r\n        {\r\n            \"id\": \"0\",\r\n            \"score\":\r\n        },\r\n    ],\r\n    \"pdfPath\": \"dummy/path/dummy.pdf\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/paper",
@@ -436,6 +297,382 @@
 				{
 					"name": "ID Route",
 					"item": [
+						{
+							"name": "Session",
+							"item": [
+								{
+									"name": "ID Route",
+									"item": [
+										{
+											"name": "Event",
+											"item": [
+												{
+													"name": "ID Route",
+													"item": [
+														{
+															"name": "/api/schedule/:scheduleid/session/:sessionid/events/:id",
+															"request": {
+																"method": "GET",
+																"header": [],
+																"url": {
+																	"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid/events/:id",
+																	"protocol": "http",
+																	"host": [
+																		"localhost"
+																	],
+																	"port": "3000",
+																	"path": [
+																		"api",
+																		"schedule",
+																		":scheduleid",
+																		"session",
+																		":sessionid",
+																		"events",
+																		":id"
+																	],
+																	"variable": [
+																		{
+																			"key": "scheduleid",
+																			"value": "1"
+																		},
+																		{
+																			"key": "sessionid",
+																			"value": "44"
+																		},
+																		{
+																			"key": "id",
+																			"value": "34"
+																		}
+																	]
+																}
+															},
+															"response": []
+														},
+														{
+															"name": "/api/schedule/:scheduleid/session/:sessionid/events/:id",
+															"request": {
+																"method": "PUT",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\r\n    \"title\":\"UPDATE PUT\",\r\n    \"presenter\":\"John Doe\",\r\n    \"startTime\":\"startTime\",\r\n    \"endTime\":\"endTime\"\r\n}"
+																},
+																"url": {
+																	"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid/events/:id",
+																	"protocol": "http",
+																	"host": [
+																		"localhost"
+																	],
+																	"port": "3000",
+																	"path": [
+																		"api",
+																		"schedule",
+																		":scheduleid",
+																		"session",
+																		":sessionid",
+																		"events",
+																		":id"
+																	],
+																	"variable": [
+																		{
+																			"key": "scheduleid",
+																			"value": "1"
+																		},
+																		{
+																			"key": "sessionid",
+																			"value": "44"
+																		},
+																		{
+																			"key": "id",
+																			"value": "34"
+																		}
+																	]
+																}
+															},
+															"response": []
+														},
+														{
+															"name": "/api/schedule/:scheduleid/session/:sessionid/events/:id",
+															"request": {
+																"method": "DELETE",
+																"header": [],
+																"url": {
+																	"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid/events/:id",
+																	"protocol": "http",
+																	"host": [
+																		"localhost"
+																	],
+																	"port": "3000",
+																	"path": [
+																		"api",
+																		"schedule",
+																		":scheduleid",
+																		"session",
+																		":sessionid",
+																		"events",
+																		":id"
+																	],
+																	"variable": [
+																		{
+																			"key": "scheduleid",
+																			"value": "1"
+																		},
+																		{
+																			"key": "sessionid",
+																			"value": "44"
+																		},
+																		{
+																			"key": "id",
+																			"value": "5ENY6FPZmPzPoP9mGuOWZ"
+																		}
+																	]
+																}
+															},
+															"response": []
+														}
+													]
+												},
+												{
+													"name": "/api/schedule/:scheduleid/session/:sessionid/events",
+													"request": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid/events",
+															"protocol": "http",
+															"host": [
+																"localhost"
+															],
+															"port": "3000",
+															"path": [
+																"api",
+																"schedule",
+																":scheduleid",
+																"session",
+																":sessionid",
+																"events"
+															],
+															"variable": [
+																{
+																	"key": "scheduleid",
+																	"value": "1"
+																},
+																{
+																	"key": "sessionid",
+																	"value": "44"
+																}
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "/api/schedule/:scheduleid/session/:sessionid/events",
+													"request": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"id\":\"33\",\r\n    \"title\":\"Dummy Title of Paper Sec Sec\",\r\n    \"presenter\":\"Alfred Bat\",\r\n    \"startTime\":\"1\",\r\n    \"endTime\":\"2\"\r\n}"
+														},
+														"url": {
+															"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid/events",
+															"protocol": "http",
+															"host": [
+																"localhost"
+															],
+															"port": "3000",
+															"path": [
+																"api",
+																"schedule",
+																":scheduleid",
+																"session",
+																":sessionid",
+																"events"
+															],
+															"variable": [
+																{
+																	"key": "scheduleid",
+																	"value": "i9zRJCgAlSnI0FJdfaGgb"
+																},
+																{
+																	"key": "sessionid",
+																	"value": "QdjXLrX0VAKCNzbeTfpLu"
+																}
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "/api/schedule/:scheduleid/session/:sessionid",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"schedule",
+														":scheduleid",
+														"session",
+														":sessionid"
+													],
+													"variable": [
+														{
+															"key": "scheduleid",
+															"value": "1"
+														},
+														{
+															"key": "sessionid",
+															"value": "fPEvKuZqpk2KTFiqigwZz"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "/api/schedule/:scheduleid/session/:sessionid",
+											"request": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"title\":\"SESSION PUT Valid\",\r\n    \"location\":\"daafs\",\r\n    \"events\":[]\r\n}"
+												},
+												"url": {
+													"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"schedule",
+														":scheduleid",
+														"session",
+														":sessionid"
+													],
+													"variable": [
+														{
+															"key": "scheduleid",
+															"value": "1"
+														},
+														{
+															"key": "sessionid",
+															"value": "44"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "/api/schedule/:scheduleid/session/:sessionid",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "3000",
+													"path": [
+														"api",
+														"schedule",
+														":scheduleid",
+														"session",
+														":sessionid"
+													],
+													"variable": [
+														{
+															"key": "scheduleid",
+															"value": "1"
+														},
+														{
+															"key": "sessionid",
+															"value": "CAB4HtIGKt3RQdN5TzoZZ"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "/api/schedule/:scheduleid/session",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/schedule/:scheduleid/session",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"schedule",
+												":scheduleid",
+												"session"
+											],
+											"variable": [
+												{
+													"key": "scheduleid",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/api/schedule/:scheduleid/session",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\":\"33\",\r\n    \"title\":\"Dummy Title3\",\r\n    \"location\":\"Dummy Location3\",\r\n    \"events\":[]\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/schedule/:scheduleid/session",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"schedule",
+												":scheduleid",
+												"session"
+											],
+											"variable": [
+												{
+													"key": "scheduleid",
+													"value": "i9zRJCgAlSnI0FJdfaGgb"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
 						{
 							"name": "/api/schedule/:id",
 							"request": {
@@ -550,7 +787,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 0,\r\n    \"date\": \"12/4/2023\",\r\n    \"sessions\": []\r\n}"
+							"raw": "{\r\n    \"id\": 0,\r\n    \"fromDate\": \"28/4/2023\",\r\n    \"toDate\":\"1/4/2023\",\r\n    \"sessions\": []\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/schedule",
@@ -562,6 +799,153 @@
 							"path": [
 								"api",
 								"schedule"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Institutions",
+			"item": [
+				{
+					"name": "/api/institutions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/institutions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"institutions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/institutions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hamad Bin Khalifa University\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/institutions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"institutions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "/api/locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/locations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"QU Library B13-225\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/locations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Conference-dates",
+			"item": [
+				{
+					"name": "/api/conference-dates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/conference-dates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"conference-dates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/conference-dates",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"1/4/2023\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/conference-dates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"conference-dates"
 							]
 						}
 					},
