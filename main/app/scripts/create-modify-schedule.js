@@ -1,11 +1,38 @@
-async function createDays() {
-  
+
+
+//Method that Creates Events Elements
+async function createEvents() {
+
 }
+
+// Method that Creates Session Elements
+async function createSessions() {
+
+}
+
+// Method that Creates Day Elements
+async function createDays() {
+
+}
+
+// Method that Load Schedules and Creates Required Elements
+async function loadSchedules() {
+
+}
+
 
 // Default DOM
 document.addEventListener("DOMContentLoaded", async () => {
   //TODO: Validate if the Schedule exists.. if it does then show the days and if not show a button that asks to create a schedule
 });
+
+
+
+
+
+
+
+
 
 //============================accordion setup======================
 var acc = document.getElementsByClassName("accordion");
