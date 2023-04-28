@@ -546,7 +546,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n    \"title\":\"SESSION PUT Valid\",\r\n    \"location\":\"daafs\",\r\n    \"events\":[]\r\n}"
+													"raw": "{\r\n    \"title\":\"SESSION PUT Valid\",\r\n    \"location\":\"daafs\",\r\n    \"events\":[],\r\n    \"date\": \"30/3/2023\",\r\n}"
 												},
 												"url": {
 													"raw": "http://localhost:3000/api/schedule/:scheduleid/session/:sessionid",
@@ -646,7 +646,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"id\":\"33\",\r\n    \"title\":\"Dummy Title3\",\r\n    \"location\":\"Dummy Location3\",\r\n    \"events\":[]\r\n}"
+											"raw": "{\r\n    \"id\":\"33\",\r\n    \"title\":\"Dummy Title3\",\r\n    \"location\":\"Dummy Location3\",\r\n    \"date\": \"30/3/2023\",\r\n    \"events\":[]\r\n}"
 										},
 										"url": {
 											"raw": "http://localhost:3000/api/schedule/:scheduleid/session",
