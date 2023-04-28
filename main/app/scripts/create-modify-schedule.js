@@ -1,4 +1,5 @@
-
+// Global Variables
+const schedulesURL = "http://localhost:3000/api/schedule";
 
 //Method that Creates Events Elements
 async function createEvents() {
@@ -6,24 +7,65 @@ async function createEvents() {
 }
 
 // Method that Creates Session Elements
-async function createSessions() {
+async function createSession() {
 
 }
 
 // Method that Creates Day Elements
-async function createDays() {
+async function createDay(session, underSchedule) {
+  const daysSection = document.createElement("section");
+  daysSection.id = "day-schedule";
 
+  const openDateBtn = document.createElement("button");
+  openDateBtn.classList = "accordion";
+  openDateBtn.innerHTML = `${session.date}`;
+  underSchedule.appendChild(openDateBtn);
+  underSchedule.appendChild(daysSection);
+  // const sessionSection = document.createElement("section");
+  // sessionSection.id = "session-enclosure";
+  // sessionSection.classList = "panel"
 }
 
 // Method that Load Schedules and Creates Required Elements
-async function loadSchedules() {
+async function loadSchedules(schedules) {
+  const mainDiv = document.getElementById("scheduleList");
 
+  schedules.forEach((e, schedulesIndex) => {
+    const scheduleDate = document.createElement("h3");
+    scheduleDate.id = "scheduleDateRange";
+    scheduleDate.innerHTML = `Schedule: ${e.fromDate} - ${e.toDate}`;
+
+    const daysList = document.createElement("div");
+    daysList.id = "all-days";
+
+      e.sessions.forEach((e, sessionsIndex) => {
+        createDay(e, daysList);
+      });
+
+    mainDiv.appendChild(scheduleDate);
+    mainDiv.appendChild(daysList);
+    mainDiv
+  });
+
+  const addDateBtn = document.createElement("button");
+  addDateBtn.id = "add-date-btn";
+  
+    const icon = document.createElement("i");
+    icon.setAttribute("class", "fa fa-plus");
+
+  addDateBtn.innerHTML = `${icon.outerHTML} Add New Date`
+  
+  mainDiv.appendChild(addDateBtn)
 }
 
 
 // Default DOM
 document.addEventListener("DOMContentLoaded", async () => {
   //TODO: Validate if the Schedule exists.. if it does then show the days and if not show a button that asks to create a schedule
+  const res = await fetch(schedulesURL);
+  const schedules = await res.json();
+
+  loadSchedules(schedules)
 });
 
 

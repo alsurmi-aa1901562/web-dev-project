@@ -17,12 +17,13 @@ export async function POST(request, {params}) {
         const {scheduleid} = params;
         const body = await request.json();
 
-        if("id" in body && "title" in body && "location" in body && "events" in body) {
+        if("id" in body && "title" in body && "location" in body && "events" in body && "date" in body) {
             const session = await repo.createSession({
                 id: body.id,
                 title: body.title,
                 location: body.location,
-                events: body.events
+                events: body.events,
+                date: body.date
             }, scheduleid);
             return Response.json(session, {status: 201});
         }

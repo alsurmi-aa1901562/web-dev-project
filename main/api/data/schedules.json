@@ -1,7 +1,7 @@
 [
     {
         "created": "2023-04-28T05:06:10.459Z",
-        "fromDate": "28/4/2023",
+        "fromDate": "28/3/2023",
         "toDate":"1/4/2023",
         "id": "i9zRJCgAlSnI0FJdfaGgb",
         "sessions": [
@@ -35,7 +35,8 @@
                 ],
                 "id": "B-ceaNuDwQSjjYhpBMXn8",
                 "location": "Dummy Location",
-                "title": "Dummy Title"
+                "title": "Dummy Title",
+                "date": "28/3/2023"
             },
             {
                 "created": "2023-04-28T05:08:15.415Z",
@@ -59,7 +60,8 @@
                 ],
                 "id": "rWxO4FLlFX1Y_26xbxUKX",
                 "location": "Dummy Location2",
-                "title": "Dummy Title2"
+                "title": "Dummy Title2",
+                "date": "29/3/2023"
             },
             {
                 "created": "2023-04-28T05:08:19.612Z",
@@ -75,7 +77,8 @@
                 ],
                 "id": "QdjXLrX0VAKCNzbeTfpLu",
                 "location": "Dummy Location3",
-                "title": "Dummy Title3"
+                "title": "Dummy Title3",
+                "date": "30/3/2023"
             }
         ]
     }

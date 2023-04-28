@@ -20,7 +20,7 @@ export async function PUT(request, {params}) {
         const{ scheduleid, sessionid } = params;
         const body = await request.json();
 
-         if("events" in body && "location" in body && "title" in body) {
+         if("events" in body && "location" in body && "title" in body && "date" in body) {
             const session = await repo.updateSession(scheduleid, sessionid, body);
 
             if (session) {
