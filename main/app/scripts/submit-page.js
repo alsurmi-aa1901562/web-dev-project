@@ -247,12 +247,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // const formdata = new FormData();
       // formdata.append("file", data.get("paper-pdf"));
+      // console.log(formdata.get('file'));
 
-      // const request = await fetch(uploadURL, {
+
+
+      // const requestd = await fetch(uploadURL, {
       //   method: "POST",
-      //   body: {
-      //     "STUFF": `${formdata}`,
-      //   }
+      //   body: formdata
       // });
 
       // TODO: ABOVE ^

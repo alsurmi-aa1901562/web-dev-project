@@ -2,8 +2,8 @@ import * as repo from "../repository.js"
 
 export async function GET(request, {params}) {
     try {
-        const{ id } = params;
-        const schedule = await repo.readSchedule(id);
+        const{ scheduleid } = params;
+        const schedule = await repo.readSchedule(scheduleid);
         if (schedule) {
             return Response.json(schedule, {status: 200});
         }
@@ -17,12 +17,12 @@ export async function GET(request, {params}) {
 
 export async function PUT(request, {params}) {
     try {
-        const{ id } = params;
+        const{ scheduleid } = params;
         const body = await request.json();
 
         if("date" in body && "sessions" in body) {
             if(Array.isArray(body.sessions)){
-                const schedule = await repo.updateSchedule(id, body);
+                const schedule = await repo.updateSchedule(scheduleid, body);
 
                 if (schedule) {
                 return Response.json(schedule, {status: 200});
@@ -41,8 +41,8 @@ export async function PUT(request, {params}) {
 
 export async function DELETE(request, {params}) {
     try {
-        const{ id } = params;
-        const schedule = await repo.deleteSchedule(id);
+        const{ scheduleid } = params;
+        const schedule = await repo.deleteSchedule(scheduleid);
 
         if(schedule) {
             return  Response.json({message: "Deleted Schedule!"}, {status: 200});

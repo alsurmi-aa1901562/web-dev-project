@@ -1,1 +1,119 @@
-[{"abstract":"Lmao","authors":[{"affiliation":"Qatar University","email":"a@a.com","fname":"asdf","isPresentor":"true","lname":"asdf"}],"created":"2023-04-27T01:51:29.246Z","id":"wRPpOEBRTtHxpFT0RvUrn","pdfPath":"dummy/path/dummy.pdf","reviewers":[{"contribution":"","evaluation":"-999","id":"6","strengths":"","weaknesses":""},{"contribution":"","evaluation":"-999","id":"4","strengths":"","weaknesses":""}],"title":"Lmao"},{"abstract":"Lmao2","authors":[{"affiliation":"Qatar University","email":"a@a.com","fname":"first1","isPresentor":"true","lname":"last1"},{"affiliation":"Qatar University","email":"b@a.com","fname":"first2","isPresentor":"false","lname":"last2"}],"created":"2023-04-27T01:51:29.246Z","id":"wRPpOEBRTtHxpFT0RvUSn","pdfPath":"dummy/path/dummy.pdf","reviewers":[{"contribution":"","evaluation":"-999","id":"6","strengths":"","weaknesses":""},{"contribution":"","evaluation":"-999","id":"4","strengths":"","weaknesses":""}],"title":"Lmao 1"},{"abstract":"Lmao","authors":[{"affiliation":"Qatar University","email":"c@c.com","fname":"asdfas","isPresentor":"true","lname":"asdfas"},{"affiliation":"Qatar University","email":"a@a.com","fname":"sfafd","isPresentor":"false","lname":"asdfas"},{"affiliation":"Qatar University","email":"b@b.com","fname":"lmao","isPresentor":"false","lname":"rofl"}],"created":"2023-04-27T03:34:56.005Z","id":"h1FMDRvJ4aYZbXB-n5XY1","pdfPath":"dummy/path/dummy.pdf","reviewers":[{"contribution":"3","evaluation":"0","id":"6","strengths":"sdaf","weaknesses":"asdf"},{"contribution":"","evaluation":"-999","id":"9","strengths":"","weaknesses":""}],"title":"Lmao 2"}]
+[
+    {
+        "abstract": "Lmao",
+        "authors": [
+            {
+                "affiliation": "Qatar University",
+                "email": "a@a.com",
+                "fname": "asdf",
+                "isPresentor": "true",
+                "lname": "asdf"
+            }
+        ],
+        "created": "2023-04-27T01:51:29.246Z",
+        "id": "wRPpOEBRTtHxpFT0RvUrn",
+        "pdfPath": "dummy/path/dummy.pdf",
+        "reviewers": [
+            {
+                "contribution": "",
+                "evaluation": "-999",
+                "id": "6",
+                "strengths": "",
+                "weaknesses": ""
+            },
+            {
+                "contribution": "",
+                "evaluation": "-999",
+                "id": "4",
+                "strengths": "",
+                "weaknesses": ""
+            }
+        ],
+        "title": "Lmao"
+    },
+    {
+        "abstract": "Lmao2",
+        "authors": [
+            {
+                "affiliation": "Qatar University",
+                "email": "a@a.com",
+                "fname": "first1",
+                "isPresentor": "true",
+                "lname": "last1"
+            },
+            {
+                "affiliation": "Qatar University",
+                "email": "b@a.com",
+                "fname": "first2",
+                "isPresentor": "false",
+                "lname": "last2"
+            }
+        ],
+        "created": "2023-04-27T01:51:29.246Z",
+        "id": "wRPpOEBRTtHxpFT0RvUSn",
+        "pdfPath": "dummy/path/dummy.pdf",
+        "reviewers": [
+            {
+                "contribution": "",
+                "evaluation": "-999",
+                "id": "6",
+                "strengths": "",
+                "weaknesses": ""
+            },
+            {
+                "contribution": "",
+                "evaluation": "-999",
+                "id": "4",
+                "strengths": "",
+                "weaknesses": ""
+            }
+        ],
+        "title": "Lmao 1"
+    },
+    {
+        "abstract": "Lmao",
+        "authors": [
+            {
+                "affiliation": "Qatar University",
+                "email": "c@c.com",
+                "fname": "asdfas",
+                "isPresentor": "true",
+                "lname": "asdfas"
+            },
+            {
+                "affiliation": "Qatar University",
+                "email": "a@a.com",
+                "fname": "sfafd",
+                "isPresentor": "false",
+                "lname": "asdfas"
+            },
+            {
+                "affiliation": "Qatar University",
+                "email": "b@b.com",
+                "fname": "lmao",
+                "isPresentor": "false",
+                "lname": "rofl"
+            }
+        ],
+        "created": "2023-04-27T03:34:56.005Z",
+        "id": "h1FMDRvJ4aYZbXB-n5XY1",
+        "pdfPath": "dummy/path/dummy.pdf",
+        "reviewers": [
+            {
+                "contribution": "3",
+                "evaluation": "0",
+                "id": "6",
+                "strengths": "sdaf",
+                "weaknesses": "asdf"
+            },
+            {
+                "contribution": "",
+                "evaluation": "-999",
+                "id": "9",
+                "strengths": "",
+                "weaknesses": ""
+            }
+        ],
+        "title": "Lmao 2"
+    }
+]

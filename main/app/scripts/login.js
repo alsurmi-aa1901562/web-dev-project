@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", async () =>{
                         goToPage(0, username, u.id);
                     }
                     else if(username.includes("organizer")) {
-                        
+                        goToPage(1, username, u.id);
                     }
                     else if(username.includes("author")) {
                         goToPage(2, username, u.id);

@@ -1,8 +1,9 @@
-import * as repo from "./repository.js";
+import * as repo from "../../repository.js";
 
 export async function GET(request, {params}) {
     try {
-        const sessions = await repo.readSessions();
+        const { scheduleid } = params;
+        const sessions = await repo.readSessions(scheduleid);
         return Response.json(sessions, {status: 200});
 
     } catch (error) {
@@ -13,16 +14,17 @@ export async function GET(request, {params}) {
 
 export async function POST(request, {params}) {
     try {
+        const {scheduleid} = params;
         const body = await request.json();
 
-        if("id" in body && "date" in body && "location" in body && "title") {
+        if("id" in body && "title" in body && "location" in body && "events" in body) {
+            console.log(body.id)
             const session = await repo.createSession({
                 id: body.id,
-                date: body.date,
+                title: body.title,
                 location: body.location,
-                title: body.title
-            });
-
+                events: body.events
+            }, scheduleid);
             return Response.json(session, {status: 201});
         }
 

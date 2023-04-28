@@ -1,9 +1,9 @@
-import * as repo from "../repository.js"
+import * as repo from "../../../repository.js"
 
 export async function GET(request, {params}) {
     try {
-        const{ id } = params;
-        const session = await repo.readSession(id);
+        const{ scheduleid, sessionid } = params;
+        const session = await repo.readSession(scheduleid, sessionid);
         if (session) {
             return Response.json(session, {status: 200});
         }
@@ -17,11 +17,11 @@ export async function GET(request, {params}) {
 
 export async function PUT(request, {params}) {
     try {
-        const{ id } = params;
+        const{ scheduleid, sessionid } = params;
         const body = await request.json();
 
-         if("date" in body && "location" in body && "title") {
-            const session = await repo.updateSession(id, body);
+         if("events" in body && "location" in body && "title" in body) {
+            const session = await repo.updateSession(scheduleid, sessionid, body);
 
             if (session) {
                 return Response.json(session, {status: 200});
@@ -39,8 +39,8 @@ export async function PUT(request, {params}) {
 
 export async function DELETE(request, {params}) {
     try {
-        const{ id } = params;
-        const session = await repo.deleteSession(id);
+        const{ scheduleid, sessionid } = params;
+        const session = await repo.deleteSession(scheduleid, sessionid);
 
         if(session) {
             return  Response.json({message: "Deleted Session!"}, {status: 200});
