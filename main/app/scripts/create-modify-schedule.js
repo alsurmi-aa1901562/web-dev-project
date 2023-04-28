@@ -40,6 +40,15 @@ async function createEvents(events, underSessions, scheduleIndex, sessionIndex, 
 
       eventDivEditBtn.innerHTML = `${eventDivEditBtnIcon.outerHTML} Edit Event`;
 
+      eventDivEditBtn.addEventListener("click", () => {
+        const editEventModal = document.getElementById("edit-event-Modal");
+        editEventModal.style.display = "block";
+
+        //TODO: Add info into modal
+
+        //TODO: put to which session
+      });
+
       const eventDivDeleteBtn = document.createElement("button");
       eventDivDeleteBtn.id = "delete-event-btn";
       eventDivDeleteBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
@@ -50,6 +59,10 @@ async function createEvents(events, underSessions, scheduleIndex, sessionIndex, 
         eventDivDeleteBtnIcon.classList = "fa fa-trash";
 
       eventDivDeleteBtn.innerHTML = `${eventDivDeleteBtnIcon.outerHTML} Delete Event`;
+
+      eventDivDeleteBtn.addEventListener("click", () => {
+        //TODO: Delete Event Off Of JSON
+      });
 
     eventDivButtonsDiv.appendChild(eventDivEditBtn);
     eventDivButtonsDiv.appendChild(eventDivDeleteBtn);
@@ -97,6 +110,12 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
         
         sessionHeadingBtn.innerHTML =`${sessionHeadingBtnIcon.outerHTML} Add Session`;
 
+        sessionHeadingBtn.addEventListener("click", () => {
+          const addSessionModal = document.getElementById("new-session-modal");
+          addSessionModal.style.display = "block";
+
+          // TODO: assign which addition
+        });
       
       sessionHeading.appendChild(sessionHeadingParagraph);
       sessionHeading.appendChild(sessionHeadingBtn);
@@ -105,11 +124,11 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
       openDateBtn.addEventListener("click", () => {
         if(openDateBtn.className.includes("active")){
           openDateBtn.classList = "accordion";
-          sessionSection.style = "display: none;"
+          sessionSection.style.display = "none";
         }
         else{
           openDateBtn.classList = "accordion active";
-          sessionSection.style = "display: block;"
+          sessionSection.style.display = "block";
         }
           
       });
@@ -136,11 +155,11 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
         sessionBtn.addEventListener("click", () => {
           if(sessionBtn.className.includes("active")){
             sessionBtn.classList = "accordion";
-            sessionEventDiv.style = "display: none;"
+            sessionEventDiv.style.display = "none";
           }
           else{
             sessionBtn.classList = "accordion active";
-            sessionEventDiv.style = "display: block;"
+            sessionEventDiv.style.display = "block";
           }
         });
 
@@ -167,6 +186,11 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
                 eventHeadingSessionBtnIcon.classList = "fa fa-plus";
 
               eventHeadingSessionBtn.innerHTML = `${eventHeadingSessionBtnIcon.outerHTML} Add Event`;
+
+              eventHeadingSessionBtn.addEventListener("click", () => {
+                const addEventModal = document.getElementById("add-event-modal");
+                addEventModal.style.display = "block";
+              });
             
             eventHeadingSessionDiv.appendChild(eventHeadingSessionBtn);
 
@@ -197,6 +221,11 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
 
             eventSessionEditBtn.innerHTML = `${eventSessionEditBtnIcon.outerHTML} Edit Session`;
 
+            eventSessionEditBtn.addEventListener("click", () => {
+              const editEventModal = document.getElementById("edit-session-modal");
+              editEventModal.style.display = "block";
+            });
+
             const eventSessionDeleteBtn = document.createElement("button");
             eventSessionDeleteBtn.id = "delete-session-btn";
             eventSessionDeleteBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
@@ -206,6 +235,10 @@ async function createDay(session, underSchedule, scheduleIndex, sessionIndex) {
               eventSessionDeleteBtnIcon.classList = "fa fa-trash";
 
             eventSessionDeleteBtn.innerHTML = `${eventSessionDeleteBtnIcon.outerHTML} Delete Session`;
+
+            eventSessionDeleteBtn.addEventListener("click", () => {
+              // TODO: Delete SESSION off of which schedule?
+            });
 
           eventSessionBtnDiv.appendChild(eventSessionEditBtn);
           eventSessionBtnDiv.appendChild(eventSessionDeleteBtn);
@@ -257,6 +290,14 @@ async function loadSchedules(schedules) {
     icon.setAttribute("class", "fa fa-plus");
 
   addDateBtn.innerHTML = `${icon.outerHTML} Add New Date`
+
+  // Event Handler Adding Date
+  addDateBtn.addEventListener("click", () => {
+    const addModal = document.getElementById("new-date-Modal");
+    addModal.style.display = "block";
+
+    //TODO: assign which addition
+  });
   
   mainDiv.appendChild(addDateBtn)
 }
