@@ -836,7 +836,7 @@ legend{
     font-family: Poppins-Medium;
     font-size: 12px;
 }
-#add-session-btn,#add-event-btn,#edit-event-btn,#add-date-btn,#edit-session-btn,.modal-submit{
+#add-session-btn,#add-event-btn,#edit-event-btn,#add-date-btn,#edit-session-btn, #create-schedule-button, .modal-submit{
     width: 8rem;
     height: 2.5rem;
     cursor: pointer;
@@ -845,7 +845,7 @@ legend{
     font-family: Poppins-regular;
     font-size: 12px;
 }
-#edit-event-btn,#add-session-btn,#edit-session-btn,.modal-submit{
+#edit-event-btn,#add-session-btn,#edit-session-btn, #create-schedule-button, .modal-submit{
     width: 8rem;
     font-family: Poppins-medium;
 }
@@ -856,6 +856,7 @@ legend{
 #add-session-btn:hover,
 #add-event-btn:hover, 
 #edit-event-btn:hover, 
+#create-schedule-button:hover,
 #delete-session-btn:hover, 
 #delete-event-btn:hover,
 #add-date-btn:hover,#edit-session-btn:hover,.modal-submit:hover {
@@ -865,7 +866,8 @@ legend{
 
 #add-session-btn:not(:hover), 
 #add-event-btn:not(:hover), 
-#edit-event-btn:not(:hover), 
+#edit-event-btn:not(:hover),
+#create-schedule-button:not(:hover), 
 #delete-session-btn:not(:hover), 
 #delete-event-btn:not(:hover),
 #add-date-btn:not(:hover),

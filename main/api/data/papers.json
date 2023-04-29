@@ -101,17 +101,17 @@
         "reviewers": [
             {
                 "contribution": "3",
-                "evaluation": "0",
+                "evaluation": "2",
                 "id": "6",
                 "strengths": "sdaf",
                 "weaknesses": "asdf"
             },
             {
-                "contribution": "",
-                "evaluation": "-999",
+                "contribution": "3",
+                "evaluation": "2",
                 "id": "9",
-                "strengths": "",
-                "weaknesses": ""
+                "strengths": "abc",
+                "weaknesses": "avc"
             }
         ],
         "title": "Lmao 2"
@@ -122,28 +122,28 @@
             {
                 "affiliation": "Qatar University",
                 "email": "a@a.com",
-                "fname": "Jope",
+                "fname": "asdf",
                 "isPresentor": "true",
-                "lname": "Coke"
+                "lname": "asdf"
             }
         ],
-        "created": "2023-04-29T06:55:53.181Z",
-        "id": "h_xyGyBETkvLX3cKYL63Z",
-        "pdfPath": "Lorem_ipsum-Ryu6DccSJKy_Z9fh65C0J.pdf",
+        "created": "2023-04-29T09:18:09.167Z",
+        "id": "SvqOO0JgX4cyOq0VEbwGJ",
+        "pdfPath": "CMPS350-Project-Phase1-ConfPlus_Updated-5-BrGd3xpPd60Hw_uyMhW.pdf",
         "reviewers": [
             {
-                "contribution": "",
-                "evaluation": "-999",
-                "id": "3",
-                "strengths": "",
-                "weaknesses": ""
+                "contribution": "3",
+                "evaluation": "2",
+                "id": "6",
+                "strengths": "s",
+                "weaknesses": "s"
             },
             {
-                "contribution": "",
-                "evaluation": "-999",
-                "id": "7",
-                "strengths": "",
-                "weaknesses": ""
+                "contribution": "3",
+                "evaluation": "2",
+                "id": "8",
+                "strengths": "s",
+                "weaknesses": "s"
             }
         ],
         "title": "Upload Test"

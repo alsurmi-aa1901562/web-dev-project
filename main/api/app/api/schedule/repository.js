@@ -86,6 +86,15 @@ export async function createSession(session, scheduleid) {
 
         schedules[scheduleIndex].sessions.push(session);
 
+        
+        // Sort the Store Based on Date
+        schedules[scheduleIndex].sessions.sort((firstElement, secondElement) => {
+            const date = new Date(firstElement['date']);
+            const date2 = new Date(secondElement['date']);
+            return date-date2;
+        });
+
+
         await fs.writeFile(path, JSON.stringify(schedules));
         return session;
     }
@@ -190,6 +199,14 @@ export async function createEvent(event, scheduleid, sessionid) {
             }
 
             schedules[scheduleIndex].sessions[sessionIndex].events.push(event);
+            
+            // Sort the Store Based on Time
+            schedules[scheduleIndex].sessions[sessionIndex].events.sort((firstElement, secondElement) => {
+                const date = new Date(firstElement['endTime']);
+                const date2 = new Date(secondElement['startTime']);
+                return date-date2;
+            });
+
             await fs.writeFile(path, JSON.stringify(schedules));
             return event;
         }
@@ -257,6 +274,14 @@ export async function updateEvent(scheduleid, sessionid, id, body) {
                 event.endTime = body.endTime;
 
                 schedules[scheduleIndex].sessions[sessionIndex].events[eventIndex] = event;
+
+                // Sort the Store Based on Time
+                schedules[scheduleIndex].sessions[sessionIndex].events.sort((firstElement, secondElement) => {
+                    const date = new Date(firstElement['endTime']);
+                    const date2 = new Date(secondElement['startTime']);
+                    return date-date2;
+                });
+                
                 await fs.writeFile(path, JSON.stringify(schedules));
                 return event;
             }

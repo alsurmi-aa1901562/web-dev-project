@@ -9,6 +9,7 @@
     <title>Schedule administration</title>
 </head>
 <body id="body-admin">
+  <div id="pointer-follow"></div>
     <header>
     </header>
     <nav>
@@ -27,7 +28,7 @@
 
     <main class="main-section-administer">
       <div class="main-section-list" id="scheduleList">
-        <p id="schedule-heading">Schedule: 28/3/2023 - 1/4/2023</p>
+        <!-- <p id="schedule-heading">Schedule: 28/3/2023 - 1/4/2023</p>
         <div id="all-days">
           <section id="day-schedule">
             <button class="accordion">Date</button>
@@ -63,20 +64,22 @@
               </div>
             </div>
           </section>
-          <button  id="add-date-btn"> <i class="fa fa-plus"></i> Add New Date</button>           
+          <button  id="add-date-btn"> <i class="fa fa-plus"></i> Add New Date</button>            -->
         </div>
       </div>
     </main>
     <!-- All modals -->
     <div id="new-session-modal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" id="close-new-session-modal">&times;</span>
         <p class="modal-title">Add a New Session</p>
         <form id="new-session-form" class="modal-form">
+          <label for="date" class="modal-form-label">Assigned Date:</label>
+          <select id="select-date" name="date" required></select>
           <label for="Title" class="modal-form-label">Session Title</label>
-          <input type="input" id="session-title" name="Title">
+          <input type="input" id="add-session-title" name="Title" required>
           <label for="Location" class="modal-form-label">Location</label>
-          <select id="select-location-session" name="Location">
+          <select id="select-location-session" name="Location" required>
           </select>
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="new-session-submit-btn">
@@ -85,30 +88,15 @@
       </div>
     </div>
 
-    <div id="new-date-Modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p class="modal-title">Add a New Date</p>
-        <form id="new-date-form">
-          <label for="date" class="modal-form-label">Assigned Date:</label>
-          <select id="select-date" name="date">
-          </select>
-          <div id="form-submit-button">
-            <input type="submit" class="modal-submit" id="new-date-submit-btn">
-          </div>
-        </form>
-      </div>
-    </div>
-
     <div id="edit-session-modal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" id="close-edit-session-modal">&times;</span>
         <p class="modal-title">Edit Session</p>
         <form id="edit-session-form" class="modal-form">
           <label for="Title" class="modal-form-label">Session Title</label>
-          <input type="input" id="session-title" name="Title">
+          <input type="input" id="edit-modal-session-title" name="Title" required>
           <label for="Location" class="modal-form-label">Location</label>
-          <select id="select-location-session" name="Location">
+          <select id="select-location-edit-session" name="Location" required>
           </select>
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="edit-session-submit-btn">
@@ -119,15 +107,16 @@
 
     <div id="add-event-modal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" id="add-event-session-modal">&times;</span>
         <p class="modal-title">Add a New Event</p>
         <form id="new-event-form" class="modal-form">
-          <label for="Title" class="modal-form-label">event Title</label>
-          <input type="input" id="add-event-title" name="Title">
+          <label for="Location" class="modal-form-label">Approved Paper</label>
+          <select id="select-approved-paper" name="approved-paper" required>
+          </select>
           <label for="Time" class="modal-form-label">Start Time</label>
-          <input type="time" id="event-from-time" name="Time">
+          <input type="time" id="event-from-time" name="Time" required>
           <label for="Time" class="modal-form-label">End Time</label>
-          <input type="time" id="event-to-time" name="Time">
+          <input type="time" id="event-to-time" name="Time" required>
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="new-event-submit-btn">
           </div>
@@ -137,15 +126,15 @@
 
     <div id="edit-event-Modal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" id="add-event-close-modal">&times;</span>
         <p class="modal-title">Edit Event</p>
         <form id="edit-event-form" class="modal-form">
-          <label for="Title" class="modal-form-label">event Title</label>
-          <input type="input" id="edit-event-title" name="Title">
+          <!-- <label for="Title" class="modal-form-label" >event Title</label>
+          <input type="input" id="edit-event-title" name="Title" required> -->
           <label for="Time" class="modal-form-label">Start Time</label>
-          <input type="time" id="event-from-time" name="Time">
+          <input type="time" id="edit-event-from-time" name="Time" required>
           <label for="Time" class="modal-form-label">End Time</label>
-          <input type="time" id="event-to-time" name="Time">
+          <input type="time" id="edit-event-to-time" name="Time" required>
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="edit-event-submit-btn">
           </div>
@@ -155,15 +144,13 @@
 
     <div id="new-Schedule-modal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" id="close-new-schedule-modal">&times;</span>
         <p class="modal-title">Create a new Schedule</p>
         <form id="new-schedule-form" class="modal-form">
           <label for="start-date" class="modal-form-label">Start Date</label>
-          <select id="schedule-from-date" name="start-date">
-          </select>
+          <input type="date" name="startDate" id="startDate-schedule" required>
           <label for="end-date" class="modal-form-label">End Date</label>
-          <select id="schedule-to-date" name="end-date">
-          </select>
+          <input type="date" name="endDate" id="endDate-schedule" required>
           <div id="form-submit-button">
             <input type="submit" class="modal-submit" id="new-schedule-submit-btn">
           </div>
