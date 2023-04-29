@@ -1,6 +1,6 @@
 // Global Variables
 const institutionsURL = "http://localhost:3000/api/institutions";
-const uploadURL = "http://localhost:3000/api/upload";
+const uploadURL = "http://localhost:3000/api/file";
 const paperURL = "http://localhost:3000/api/paper";
 const usersURL = "http://localhost:3000/api/user";
 
@@ -244,19 +244,29 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       // TODO : Upload FILE
+      const file = data.get("paper-pdf");
+      
+      const formdata = new FormData();
+      formdata.append('file', file);
 
-      // const formdata = new FormData();
-      // formdata.append("file", data.get("paper-pdf"));
-      // console.log(formdata.get('file'));
+      const response = await fetch(uploadURL, {
+        method: "POST",
+        body: formdata
+      });
 
+      const getJson = await response.json();
 
+      // // download
+      // console.log(uploadURL+`?fileName=${file.name}`)
+      // const resp = await fetch(uploadURL+`?fileName=${file.name}`);
+      // const data3 = await resp.blob();
+      // const url = window.URL.createObjectURL(data3);
+      // const a = document.createElement("a");
+      // a.href = url;
+      // a.download = file.name;
+      // a.click();
+      // a.remove();
 
-      // const requestd = await fetch(uploadURL, {
-      //   method: "POST",
-      //   body: formdata
-      // });
-
-      // TODO: ABOVE ^
       const usersRes = await fetch(usersURL + "?type=reviewer");
       let reviewers = await usersRes.json();
       
@@ -270,7 +280,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           "title": `${title}`,
           "abstract": `${abstract}`,
           "authors": authors,
-          "pdfPath": "dummy/path/dummy.pdf",
+          "pdfPath": `${getJson.fileName}`,
           "reviewers": [
             {
               "id": `${shuffleReviewers[0].id}`,

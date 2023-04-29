@@ -1,4 +1,5 @@
 const paperURL = "http://localhost:3000/api/paper";
+const uploadURL = "http://localhost:3000/api/file";
 
 async function createCard(type, paper, reviewerIndex) {
   const toReviewGroup = document.getElementById("toReviewPaperGroup");
@@ -90,8 +91,19 @@ async function createCard(type, paper, reviewerIndex) {
 
         const downloadAnchor = document.createElement("a");
         downloadAnchor.setAttribute("class", "download-link");
-        downloadAnchor.setAttribute("id", `download${count + 1}`);
         downloadAnchor.innerHTML = "[DOWNLOAD PAPER]";
+
+        // Assigning urls To Download Papers
+        downloadAnchor.addEventListener("click", async ()=>{
+          const resp = await fetch(uploadURL+`?fileName=${paper.pdfPath}`);
+          const blobData = await resp.blob();
+          const url = window.URL.createObjectURL(blobData);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = paper.pdfPath;
+          a.click();
+          a.remove();
+        });
 
       downloadParagraph.appendChild(downloadAnchor);
     
@@ -100,7 +112,6 @@ async function createCard(type, paper, reviewerIndex) {
     const reviewBtn = document.createElement("button");
     reviewBtn.setAttribute("class", "review-button");
     reviewBtn.setAttribute("id", `reviewbtn${count + 1}`);
-    // reviewBtn.setAttribute("onclick", `openModal(${count + 1}, true)`);
 
     if(type) {
       reviewBtn.innerHTML = "Review Paper";

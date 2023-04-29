@@ -2,7 +2,7 @@
 const schedulesURL = "http://localhost:3000/api/schedule";
 
 //Method that Creates Events Elements
-async function createEvents(events, underSessions, scheduleIndex, sessionIndex, eventIndex) {
+async function createEvents(selectedEvent, underSessions, scheduleIndex, sessionIndex, eventIndex) {
   const eventDiv = document.createElement("div");
   eventDiv.id = "event";
   eventDiv.setAttribute("scheduleIndex", `${scheduleIndex}`);
@@ -14,14 +14,14 @@ async function createEvents(events, underSessions, scheduleIndex, sessionIndex, 
     eventDivTitleParagraph.setAttribute("scheduleIndex", `${scheduleIndex}`);
     eventDivTitleParagraph.setAttribute("sessionIndex", `${sessionIndex}`);
     eventDivTitleParagraph.setAttribute("eventIndex", `${eventIndex}`);
-    eventDivTitleParagraph.innerHTML = `${events.title}`;
+    eventDivTitleParagraph.innerHTML = `${selectedEvent.title}`;
 
     const eventDivPresenterParagraph = document.createElement("p");
     eventDivPresenterParagraph.id = "event-presenter";
     eventDivPresenterParagraph.setAttribute("scheduleIndex", `${scheduleIndex}`);
     eventDivPresenterParagraph.setAttribute("sessionIndex", `${sessionIndex}`);
     eventDivPresenterParagraph.setAttribute("eventIndex", `${eventIndex}`);
-    eventDivPresenterParagraph.innerHTML = `${events.presenter}`;
+    eventDivPresenterParagraph.innerHTML = `${selectedEvent.presenter}`;
 
     const eventDivButtonsDiv = document.createElement("div");
     eventDivButtonsDiv.id = "event-buttons";
@@ -31,9 +31,6 @@ async function createEvents(events, underSessions, scheduleIndex, sessionIndex, 
 
       const eventDivEditBtn = document.createElement("button");
       eventDivEditBtn.id = "edit-event-btn";
-      eventDivEditBtn.setAttribute("scheduleIndex", `${scheduleIndex}`);
-      eventDivEditBtn.setAttribute("sessionIndex", `${sessionIndex}`);
-      eventDivEditBtn.setAttribute("eventIndex", `${eventIndex}`);
 
         const eventDivEditBtnIcon = document.createElement("i");
         eventDivEditBtnIcon.classList = "fa fa-edit";
@@ -43,8 +40,25 @@ async function createEvents(events, underSessions, scheduleIndex, sessionIndex, 
       eventDivEditBtn.addEventListener("click", () => {
         const editEventModal = document.getElementById("edit-event-Modal");
         editEventModal.style.display = "block";
+  
+        const editEventSubmit = document.getElementById("edit-event-submit-btn");
+        editEventSubmit.setAttribute("scheduleIndex", `${scheduleIndex}`);
+        editEventSubmit.setAttribute("sessionIndex", `${sessionIndex}`);
+        editEventSubmit.setAttribute("eventIndex", `${eventIndex}`);
+
+        // Event Listener for Closing on Clicking Outside of Modal
+        editEventModal.addEventListener("click", (e)=>{
+          if(e.target == editEventModal) {
+            editEventModal.style.display = "none";
+            editEventSubmit.removeAttribute("scheduleIndex");
+            editEventSubmit.removeAttribute("sessionIndex");
+            editEventSubmit.removeAttribute("eventIndex");
+          }
+        });
 
         //TODO: Add info into modal
+        const eventTitle = document.getElementById("edit-event-title");
+        eventTitle.value = `${selectedEvent.title}`
 
         //TODO: put to which session
       });
@@ -267,8 +281,8 @@ async function loadSchedules(schedules) {
   const mainDiv = document.getElementById("scheduleList");
 
   schedules.forEach((e, schedulesIndex) => {
-    const scheduleDate = document.createElement("h3");
-    scheduleDate.id = "scheduleDateRange";
+    const scheduleDate = document.createElement("p");
+    scheduleDate.id = "schedule-heading";
     scheduleDate.innerHTML = `Schedule: ${e.fromDate} - ${e.toDate}`;
 
     const daysList = document.createElement("div");
@@ -316,7 +330,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const res = await fetch(schedulesURL);
   const schedules = await res.json();
 
-  loadSchedules(schedules)
+  loadSchedules(schedules);
+  const date = new Date(2023, 2, 28);
+  console.log(date.toISOString());
 });
 
 
@@ -387,19 +403,19 @@ for (var i = 0; i < span.length; i++) {
     modalToClose.style.display = "none";
   }
 }
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  } else if (event.target == modal1) {
-    modal1.style.display = "none";
-  } else if (event.target == modal2) {
-    modal2.style.display = "none";
-  } else if (event.target == modal3) {
-    modal3.style.display = "none";
-  } else if (event.target == modal4) {
-    modal4.style.display = "none";
-  }
-}
-//===================================================
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   } else if (event.target == modal1) {
+//     modal1.style.display = "none";
+//   } else if (event.target == modal2) {
+//     modal2.style.display = "none";
+//   } else if (event.target == modal3) {
+//     modal3.style.display = "none";
+//   } else if (event.target == modal4) {
+//     modal4.style.display = "none";
+//   }
+// }
+// //===================================================
 

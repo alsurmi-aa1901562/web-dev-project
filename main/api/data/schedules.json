@@ -36,7 +36,7 @@
                 "id": "B-ceaNuDwQSjjYhpBMXn8",
                 "location": "Dummy Location",
                 "title": "Dummy Title",
-                "date": "28/3/2023"
+                "date": "2023-03-27T21:00:00.000Z"
             },
             {
                 "created": "2023-04-28T05:08:15.415Z",
@@ -61,7 +61,7 @@
                 "id": "rWxO4FLlFX1Y_26xbxUKX",
                 "location": "Dummy Location2",
                 "title": "Dummy Title2",
-                "date": "29/3/2023"
+                "date": "2023-03-28T21:00:00.000Z"
             },
             {
                 "created": "2023-04-28T05:08:19.612Z",
@@ -78,7 +78,7 @@
                 "id": "QdjXLrX0VAKCNzbeTfpLu",
                 "location": "Dummy Location3",
                 "title": "Dummy Title3",
-                "date": "30/3/2023"
+                "date": "2023-03-29T21:00:00.000Z"
             }
         ]
     }
