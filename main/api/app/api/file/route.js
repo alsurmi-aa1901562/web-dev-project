@@ -1,18 +1,27 @@
 import { promises as fs } from "fs";
 import { nanoid } from "nanoid";
 import * as repo from "./repository.js";
+import { resolve } from 'path';
 
 export async function GET(req) {
     try {
         const fileName = new URL(req.url).searchParams.get("fileName");
-        const data = repo.getFile(fileName);
-        if(data) {
-            return new Response(data, {
-                headers: {
-                    "Content-Type": "application/pdf",
-                }
-            });
-        }
+
+        const pathNAN = "./data/pdfs";
+        // const pathResolved = resolve(pathNAN);
+
+        // const pathAbsolute = pathResolved.replace(/\\/g, '\\\\');
+        // const path = pathAbsolute + `\\\\${fileName}`;
+        // console.log(path);
+
+        // const data = await fs.readFile(path);
+
+        const data = await fs.readFile(`${pathNAN}/${fileName}`);
+        return new Response(data, {
+            headers: {
+                "Content-Type": "application/pdf",
+            }
+        });
     } catch (error) {
         console.error("error -", error.message);
         console.log(error)
