@@ -20,7 +20,7 @@
 }
 
 body {
-  background-image: url("../images/bg-submit.jpg");
+  background-image: url("../images/bg.gif");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -46,70 +46,16 @@ header div {
   gap: 1rem;
 }
 
-#login {
-  margin-left: 78%;
-}
-
-@media screen and (max-width: 1230px) {
-
-  #login {
-    margin-left: 70%;
-  }
-
-}
-
-@media screen and (max-width: 1000px) {
-
-  #login {
-    margin-left: 65%;
-  }
-
-}
-
-@media screen and (max-width: 920px) {
-
-  #login {
-    margin-left: 60%;
-  }
-
-}
-
-@media screen and (max-width: 760px) {
-
-  #login {
-    margin-left: 55%;
-  }
-
-}
-
-@media screen and (max-width: 675px) {
-
-  #login {
-    margin-left: 50%;
-  }
-
-}
-
-@media screen and (max-width: 620px) {
-
-  #login {
-    margin-left: 42%;
-  }
-
-}
-
-@media screen and (max-width: 555px) {
-
-  #login {
-    margin-left: 30%;
-  }
-
-}
 
 #login:hover {
-  transform: scale(1.045);
-  transition: 0.25s ease-in-out;
+  transform: scale(1.005);
+  transition: 0.15s ease-in-out;
   background-color: rgba(0, 0, 0, 0.112);
+}
+
+#login:not(:hover) {
+  transform: scale(1);
+  transition: 0.15s ease-in-out;
 }
 
 header a {
@@ -145,7 +91,6 @@ nav {
 }
 
 nav select {
-  background-color: #9696e5;
   font-family: Poppins-Regular;
   padding: 5px 10px;
   border-radius: 30px;
@@ -154,13 +99,10 @@ nav select {
 }
 
 nav select:focus {
-  background-color: beige;
   outline: none;
 }
 
 nav select:hover {
-  background-color: #6c6ced;
-  color: white;
   transform: scale(1.065);
   transition: 0.25s ease-in-out;
 }
@@ -168,9 +110,10 @@ nav select:hover {
 /* Main styles */
 main {
   background-color: white;
-  margin: 10px;
-  padding: .1rem 0rem;
+  margin: 5rem;
+  padding: 3rem;
   border-radius: .5rem;
+  size: 80%;
 }
 
 main h2:hover {
@@ -187,6 +130,8 @@ section {
 table {
   border-collapse: collapse;
   width: 100%;
+  /* align-self: center; */
+  text-align: center;
 }
 
 
@@ -203,6 +148,7 @@ table th {
   color: #fff;
 }
 
+
 table th:hover {
   background-color: #622ce2;
   transition: 0.2s;
@@ -213,6 +159,7 @@ table tr:hover {
   transform: scale(1.029);
   transition: 0.25s ease-in-out;
 }
+
 
 footer {
   text-align: center;
