@@ -28,9 +28,23 @@ async function createEvents(selectedEvent, scheduleID, session, underSessions) {
 
       eventDivEditBtn.innerHTML = `${eventDivEditBtnIcon.outerHTML} Edit Event`;
 
+
       eventDivEditBtn.addEventListener("click", () => {
         const editEventModal = document.getElementById("edit-event-Modal");
         editEventModal.style.display = "block";
+
+        const eventTitle = document.getElementById("edit-event-title");
+        const eventTitleLabel = document.getElementById("edit-event-title-label");
+        
+        if(selectedEvent.presenter !== ""){
+          eventTitle.hidden = true;
+          eventTitleLabel.hidden = true;
+        }
+        else{
+          eventTitle.hidden = false;
+          eventTitleLabel.hidden = false;
+          eventTitle.value = selectedEvent.title;
+        }
   
         const editEventClose = document.getElementById("add-event-close-modal");
         // Event Listener For Modal Close
@@ -51,18 +65,35 @@ async function createEvents(selectedEvent, scheduleID, session, underSessions) {
         const startTime = new Date(selectedEvent.startTime);
         const endTime = new Date(selectedEvent.endTime);
 
-        const fromTimeHours = startTime.getHours();
-        const fromTimeMinutes = startTime.getMinutes();
-        const toTimeHours = endTime.getHours();
-        const toTimeMinutes = endTime.getMinutes();
+        let fromTimeHours = startTime.getHours();
+        let fromTimeMinutes = startTime.getMinutes();
+        let toTimeHours = endTime.getHours();
+        let toTimeMinutes = endTime.getMinutes();
+
+        if(fromTimeHours >= 0 && fromTimeHours <= 9){
+          fromTimeHours = `0${fromTimeHours}`;
+        }
+        
+        if(fromTimeMinutes >= 0 && fromTimeMinutes <= 9){
+          fromTimeMinutes = `0${fromTimeMinutes}`;
+        }
+
+        if(toTimeHours >= 0 && toTimeHours <= 9){
+          toTimeHours = `0${toTimeHours}`;
+        }
+        
+        if(toTimeMinutes >= 0 && toTimeMinutes <= 9){
+          toTimeMinutes = `0${toTimeMinutes}`;
+        }
 
         // Setting Time Input to Time of Event
         fromTime.value = `${fromTimeHours}:${fromTimeMinutes}`;
         toTime.value = `${toTimeHours}:${toTimeMinutes}`;
+
         
         // Event Handler for Submission of Edit Event
-        const editEventSubmit = document.getElementById("edit-event-submit-btn");
-        editEventSubmit.addEventListener("click", async (e) => {
+        const editEventForm = document.getElementById("edit-event-form");
+        editEventForm.addEventListener("submit", async (e) => {
           e.preventDefault();
 
           startTime.setHours(fromTime.value.substring(0, fromTime.value.indexOf(":")));
@@ -70,6 +101,9 @@ async function createEvents(selectedEvent, scheduleID, session, underSessions) {
 
           endTime.setHours(toTime.value.substring(0, toTime.value.indexOf(":")));
           endTime.setMinutes(toTime.value.slice(toTime.value.indexOf(":") + 1));
+          if(selectedEvent.presenter == "") {
+            selectedEvent.title = eventTitle.value;
+          }
 
           const editSessionResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}/events/${selectedEvent.id}`,{
             method: "PUT",
@@ -79,11 +113,13 @@ async function createEvents(selectedEvent, scheduleID, session, underSessions) {
               "startTime":`${startTime}`,
               "endTime":`${endTime}`
               })
-            })
+            });
 
-            location.reload();
+            if(editSessionResponse) {
+              location.reload();
+            }
         });
-
+        
       });
 
       const eventDivDeleteBtn = document.createElement("button");
@@ -98,6 +134,7 @@ async function createEvents(selectedEvent, scheduleID, session, underSessions) {
         const deleteSessionResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}/events/${selectedEvent.id}`, {
           method: "DELETE"
         });
+        location.reload();
       });
 
     eventDivButtonsDiv.appendChild(eventDivEditBtn);
@@ -191,6 +228,11 @@ async function createDay(session, scheduleID, underSchedule) {
                 const addEventModal = document.getElementById("add-event-modal");
                 addEventModal.style.display = "block";
 
+                const selectionPaperRadio = document.getElementById("paper-add-event");
+                const selectionNormalRadio = document.getElementById("normal-add-event");
+
+                selectionNormalRadio.checked = true;
+
                 // Event Listener For Modal Close
                 const addEventClose = document.getElementById("add-event-session-modal");
                 addEventClose.addEventListener("click", () => {
@@ -205,56 +247,33 @@ async function createDay(session, scheduleID, underSchedule) {
                 });
 
                 const approvedPaper = document.getElementById("select-approved-paper");
+                const titleOfEvent = document.getElementById("title-of-event");
+                const approvedPaperLabel = document.getElementById("approved-paper-label")
+                const titleLabel = document.getElementById("title-of-event-label");
+
                 const fromTime = document.getElementById("event-from-time");
                 const toTime = document.getElementById("event-to-time");
-                
-                // Grab Approved Papers
-                const paperResponse = await fetch(papersURL);
-                const papers = await paperResponse.json();
 
-                const eventResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}/events`);
-                const eventsToCheck = await eventResponse.json();
+                approvedPaper.hidden = true;
+                approvedPaperLabel.hidden = true;
+                approvedPaper.required = false;
+                titleOfEvent.required = true;
 
                 let paperOption = [];
-
-                papers.forEach((e) =>{
-                  const evaluation = (parseInt(e.reviewers[0].evaluation) + parseInt(e.reviewers[0].evaluation)) / 2
-                  if( evaluation == 2) {
-                    if(eventsToCheck.length == 0){
-                      paperOption.push(e);
-                    }
-                    else{
-                      eventsToCheck.forEach((a) => {
-                        if(a.title !== e.title){
-                          console.log("true");
-                          paperOption.push(e);
-                        }
-                      });
-                    }
-                  }
-                });
-
-                paperOption.forEach((e, i) => {
-                  const option = document.createElement("option");
-                  option.innerHTML = `${e.title}`;
-                  option.id = i;
-
-                  approvedPaper.appendChild(option);
-                });
-
+                
                 // Form Event Handler
-                const addEventBtn = document.getElementById("new-event-submit-btn");
-                addEventBtn.addEventListener("click", async (e) =>{
-                  e.preventDefault();
-                  console.log(fromTime.value);
+                const addEventBtn = document.getElementById("new-event-form");
+                addEventBtn.addEventListener("submit", async () =>{
                   let presenter = "";
 
                   //Grab Presentor
-                  paperOption[approvedPaper.selectedIndex].authors.forEach((e) => {
-                    if(e.isPresentor){
-                      presenter = `${e.fname}, ${e.lname}`;
-                    }
-                  });
+                  if(selectionPaperRadio.checked){
+                    paperOption[approvedPaper.selectedIndex].authors.forEach((e) => {
+                      if(e.isPresentor){
+                        presenter = `${e.fname}, ${e.lname}`;
+                      }
+                    });
+                  }
 
                   const startTime = new Date(session.date);
                   startTime.setHours(fromTime.value.substring(0, fromTime.value.indexOf(":")));
@@ -263,20 +282,90 @@ async function createDay(session, scheduleID, underSchedule) {
                   const endTime = new Date(session.date);
                   endTime.setHours(toTime.value.substring(0, toTime.value.indexOf(":")));
                   endTime.setMinutes(toTime.value.slice(toTime.value.indexOf(":") + 1));
-      
-                  const addEventResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}/events`, {
-                    method: "POST",
-                    body: JSON.stringify({
-                      "id":"0",
-                      "title":`${paperOption[approvedPaper.selectedIndex].title}`,
-                      "presenter":`${presenter}`,
-                      "startTime":`${startTime}`,
-                      "endTime":`${endTime}`
-                    })
-                  });
 
+                  if(selectionPaperRadio.checked){
+                    const addEventResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}/events`, {
+                      method: "POST",
+                      body: JSON.stringify({
+                        "id":"0",
+                        "title":`${paperOption[approvedPaper.selectedIndex].title}`,
+                        "presenter":`${presenter}`,
+                        "startTime":`${startTime}`,
+                        "endTime":`${endTime}`
+                      })
+                    });
+                  }
+                  else if(selectionNormalRadio.checked){
+                    if(titleOfEvent.value !== ""){
+                      const addEventResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}/events`, {
+                        method: "POST",
+                        body: JSON.stringify({
+                          "id":"0",
+                          "title":`${titleOfEvent.value}`,
+                          "presenter":`${presenter}`,
+                          "startTime":`${startTime}`,
+                          "endTime":`${endTime}`
+                        })
+                      });
+                    }
+                  }
                 });
-                
+
+                // Event Listener to Check for Which Event
+                selectionNormalRadio.addEventListener("click", () => {
+                  approvedPaper.hidden = true;
+                  approvedPaper.required = false;
+                  approvedPaperLabel.hidden = true;
+
+                  titleOfEvent.hidden = false;
+                  titleOfEvent.required = true;
+                  titleLabel.hidden = false;
+                });
+
+                selectionPaperRadio.addEventListener("click", async () => {
+                  approvedPaper.hidden = false;
+                  approvedPaper.required = true;
+                  approvedPaperLabel.hidden = false;
+
+                  titleOfEvent.hidden = true;
+                  titleOfEvent.required = false;
+                  titleLabel.hidden = true;
+
+                  // Grab Approved Papers
+                  const paperResponse = await fetch(papersURL);
+                  const papers = await paperResponse.json();
+
+                  const eventResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}/events`);
+                  const eventsToCheck = await eventResponse.json();
+
+                  if(approvedPaper.childElementCount == 0) {
+                    papers.forEach((e) =>{
+                      const evaluation = (parseInt(e.reviewers[0].evaluation) + parseInt(e.reviewers[0].evaluation)) / 2
+                      if( evaluation == 2) {
+                        if(eventsToCheck.length == 0){
+                          paperOption.push(e);
+                        }
+                        else{
+                          eventsToCheck.forEach((a) => {
+                            if(a.title === e.title){
+                              paperOption.push(e);
+                            }
+                          });
+                        }
+                      }
+                    });
+  
+                    paperOption.forEach((e, i) => {
+                      const option = document.createElement("option");
+                      option.innerHTML = `${e.title}`;
+                      option.id = i;
+  
+                      approvedPaper.appendChild(option);
+                    });
+                  }
+
+                  
+                });
               });
             
             eventHeadingSessionDiv.appendChild(eventHeadingSessionBtn);
@@ -304,8 +393,8 @@ async function createDay(session, scheduleID, underSchedule) {
 
             // Event Handler on Edit Session
             eventSessionEditBtn.addEventListener("click", async () => {
-              const editEventModal = document.getElementById("edit-session-modal");
-              editEventModal.style.display = "block";
+              const editSessionModal = document.getElementById("edit-session-modal");
+              editSessionModal.style.display = "block";
 
               const editSessionTitle = document.getElementById("edit-modal-session-title");
               editSessionTitle.value = `${session.title}`;
@@ -327,20 +416,18 @@ async function createDay(session, scheduleID, underSchedule) {
               // Event Listener For Modal Close
               const editSessionClose = document.getElementById("close-edit-session-modal");
               editSessionClose.addEventListener("click", () => {
-                editEventModal.style.display = "none";
+                editSessionModal.style.display = "none";
               });
 
               // Remove modal on outside click
-              editEventModal.addEventListener("click", (e)=>{
-                if(e.target == editEventModal) {
-                  editEventModal.style.display = "none";
+              editSessionModal.addEventListener("click", (e)=>{
+                if(e.target == editSessionModal) {
+                  editSessionModal.style.display = "none";
                 }
               });
 
               // Handle Update of Session
-              const editSessionSubmit = document.getElementById("edit-session-submit-btn");
-              editSessionSubmit.addEventListener("click", async (e) => {
-                e.preventDefault();
+              editSessionModal.addEventListener("submit", async (e) => {
                 
                 const editSessionResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}`,{
                   method: "PUT",
@@ -363,7 +450,7 @@ async function createDay(session, scheduleID, underSchedule) {
             eventSessionDeleteBtn.innerHTML = `${eventSessionDeleteBtnIcon.outerHTML} Delete Session`;
 
             // Event Handler for Deletion of Event
-            eventSessionDeleteBtn.addEventListener("click", async () => {
+            eventSessionDeleteBtn.addEventListener("click", async (e) => {
               // Add Back the Date in Conference Dates
               const postDateResponse = await fetch(conferenceDate, {
                 method: "POST",
@@ -376,6 +463,7 @@ async function createDay(session, scheduleID, underSchedule) {
               const deleteSessionResponse = await fetch(schedulesURL+`/${scheduleID}/session/${session.id}`, {
                 method: "DELETE"
               });
+              location.reload();
             });
 
           eventSessionBtnDiv.appendChild(eventSessionEditBtn);
@@ -476,9 +564,8 @@ async function loadSchedules(schedules) {
       }
       
       // Submit The New Day Event
-      const submitDate = document.getElementById("new-session-submit-btn");
-
-      submitDate.addEventListener("click", async (e)=> {
+      const addModalForm = document.getElementById("new-session-form")
+      addModalForm.addEventListener("submit", async (e)=> {
         e.preventDefault();
         const sessionTitle = document.getElementById("add-session-title");
         // Delete Date from Conference Dates
@@ -497,6 +584,7 @@ async function loadSchedules(schedules) {
               "events":[]
           })
         });
+        location.reload();
       });
 
       // Close Modal Event Listener
@@ -586,8 +674,23 @@ async function loadCreateSchedule() {
 // Default DOM
 document.addEventListener("DOMContentLoaded", async () => {
   // Grabbing Saves From Login
-  const getLogInfo = JSON.parse(localStorage.getItem("logInfo"));
+  let getLogInfo = JSON.parse(localStorage.getItem("logInfo"));
+
+  // Redirect if no cache is available or wrong user is logged
+  if(getLogInfo == null) {
+    window.location.href = "../login.html";
+  }
+
+  if(!getLogInfo.username.includes("@organizer.com")) {
+    window.location.href = "../login.html";
+  }
+
+  // Clear Logged in Cache on logout 
+  document.getElementById("logout").addEventListener("click", ()=>{
+    localStorage.clear();
+  });
  
+
   document.getElementById("Nav-userName").innerHTML = `Username: ${getLogInfo.username.replace("@organizer.com", "")}`
   document.getElementById("Nav-Id").innerHTML = `ID: ${getLogInfo.identity}`;
 
@@ -616,4 +719,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       pointer.style.top = e.pageY + "px";
       pointer.style.left = e.pageX + "px";
   });
+
+
 });

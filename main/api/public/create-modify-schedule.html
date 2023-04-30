@@ -17,7 +17,7 @@
           <p id="Nav-userName"> Username : ahmed</p>
           <p id="Nav-Id"> Id: 2018051600</p>
         </div>
-        <p id="logout" class="logout" ><a href="./login.html" >Logout</a></p>
+        <p id="logout" class="logout" ><a href="conference-schedule.html" >Logout</a></p>
     </nav>
 
     <aside class="aside">
@@ -28,43 +28,6 @@
 
     <main class="main-section-administer">
       <div class="main-section-list" id="scheduleList">
-        <!-- <p id="schedule-heading">Schedule: 28/3/2023 - 1/4/2023</p>
-        <div id="all-days">
-          <section id="day-schedule">
-            <button class="accordion">Date</button>
-            <div id="session-enclosure" class="panel">
-              <div id="session-heading">
-                <p>Sessions</p>
-                <button aria-hidden="true" id="add-session-btn"><i class="fa fa-plus"></i> Add Session</button>
-              </div>
-              <div id="session">
-                <button class="accordion" id="session-title">Session Title</button>
-                <div id="event-enclosure" class="panel">
-                  <div id="events-heading">
-                    <p>Events</p>
-                    <div id="session-buttons">
-                      <button id="add-event-btn" aria-hidden="true"><i class="fa fa-plus"></i> Add Event</button>
-                    </div>
-                  </div>
-                  <div id="all-events">
-                    <div id="event">
-                      <p id="event-title" class="event-title">Event title</p>
-                      <p id="event-presenter" class="presenter">Event presenter</p>
-                      <div id="event-buttons">
-                        <button  id="edit-event-btn"><i class="fa fa-edit"></i>  Edit Event</button>                                        
-                        <button  id="delete-event-btn"> <i class="fa fa-trash"></i> Delete Event</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="session-btns">
-                    <button  id="edit-session-btn"><i class="fa fa-edit"></i>  Edit Session</button>
-                    <button id="delete-session-btn"> <i class="fa fa-trash"></i> Delete Session</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <button  id="add-date-btn"> <i class="fa fa-plus"></i> Add New Date</button>            -->
         </div>
       </div>
     </main>
@@ -111,11 +74,17 @@
         <p class="modal-title">Add a New Event</p>
         <form id="new-event-form" class="modal-form">
           <label for="approved-paper" class="modal-form-label">Type of Event</label>
-          <p>Normal: <input type="radio" name="normal" id="normal-event"></p>
-          <p>Paper: <input type="radio" name="normal" id="normal-event"></p>
-          <label for="approved-paper" class="modal-form-label">Event Title</label>
-          <input type="text" name="title-of-event" id="title-of-event">
-          <label for="approved-paper" class="modal-form-label">Approved Paper</label>
+          
+          <p>
+          <label for="normal-add-event">Normal Event: </label>
+          <input type="radio" name="normal" id="normal-add-event"> 
+          <label for="paper-add-event">Paper Event: </label>
+          <input type="radio" name="normal" id="paper-add-event">
+          </p>
+
+          <label for="approved-paper" class="modal-form-label" id="title-of-event-label">Event Title</label>
+          <input type="text" name="title-of-event" id="title-of-event" required>
+          <label for="approved-paper" class="modal-form-label" id="approved-paper-label">Approved Paper</label>
           <select id="select-approved-paper" name="approved-paper" required>
           </select>
           <label for="Time" class="modal-form-label">Start Time</label>
@@ -134,8 +103,8 @@
         <span class="close" id="add-event-close-modal">&times;</span>
         <p class="modal-title">Edit Event</p>
         <form id="edit-event-form" class="modal-form">
-          <!-- <label for="Title" class="modal-form-label" >event Title</label>
-          <input type="input" id="edit-event-title" name="Title" required> -->
+          <label for="Title" class="modal-form-label" id="edit-event-title-label">Event Title</label>
+          <input type="input" id="edit-event-title" name="Title" required>
           <label for="Time" class="modal-form-label">Start Time</label>
           <input type="time" id="edit-event-from-time" name="Time" required>
           <label for="Time" class="modal-form-label">End Time</label>

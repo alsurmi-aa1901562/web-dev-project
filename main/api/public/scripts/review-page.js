@@ -243,6 +243,20 @@ async function createCard(type, paper, reviewerIndex) {
 document.addEventListener("DOMContentLoaded", async () => {
   // Grabbing Saves From Login
   const getLogInfo = JSON.parse(localStorage.getItem("logInfo"));
+
+  // Redirect if no cache is available or wrong user is logged
+  if(getLogInfo == null) {
+    window.location.href = "../login.html";
+  }
+
+  if(!getLogInfo.username.includes("@reviewer.com")) {
+    window.location.href = "../login.html";
+  }
+
+  // Clear Logged in Cache on logout 
+  document.getElementById("logout").addEventListener("click", ()=>{
+    localStorage.clear();
+  });
  
   document.getElementById("Nav-userName").innerHTML = `Username: ${getLogInfo.username.replace("@reviewer.com", "")}`
   document.getElementById("Nav-Id").innerHTML = `ID: ${getLogInfo.identity}`;
@@ -278,7 +292,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Assigning Event Handlers to Submit Buttons
   const submitButton = document.getElementById("submitReview");
-  submitButton.addEventListener("click", async (e) => {
+  document.getElementById("form-submit").addEventListener("submit", async (e) => {
 
     e.preventDefault();
     const res = await fetch(paperURL + `/${submitButton.getAttribute("paperid")}`);
@@ -293,6 +307,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         method: "PUT",
         body: JSON.stringify(paper)
       });
+    location.reload();
   });
   
 
