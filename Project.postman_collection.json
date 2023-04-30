@@ -908,24 +908,36 @@
 			"name": "Conference-dates",
 			"item": [
 				{
-					"name": "/api/conference-dates",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/conference-dates",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"conference-dates"
-							]
+					"name": "ID Route",
+					"item": [
+						{
+							"name": "/api/conference-date/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/conference-dates/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"conference-dates",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "SnyJef7hH4VAyXj8T1DPP"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
 					"name": "/api/conference-dates",
@@ -946,6 +958,57 @@
 							"path": [
 								"api",
 								"conference-dates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/conference-dates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/conference-dates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"conference-dates"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "/api/file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/file?fileName=Lorum_ipsum.pdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"file"
+							],
+							"query": [
+								{
+									"key": "fileName",
+									"value": "Lorum_ipsum.pdf"
+								}
 							]
 						}
 					},
