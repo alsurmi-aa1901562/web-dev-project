@@ -17,7 +17,7 @@
           <p id="Nav-userName"> Username : ahmed</p>
           <p id="Nav-Id"> Id: 2018051600</p>
         </div>
-        <p id="logout" class="logout" ><a href="/main/app/login.html" >Logout</a></p>
+        <p id="logout" class="logout" ><a href="./login.html" >Logout</a></p>
     </nav>
 
     <aside class="aside">
@@ -110,7 +110,12 @@
         <span class="close" id="add-event-session-modal">&times;</span>
         <p class="modal-title">Add a New Event</p>
         <form id="new-event-form" class="modal-form">
-          <label for="Location" class="modal-form-label">Approved Paper</label>
+          <label for="approved-paper" class="modal-form-label">Type of Event</label>
+          <p>Normal: <input type="radio" name="normal" id="normal-event"></p>
+          <p>Paper: <input type="radio" name="normal" id="normal-event"></p>
+          <label for="approved-paper" class="modal-form-label">Event Title</label>
+          <input type="text" name="title-of-event" id="title-of-event">
+          <label for="approved-paper" class="modal-form-label">Approved Paper</label>
           <select id="select-approved-paper" name="approved-paper" required>
           </select>
           <label for="Time" class="modal-form-label">Start Time</label>
@@ -158,6 +163,6 @@
       </div>
     </div>
 
-    <script src="/main/app/scripts/create-modify-schedule.js"></script>
+    <script src="scripts/create-modify-schedule.js"></script>
 </body>
 </html>
