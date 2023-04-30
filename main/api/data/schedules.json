@@ -1,1 +1,124 @@
-[{"created":"2023-04-29T08:41:59.695Z","fromDate":"Tue Mar 28 2023 03:00:00 GMT+0300 (Arabian Standard Time)","id":"1TOerRxONt_iG1SKdALbO","sessions":[{"created":"2023-04-29T13:00:59.559Z","date":"Tue Mar 28 2023 03:00:00 GMT+0300 (Arabian Standard Time)","events":[{"created":"2023-04-30T17:12:36.434Z","endTime":"Tue Mar 28 2023 10:00:00 GMT+0300 (Arabian Standard Time)","id":"OeqHM_ottgykTVbthFh6r","presenter":"","startTime":"Tue Mar 28 2023 09:00:00 GMT+0300 (Arabian Standard Time)","title":"Registration"},{"created":"2023-04-30T17:55:36.812Z","endTime":"Tue Mar 28 2023 10:56:00 GMT+0300 (Arabian Standard Time)","id":"BJ169_wd2H0aZ0nl47PeL","presenter":"lmao, rofl","startTime":"Tue Mar 28 2023 10:55:00 GMT+0300 (Arabian Standard Time)","title":"Lmao 2"},{"id":"KEo4ZVY85ckTOmHVlBxNt","title":"test","presenter":"","startTime":"Tue Mar 28 2023 11:59:00 GMT+0300 (Arabian Standard Time)","endTime":"Tue Mar 28 2023 20:56:00 GMT+0300 (Arabian Standard Time)","created":"2023-04-30T17:56:45.771Z"},{"id":"KSpnP8AksEeTrmwCFbnNt","title":"test4","presenter":"","startTime":"Tue Mar 28 2023 18:01:00 GMT+0300 (Arabian Standard Time)","endTime":"Tue Mar 28 2023 20:58:00 GMT+0300 (Arabian Standard Time)","created":"2023-04-30T17:58:41.535Z"},{"id":"KDJKGiEg-fUqsnrJ_f3WN","title":"test5","presenter":"","startTime":"Tue Mar 28 2023 14:59:00 GMT+0300 (Arabian Standard Time)","endTime":"Tue Mar 28 2023 20:59:00 GMT+0300 (Arabian Standard Time)","created":"2023-04-30T17:59:10.280Z"},{"id":"0Q8UV8K6rzdeNDZG6u7lV","title":"test3","presenter":"","startTime":"Tue Mar 28 2023 22:58:00 GMT+0300 (Arabian Standard Time)","endTime":"Tue Mar 28 2023 02:57:00 GMT+0300 (Arabian Standard Time)","created":"2023-04-30T17:57:47.808Z"},{"id":"ZGvZgaQC0HZN_zpegxegL","title":"test2","presenter":"","startTime":"Tue Mar 28 2023 21:57:00 GMT+0300 (Arabian Standard Time)","endTime":"Tue Mar 28 2023 23:57:00 GMT+0300 (Arabian Standard Time)","created":"2023-04-30T17:57:18.272Z"}],"id":"9iqdccfkQOebLjMspxnr1","location":"CSE Meeting Room BCR-B104","title":"gg"},{"created":"2023-04-30T17:53:37.042Z","date":"Wed Mar 29 2023 03:00:00 GMT+0300 (Arabian Standard Time)","events":[{"created":"2023-04-30T17:53:58.301Z","endTime":"Wed Mar 29 2023 10:55:00 GMT+0300 (Arabian Standard Time)","id":"wRO_JcLq6lWjtm9Ogz4bI","presenter":"","startTime":"Wed Mar 29 2023 10:53:00 GMT+0300 (Arabian Standard Time)","title":"Registration"},{"created":"2023-04-30T17:55:15.534Z","endTime":"Wed Mar 29 2023 11:59:00 GMT+0300 (Arabian Standard Time)","id":"D5mv4rTzc4bixbKwA08Do","presenter":"","startTime":"Wed Mar 29 2023 11:56:00 GMT+0300 (Arabian Standard Time)","title":"Event Introduction and Future Explainations"}],"id":"KCjk4hd1eZ-MZL6sQJoR5","location":"Female Engineering Building C07-145","title":"Crazy"},{"id":"yvjlxlJAJXbTOHrkD6ZBC","title":"Lmao","location":"Female Engineering Building C07-145","events":[],"date":"Thu Mar 30 2023 03:00:00 GMT+0300 (Arabian Standard Time)","created":"2023-04-30T18:02:32.260Z"},{"id":"mbr96f3a78jaz3amLYfuQ","title":"Who Knows","location":"Female Engineering Building C07-145","events":[],"date":"Fri Mar 31 2023 03:00:00 GMT+0300 (Arabian Standard Time)","created":"2023-04-30T18:02:38.150Z"},{"id":"KyST0CdODNuCyaRVj5_xi","title":"OkieDokie","location":"Female Engineering Building C07-145","events":[],"date":"Sat Apr 01 2023 03:00:00 GMT+0300 (Arabian Standard Time)","created":"2023-04-30T18:02:43.403Z"}],"toDate":"Sat Apr 01 2023 03:00:00 GMT+0300 (Arabian Standard Time)"}]
+[
+    {
+        "created": "2023-04-29T08:41:59.695Z",
+        "fromDate": "Tue Mar 28 2023 03:00:00 GMT+0300 (Arabian Standard Time)",
+        "id": "1TOerRxONt_iG1SKdALbO",
+        "sessions": [
+            {
+                "created": "2023-04-29T13:00:59.559Z",
+                "date": "Tue Mar 28 2023 03:00:00 GMT+0300 (Arabian Standard Time)",
+                "events": [
+                    {
+                        "created": "2023-04-30T17:12:36.434Z",
+                        "endTime": "Tue Mar 28 2023 10:00:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "OeqHM_ottgykTVbthFh6r",
+                        "presenter": "",
+                        "startTime": "Tue Mar 28 2023 09:00:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "Registration"
+                    },
+                    {
+                        "created": "2023-04-30T17:55:36.812Z",
+                        "endTime": "Tue Mar 28 2023 10:56:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "BJ169_wd2H0aZ0nl47PeL",
+                        "presenter": "lmao, rofl",
+                        "startTime": "Tue Mar 28 2023 10:55:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "Lmao 2"
+                    },
+                    {
+                        "created": "2023-04-30T17:56:45.771Z",
+                        "endTime": "Tue Mar 28 2023 20:56:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "KEo4ZVY85ckTOmHVlBxNt",
+                        "presenter": "",
+                        "startTime": "Tue Mar 28 2023 11:59:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "test"
+                    },
+                    {
+                        "created": "2023-04-30T17:58:41.535Z",
+                        "endTime": "Tue Mar 28 2023 20:58:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "KSpnP8AksEeTrmwCFbnNt",
+                        "presenter": "",
+                        "startTime": "Tue Mar 28 2023 18:01:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "test4"
+                    },
+                    {
+                        "created": "2023-04-30T17:59:10.280Z",
+                        "endTime": "Tue Mar 28 2023 20:59:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "KDJKGiEg-fUqsnrJ_f3WN",
+                        "presenter": "",
+                        "startTime": "Tue Mar 28 2023 14:59:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "test5"
+                    },
+                    {
+                        "created": "2023-04-30T17:57:47.808Z",
+                        "endTime": "Tue Mar 28 2023 02:57:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "0Q8UV8K6rzdeNDZG6u7lV",
+                        "presenter": "",
+                        "startTime": "Tue Mar 28 2023 22:58:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "test3"
+                    },
+                    {
+                        "created": "2023-04-30T17:57:18.272Z",
+                        "endTime": "Tue Mar 28 2023 23:57:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "ZGvZgaQC0HZN_zpegxegL",
+                        "presenter": "",
+                        "startTime": "Tue Mar 28 2023 21:57:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "test2"
+                    }
+                ],
+                "id": "9iqdccfkQOebLjMspxnr1",
+                "location": "CSE Meeting Room BCR-B104",
+                "title": "gg"
+            },
+            {
+                "created": "2023-04-30T17:53:37.042Z",
+                "date": "Wed Mar 29 2023 03:00:00 GMT+0300 (Arabian Standard Time)",
+                "events": [
+                    {
+                        "created": "2023-04-30T17:53:58.301Z",
+                        "endTime": "Wed Mar 29 2023 10:55:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "wRO_JcLq6lWjtm9Ogz4bI",
+                        "presenter": "",
+                        "startTime": "Wed Mar 29 2023 10:53:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "Registration"
+                    },
+                    {
+                        "created": "2023-04-30T17:55:15.534Z",
+                        "endTime": "Wed Mar 29 2023 11:59:00 GMT+0300 (Arabian Standard Time)",
+                        "id": "D5mv4rTzc4bixbKwA08Do",
+                        "presenter": "",
+                        "startTime": "Wed Mar 29 2023 11:56:00 GMT+0300 (Arabian Standard Time)",
+                        "title": "Event Introduction and Future Explainations"
+                    }
+                ],
+                "id": "KCjk4hd1eZ-MZL6sQJoR5",
+                "location": "Female Engineering Building C07-145",
+                "title": "Crazy"
+            },
+            {
+                "created": "2023-04-30T18:02:32.260Z",
+                "date": "Thu Mar 30 2023 03:00:00 GMT+0300 (Arabian Standard Time)",
+                "events": [],
+                "id": "yvjlxlJAJXbTOHrkD6ZBC",
+                "location": "Female Engineering Building C07-145",
+                "title": "Lmao"
+            },
+            {
+                "created": "2023-04-30T18:02:38.150Z",
+                "date": "Fri Mar 31 2023 03:00:00 GMT+0300 (Arabian Standard Time)",
+                "events": [],
+                "id": "mbr96f3a78jaz3amLYfuQ",
+                "location": "Female Engineering Building C07-145",
+                "title": "Who Knows"
+            },
+            {
+                "created": "2023-04-30T18:02:43.403Z",
+                "date": "Sat Apr 01 2023 03:00:00 GMT+0300 (Arabian Standard Time)",
+                "events": [],
+                "id": "KyST0CdODNuCyaRVj5_xi",
+                "location": "Female Engineering Building C07-145",
+                "title": "OkieDokie"
+            }
+        ],
+        "toDate": "Sat Apr 01 2023 03:00:00 GMT+0300 (Arabian Standard Time)"
+    }
+]
