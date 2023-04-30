@@ -168,15 +168,26 @@ function removeAuthor(author) {
   selector.remove();
 }
 
-function logout() {
-  localStorage.clear();
-}
-
 // Default DOM Method
 document.addEventListener("DOMContentLoaded", async () => {
   // Grabbing Saves From Login
   const getLogInfo = JSON.parse(localStorage.getItem("logInfo"));
- 
+
+  // Redirect if no cache is available or wrong user is logged
+  if(getLogInfo == null) {
+    window.location.href = "../login.html";
+  }
+
+  if(!getLogInfo.username.includes("@author.com")) {
+    window.location.href = "../login.html";
+  }
+
+  // Clear Logged in Cache on logout
+  document.getElementById("logout").addEventListener("click", ()=>{
+    localStorage.clear();
+
+  });
+
   document.getElementById("Nav-userName").innerHTML = `Username: ${getLogInfo.username.replace("@author.com", "")}`
   document.getElementById("Nav-Id").innerHTML = `ID: ${getLogInfo.identity}`;
 
@@ -256,16 +267,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const getJson = await response.json();
 
-      // // download
-      // console.log(uploadURL+`?fileName=${file.name}`)
-      // const resp = await fetch(uploadURL+`?fileName=${file.name}`);
-      // const data3 = await resp.blob();
-      // const url = window.URL.createObjectURL(data3);
-      // const a = document.createElement("a");
-      // a.href = url;
-      // a.download = file.name;
-      // a.click();
-      // a.remove();
 
       const usersRes = await fetch(usersURL + "?type=reviewer");
       let reviewers = await usersRes.json();
@@ -299,7 +300,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           ]
         })
       })
-
+      location.reload();
     }
     else{
       const errorMessage = document.createElement("p");

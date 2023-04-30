@@ -13,27 +13,24 @@ document.addEventListener("DOMContentLoaded", async () =>{
             const main = document.getElementById("mainDiv");
 
             const sessionDate = new Date(session.date);
+            const div = document.createElement("div");
+            div.className ="schedules-div";
             
-            const daySelect = document.getElementById("daySelect");
+            const daySelect = document.getElementById("day-selector");
 
             const option = document.createElement("option");
             option.innerHTML = `${sessionDate.getDate()}/${sessionDate.getMonth() + 1}/${sessionDate.getFullYear()}`;
-            option.id = session.id;
+            option.value = session.id;
             
             daySelect.appendChild(option);
 
-            daySelect.addEventListener("selectstart", () => {
-                document.addEventListener("selectionchange", ()=>{
-                    console.log(true)
-                })
-            });
-
 
             const section = document.createElement("section");
-            section.id = session.id;
+            // section.id = session.id;
 
                 const header = document.createElement("h2");
                 header.innerHTML = `${sessionDate.getDate()}/${sessionDate.getMonth() + 1}/${sessionDate.getFullYear()}`;
+                header.id = session.id;
 
                 const table = document.createElement("table");
                     const tableRowHeading = document.createElement("tr");
@@ -49,13 +46,28 @@ document.addEventListener("DOMContentLoaded", async () =>{
 
                     session.events.forEach((e) => {
                         const tableRow = document.createElement("tr");
-
                         const eventDate = new Date(e.startTime);
 
+                        let hours = eventDate.getHours();
+                        let mins = eventDate.getMinutes();
+
                             const tableTimeDiv = document.createElement("td");
-                            tableTimeDiv.innerHTML = `${eventDate.getUTCHours()}:${eventDate.getUTCMinutes()}`;
+
+                            if(mins >= 0 && mins <= 9) {
+                                mins = `0${mins}`;
+                            }
+                            if(hours < 12){
+                                tableTimeDiv.innerHTML = `${hours}:${mins} AM`;
+                            }
+                            else{
+                                tableTimeDiv.innerHTML = `${hours-12}:${mins} PM`;
+                            }
+                        
+                            const tableNameDiv = document.createElement("td");
+                            tableNameDiv.innerHTML = `${e.title}`;
 
                         tableRow.appendChild(tableTimeDiv);
+                        tableRow.appendChild(tableNameDiv);
                         table.appendChild(tableRow);
                     });
                     
@@ -65,7 +77,37 @@ document.addEventListener("DOMContentLoaded", async () =>{
             section.appendChild(header);
             section.appendChild(table);
 
-            main.append(section)
+            div.appendChild(section)
+
+            main.append(div)
         });
     });
+
+    // Event Handler for Query Selector
+    const daySelect = document.getElementById("day-selector");
+
+    daySelect.addEventListener("change", () => {
+        const element = document.getElementById(`${daySelect.value}`);
+        element.scrollIntoView({
+            block: "center",
+            behavior: 'smooth'
+        });
+    });
+
+    // Animation Section for Pointer
+
+    let pointer = document.getElementById("pointer-follow");
+
+    // Event Listener for Mouse Movements
+    document.addEventListener("mousemove", (e) => {
+        pointer.style.top = e.pageY + "px";
+        pointer.style.left = e.pageX + "px";
+    });
+
+    // Event Listener for Touch Movements
+    document.addEventListener("touchmove", (e) => {
+        pointer.style.top = e.pageY + "px";
+        pointer.style.left = e.pageX + "px";
+    });
+
 });

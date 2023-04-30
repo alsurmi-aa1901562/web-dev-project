@@ -1,20 +1,11 @@
 import { promises as fs } from "fs";
 import { nanoid } from "nanoid";
-import * as repo from "./repository.js";
-import { resolve } from 'path';
 
 export async function GET(req) {
     try {
         const fileName = new URL(req.url).searchParams.get("fileName");
 
         const pathNAN = "./data/pdfs";
-        // const pathResolved = resolve(pathNAN);
-
-        // const pathAbsolute = pathResolved.replace(/\\/g, '\\\\');
-        // const path = pathAbsolute + `\\\\${fileName}`;
-        // console.log(path);
-
-        // const data = await fs.readFile(path);
 
         const data = await fs.readFile(`${pathNAN}/${fileName}`);
         return new Response(data, {
@@ -38,7 +29,7 @@ export async function POST(req, {params}) {
         let name = data.file.name.substring(0,data.file.name.lastIndexOf(".") || data.file.name);
         name = name + `-${nanoid()}.pdf`;
 
-        const save = repo.saveFile(name, buffer);
+        await fs.writeFile(`data/pdfs/${name}`, Buffer.from(buffer));
 
         if(save) {
             return Response.json({message: "File Uploaded!", fileName: `${name}`}, { status: 200 });
