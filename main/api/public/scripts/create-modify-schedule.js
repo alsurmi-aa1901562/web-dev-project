@@ -628,7 +628,7 @@ async function loadCreateSchedule() {
     });
 
     // Submit Button Event Listener
-    scheduleButton.addEventListener("click", async (e) => {
+    document.getElementById("new-schedule-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       const fromDate = document.getElementById("startDate-schedule").value;
       const toDate = document.getElementById("endDate-schedule").value;
@@ -657,6 +657,7 @@ async function loadCreateSchedule() {
           "sessions": []
         })
       })
+      location.reload()
     });
 
     // Close Modal Event Listener
