@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "id": "G8eo6h3hUdU2rAW5wCLog",
+    "title": "Test Title",
+    "abstract": "Test Title",
+    "authors": [
+      {
+        "fname": "Ahmed",
+        "lname": "A",
+        "email": "a@a.com",
+        "affiliation": "Qatar University",
+        "isPresentor": "true"
+      },
+      {
+        "fname": "Mohammad",
+        "lname": "Ashraf",
+        "email": "b@b.com",
+        "affiliation": "Qatar University",
+        "isPresentor": "false"
+      }
+    ],
+    "pdfPath": "undefined",
+    "reviewers": [
+      {
+        "id": "12",
+        "evaluation": "-999",
+        "contribution": "",
+        "strengths": "",
+        "weaknesses": ""
+      },
+      {
+        "id": "3",
+        "evaluation": "-999",
+        "contribution": "",
+        "strengths": "",
+        "weaknesses": ""
+      }
+    ],
+    "created": "2023-05-02T19:08:04.465Z"
+  }
+]

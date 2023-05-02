@@ -619,8 +619,6 @@ async function loadCreateSchedule() {
     const createScheduleModal = document.getElementById("new-Schedule-modal");
     createScheduleModal.style.display = "block";
 
-    const scheduleButton = document.getElementById("new-schedule-submit-btn");
-
     createScheduleModal.addEventListener("click", (e)=>{
       if(e.target == createScheduleModal) {
         createScheduleModal.style.display = "none";
@@ -628,7 +626,7 @@ async function loadCreateSchedule() {
     });
 
     // Submit Button Event Listener
-    document.getElementById("new-schedule-form").addEventListener("submit", async (e) => {
+   createScheduleModal.addEventListener("submit", async (e) => {
       e.preventDefault();
       const fromDate = document.getElementById("startDate-schedule").value;
       const toDate = document.getElementById("endDate-schedule").value;
