@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String @id @unique @default(cuid())
+  email     String @unique
+  password  String
+  firstName String
+  lastName  String
+  role      String
+}
+
+model Schedule {
+  id       String    @id @unique @default(cuid())
+  fromDate DateTime
+  toDate   DateTime
+  sessions Session[]
+}
+
+model Session {
+  id         String    @id @unique @default(cuid())
+  title      String
+  location   String
+  date       DateTime
+  events     Event[]
+  Schedule   Schedule? @relation(fields: [scheduleId], references: [id])
+  scheduleId String?
+}
+
+model Event {
+  id        String   @id @unique @default(cuid())
+  title     String
+  presenter Boolean
+  startTime DateTime
+  endTime   DateTime
+  Session   Session? @relation(fields: [sessionId], references: [id])
+  sessionId String?
+}
+
+model Paper {
+  id        String     @id @unique @default(cuid())
+  title     String
+  abstract  String
+  pdfPath   String
+  authors   Author[]
+  reviewers Reviewer[]
+}
+
+model Author {
+  id            String      @id @unique @default(cuid())
+  fname         String
+  lname         String
+  email         String
+  affiliation   Institution @relation(fields: [institutionId], references: [id])
+  Paper         Paper?      @relation(fields: [paperId], references: [id])
+  paperId       String?
+  institutionId String
+}
+
+model Reviewer {
+  id           String   @id @unique @default(cuid())
+  evaluation   Int
+  contribution Boolean?
+  strengths    String?
+  weaknesses   String?
+  Paper        Paper?   @relation(fields: [paperId], references: [id])
+  paperId      String?
+}
+
+model Institution {
+  id     String   @id @unique @default(cuid())
+  name   String
+  Author Author[]
+}
+
+model Location {
+  id   String @id @unique @default(cuid())
+  name String
+}
+
+model ConferenceDates {
+  id   String   @id @unique @default(cuid())
+  date DateTime
+}
