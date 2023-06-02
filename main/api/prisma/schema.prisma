@@ -2,6 +2,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
@@ -11,8 +15,8 @@ model User {
   id        String @id @unique @default(cuid())
   email     String @unique
   password  String
-  firstName String
-  lastName  String
+  first_name String
+  last_name  String
   role      String
 }
 
@@ -21,6 +25,7 @@ model Schedule {
   fromDate DateTime
   toDate   DateTime
   sessions Session[]
+  created  DateTime
 }
 
 model Session {
@@ -31,6 +36,7 @@ model Session {
   events     Event[]
   Schedule   Schedule? @relation(fields: [scheduleId], references: [id])
   scheduleId String?
+  created    DateTime
 }
 
 model Event {
@@ -41,6 +47,7 @@ model Event {
   endTime   DateTime
   Session   Session? @relation(fields: [sessionId], references: [id])
   sessionId String?
+  created   DateTime
 }
 
 model Paper {
@@ -50,6 +57,7 @@ model Paper {
   pdfPath   String
   authors   Author[]
   reviewers Reviewer[]
+  created   DateTime
 }
 
 model Author {
@@ -61,6 +69,7 @@ model Author {
   Paper         Paper?      @relation(fields: [paperId], references: [id])
   paperId       String?
   institutionId String
+  created       DateTime
 }
 
 model Reviewer {
@@ -71,20 +80,24 @@ model Reviewer {
   weaknesses   String?
   Paper        Paper?   @relation(fields: [paperId], references: [id])
   paperId      String?
+  created      DateTime
 }
 
 model Institution {
   id     String   @id @unique @default(cuid())
   name   String
   Author Author[]
+  created DateTime
 }
 
 model Location {
   id   String @id @unique @default(cuid())
   name String
+  created DateTime
 }
 
 model ConferenceDates {
   id   String   @id @unique @default(cuid())
   date DateTime
+  created DateTime
 }

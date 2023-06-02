@@ -1,0 +1,104 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  id String [pk]
+  email String [unique, not null]
+  password String [not null]
+  first_name String [not null]
+  last_name String [not null]
+  role String [not null]
+}
+
+Table Schedule {
+  id String [pk]
+  fromDate DateTime [not null]
+  toDate DateTime [not null]
+  sessions Session [not null]
+  created DateTime [not null]
+}
+
+Table Session {
+  id String [pk]
+  title String [not null]
+  location String [not null]
+  date DateTime [not null]
+  events Event [not null]
+  Schedule Schedule
+  scheduleId String
+  created DateTime [not null]
+}
+
+Table Event {
+  id String [pk]
+  title String [not null]
+  presenter Boolean [not null]
+  startTime DateTime [not null]
+  endTime DateTime [not null]
+  Session Session
+  sessionId String
+  created DateTime [not null]
+}
+
+Table Paper {
+  id String [pk]
+  title String [not null]
+  abstract String [not null]
+  pdfPath String [not null]
+  authors Author [not null]
+  reviewers Reviewer [not null]
+  created DateTime [not null]
+}
+
+Table Author {
+  id String [pk]
+  fname String [not null]
+  lname String [not null]
+  email String [not null]
+  affiliation Institution [not null]
+  Paper Paper
+  paperId String
+  institutionId String [not null]
+  created DateTime [not null]
+}
+
+Table Reviewer {
+  id String [pk]
+  evaluation Int [not null]
+  contribution Boolean
+  strengths String
+  weaknesses String
+  Paper Paper
+  paperId String
+  created DateTime [not null]
+}
+
+Table Institution {
+  id String [pk]
+  name String [not null]
+  Author Author [not null]
+  created DateTime [not null]
+}
+
+Table Location {
+  id String [pk]
+  name String [not null]
+  created DateTime [not null]
+}
+
+Table ConferenceDates {
+  id String [pk]
+  date DateTime [not null]
+  created DateTime [not null]
+}
+
+Ref: Session.scheduleId > Schedule.id
+
+Ref: Event.sessionId > Session.id
+
+Ref: Author.institutionId > Institution.id
+
+Ref: Author.paperId > Paper.id
+
+Ref: Reviewer.paperId > Paper.id

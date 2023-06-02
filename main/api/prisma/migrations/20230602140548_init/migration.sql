@@ -3,8 +3,8 @@ CREATE TABLE "User" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "firstName" TEXT NOT NULL,
-    "lastName" TEXT NOT NULL,
+    "first_name" TEXT NOT NULL,
+    "last_name" TEXT NOT NULL,
     "role" TEXT NOT NULL
 );
 
@@ -12,7 +12,8 @@ CREATE TABLE "User" (
 CREATE TABLE "Schedule" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "fromDate" DATETIME NOT NULL,
-    "toDate" DATETIME NOT NULL
+    "toDate" DATETIME NOT NULL,
+    "created" DATETIME NOT NULL
 );
 
 -- CreateTable
@@ -22,6 +23,7 @@ CREATE TABLE "Session" (
     "location" TEXT NOT NULL,
     "date" DATETIME NOT NULL,
     "scheduleId" TEXT,
+    "created" DATETIME NOT NULL,
     CONSTRAINT "Session_scheduleId_fkey" FOREIGN KEY ("scheduleId") REFERENCES "Schedule" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
@@ -33,6 +35,7 @@ CREATE TABLE "Event" (
     "startTime" DATETIME NOT NULL,
     "endTime" DATETIME NOT NULL,
     "sessionId" TEXT,
+    "created" DATETIME NOT NULL,
     CONSTRAINT "Event_sessionId_fkey" FOREIGN KEY ("sessionId") REFERENCES "Session" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
@@ -41,7 +44,8 @@ CREATE TABLE "Paper" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
     "abstract" TEXT NOT NULL,
-    "pdfPath" TEXT NOT NULL
+    "pdfPath" TEXT NOT NULL,
+    "created" DATETIME NOT NULL
 );
 
 -- CreateTable
@@ -52,6 +56,7 @@ CREATE TABLE "Author" (
     "email" TEXT NOT NULL,
     "paperId" TEXT,
     "institutionId" TEXT NOT NULL,
+    "created" DATETIME NOT NULL,
     CONSTRAINT "Author_institutionId_fkey" FOREIGN KEY ("institutionId") REFERENCES "Institution" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Author_paperId_fkey" FOREIGN KEY ("paperId") REFERENCES "Paper" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
@@ -64,25 +69,29 @@ CREATE TABLE "Reviewer" (
     "strengths" TEXT,
     "weaknesses" TEXT,
     "paperId" TEXT,
+    "created" DATETIME NOT NULL,
     CONSTRAINT "Reviewer_paperId_fkey" FOREIGN KEY ("paperId") REFERENCES "Paper" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateTable
 CREATE TABLE "Institution" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL
+    "name" TEXT NOT NULL,
+    "created" DATETIME NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Location" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL
+    "name" TEXT NOT NULL,
+    "created" DATETIME NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "ConferenceDates" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "date" DATETIME NOT NULL
+    "date" DATETIME NOT NULL,
+    "created" DATETIME NOT NULL
 );
 
 -- CreateIndex

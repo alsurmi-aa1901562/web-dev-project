@@ -1,4 +1,4 @@
-import * as repo from "./repository.js";
+import * as repo from "@/utilities/repository.js";
 
 export async function GET(request, {params}) {
     try {
@@ -15,19 +15,15 @@ export async function POST(request, {params}) {
     try {
         const body = await request.json();
 
-        if("id" in body && "fromDate" in body && "toDate" in body && "sessions" in body) {
-            if(Array.isArray(body.sessions)){
+        if( "fromDate" in body && "toDate" in body) {
                 const schedule = await repo.createSchedule({
-                    id: body.id,
                     fromDate: body.fromDate,
                     toDate: body.toDate,
-                    sessions: body.sessions
                 });
 
                 return Response.json(schedule, {status: 201});
             }
-        }
-
+            
         return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 
     } catch (error) {
         console.error("error -", error.message);
