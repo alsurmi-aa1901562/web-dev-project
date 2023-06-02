@@ -216,8 +216,7 @@ export async function deleteSchedule(id) {
 export async function createUser(user) {
     const createdUser = await prisma.User.create({
       data: {
-        ...user,
-        created: new Date(),
+        ...user
       },
     });
   

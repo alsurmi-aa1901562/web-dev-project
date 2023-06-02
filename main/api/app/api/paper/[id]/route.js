@@ -21,15 +21,23 @@ export async function PUT(request, {params}) {
         const body = await request.json();
         
         if("title" in body && "abstract" in body && "authors" in body && "pdfPath" in body && "reviewers" in body) {
-            if(Array.isArray(body.authors)){
-                const paper = await repo.updatePaper(id, body);
-
-                if (paper) {
-                return Response.json(paper, {status: 200});
-                }
             
-                return Response.json({error: "Paper Not Found!"}, {status: 404}); 
+            if(body.authors == null && body.reviewers == null) {
+                body.authors = undefined;
+                body.reviewers = undefined;
+            } else if(body.authors == null) {
+                body.authors = undefined;
+            } else if(body.reviewers == null) {
+                body.reviewers = undefined;
             }
+            
+            const paper = await repo.updatePaper(id, body);
+
+            if (paper) {
+            return Response.json(paper, {status: 200});
+            }
+        
+            return Response.json({error: "Paper Not Found!"}, {status: 404}); 
         }
          
         return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 

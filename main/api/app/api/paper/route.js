@@ -15,19 +15,26 @@ export async function POST(request, {params}) {
     try {
         const body = await request.json();
 
-        if("id" in body && "title" in body && "abstract" in body && "authors" in body && "pdfPath" in body && "reviewers" in body) {
-            if(Array.isArray(body.authors)){
-                const paper = await repo.createPaper({
-                    id: body.id,
-                    title: body.title,
-                    abstract: body.abstract,
-                    authors: body.authors,
-                    pdfPath: body.pdfPath,
-                    reviewers: body.reviewers
-                });
-
-                return Response.json(paper, {status: 201});
+        if("title" in body && "abstract" in body && "authors" in body && "pdfPath" in body && "reviewers" in body) {
+            
+            if(body.authors == null && body.reviewers == null) {
+                body.authors = undefined;
+                body.reviewers = undefined;
+            } else if(body.authors == null) {
+                body.authors = undefined;
+            } else if(body.reviewers == null) {
+                body.reviewers = undefined;
             }
+
+            const paper = await repo.createPaper({
+                title: body.title,
+                abstract: body.abstract,
+                authors: body.authors,
+                pdfPath: body.pdfPath,
+                reviewers: body.reviewers
+            });
+
+            return Response.json(paper, {status: 201});
         }
 
         return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 

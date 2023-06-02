@@ -15,3 +15,6 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+// export function config() {
+//   return nextConfig
+// }

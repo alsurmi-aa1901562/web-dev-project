@@ -20,16 +20,18 @@ export async function PUT(request, {params}) {
         const{ scheduleid } = params;
         const body = await request.json();
 
-        if("date" in body && "sessions" in body) {
-            if(Array.isArray(body.sessions)){
-                const schedule = await repo.updateSchedule(scheduleid, body);
-
-                if (schedule) {
-                return Response.json(schedule, {status: 200});
-                }
-            
-                return Response.json({error: "Schedule Not Found!"}, {status: 404}); 
+        if("toDate" in body &&"fromDate" in body && "sessions" in body) {
+            if(body.sessions == null) {
+                body.sessions = undefined;
             }
+            
+            const schedule = await repo.updateSchedule(scheduleid, body);
+
+            if (schedule) {
+            return Response.json(schedule, {status: 200});
+            }
+        
+            return Response.json({error: "Schedule Not Found!"}, {status: 404}); 
         }
          
         return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 

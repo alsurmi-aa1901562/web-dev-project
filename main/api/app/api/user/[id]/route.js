@@ -20,15 +20,15 @@ export async function PUT(request, {params}) {
         const{ id } = params;
         const body = await request.json();
 
-        if(typeof body.fname === "string" && typeof body.lname === "string" && typeof body.email === "string" && typeof body.password === "string" && typeof body.role === "string"){
-            body.fname = body.fname.trim();
-            body.lname = body.lname.trim();
+        if(typeof body.first_name === "string" && typeof body.last_name === "string" && typeof body.email === "string" && typeof body.password === "string" && typeof body.role === "string"){
+            body.first_name = body.first_name.trim();
+            body.last_name = body.last_name.trim();
             body.email = body.email.trim();
             body.password = body.password.trim();
             body.role = body.role.trim();
         }
 
-        if("fname" in body && "lname" in body && "email" in body && "password" in body && "role" in body) {
+        if("first_name" in body && "last_name" in body && "email" in body && "password" in body && "role" in body) {
             const user = await repo.updateUser(id, body);
 
             if (user) {

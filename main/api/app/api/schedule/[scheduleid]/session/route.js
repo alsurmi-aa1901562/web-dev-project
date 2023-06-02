@@ -17,9 +17,12 @@ export async function POST(request, {params}) {
         const {scheduleid} = params;
         const body = await request.json();
 
-        if("id" in body && "title" in body && "location" in body && "events" in body && "date" in body) {
+        if("title" in body && "location" in body && "events" in body && "date" in body) {
+            if(body.events == null) {
+                body.events = undefined;
+            }
+
             const session = await repo.createSession({
-                id: body.id,
                 title: body.title,
                 location: body.location,
                 events: body.events,

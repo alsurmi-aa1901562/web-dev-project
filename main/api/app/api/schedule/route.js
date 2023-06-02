@@ -15,13 +15,18 @@ export async function POST(request, {params}) {
     try {
         const body = await request.json();
 
-        if( "fromDate" in body && "toDate" in body) {
-                const schedule = await repo.createSchedule({
-                    fromDate: body.fromDate,
-                    toDate: body.toDate,
-                });
+        if("sessions" in body && "fromDate" in body && "toDate" in body) {
+            if(body.sessions == null) {
+                body.sessions = undefined;
+            }
+            
+            const schedule = await repo.createSchedule({
+                sessions: body.sessions,
+                fromDate: body.fromDate,
+                toDate: body.toDate,
+            });
 
-                return Response.json(schedule, {status: 201});
+            return Response.json(schedule, {status: 201});
             }
             
         return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 
