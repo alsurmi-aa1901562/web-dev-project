@@ -17,9 +17,8 @@ export async function POST(request, {params}) {
         const { scheduleid, sessionid } = params;
         const body = await request.json();
 
-        if("id" in body && "title" in body && "presenter" in body && "startTime" in body && "endTime" in body) {
+        if("title" in body && "presenter" in body && "startTime" in body && "endTime" in body) {
             const event = await repo.createEvent({
-                id: body.id,
                 title: body.title,
                 presenter: body.presenter,
                 startTime: body.startTime,

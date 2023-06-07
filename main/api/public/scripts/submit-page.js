@@ -96,6 +96,7 @@ async function addAuthor() {
     institutions.forEach((e) => {
       const option = document.createElement("option");
       option.setAttribute("id", `${e.name}-${count + 1}`);
+      option.setAttribute("value", `${e.id}`);
       option.innerHTML = `${e.name}`;
 
       affiliationSelectionInput.appendChild(option);
@@ -242,7 +243,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         else{
           presenterValidation = "true";
         }
-  
+       
         const author = {
           "fname": `${data.get(`author-first-name-${i}`)}`,
           "lname": `${data.get(`author-last-name-${i}`)}`,
@@ -254,7 +255,6 @@ document.addEventListener("DOMContentLoaded", async () => {
        authors.push(author);
       }
 
-      // TODO : Upload FILE
       const file = data.get("paper-pdf");
       
       const formdata = new FormData();
@@ -277,7 +277,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       const request = await fetch(paperURL, {
         method: "POST",
         body: JSON.stringify({
-          "id": "0",
           "title": `${title}`,
           "abstract": `${abstract}`,
           "authors": authors,

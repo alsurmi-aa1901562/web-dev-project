@@ -12,12 +12,13 @@ datasource db {
 }
 
 model User {
-  id        String @id @unique @default(cuid())
-  email     String @unique
-  password  String
+  id         String    @id @unique @default(cuid())
+  email      String    @unique
+  password   String
   first_name String
   last_name  String
-  role      String
+  role       String
+  Reviewer   Reviewer?
 }
 
 model Schedule {
@@ -42,7 +43,7 @@ model Session {
 model Event {
   id        String   @id @unique @default(cuid())
   title     String
-  presenter Boolean
+  presenter String
   startTime DateTime
   endTime   DateTime
   Session   Session? @relation(fields: [sessionId], references: [id])
@@ -73,7 +74,8 @@ model Author {
 }
 
 model Reviewer {
-  id           String   @id @unique @default(cuid())
+  User         User     @relation(fields: [userId], references: [id])
+  userId       String   @unique
   evaluation   Int
   contribution Boolean?
   strengths    String?
@@ -84,20 +86,20 @@ model Reviewer {
 }
 
 model Institution {
-  id     String   @id @unique @default(cuid())
-  name   String
-  Author Author[]
+  id      String   @id @unique @default(cuid())
+  name    String
+  Author  Author[]
   created DateTime
 }
 
 model Location {
-  id   String @id @unique @default(cuid())
-  name String
+  id      String   @id @unique @default(cuid())
+  name    String
   created DateTime
 }
 
 model ConferenceDates {
-  id   String   @id @unique @default(cuid())
-  date DateTime
+  id      String   @id @unique @default(cuid())
+  date    DateTime
   created DateTime
 }

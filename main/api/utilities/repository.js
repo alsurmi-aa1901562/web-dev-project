@@ -104,7 +104,12 @@ export async function createPaper(paper) {
 
 //returns all papers
 export async function readPapers() {
-    const papers = await prisma.Paper.findMany();
+    const papers = await prisma.Paper.findMany({
+      include: {
+        authors: true,
+        reviewers: true,
+      },
+    });
     return papers;
 }
 
@@ -113,6 +118,10 @@ export async function readPaper(id) {
     const paper = await prisma.Paper.findUnique({
       where: {
         id: id,
+      },
+      include: {
+        authors: true,
+        reviewers: true,
       },
     });
   
@@ -166,7 +175,11 @@ export async function createSchedule(schedule) {
 
 //returns all schedules
 export async function readSchedules() {
-    const schedules = await prisma.Schedule.findMany();
+    const schedules = await prisma.Schedule.findMany({
+      include: {
+        sessions: true,
+      },
+    });
     return schedules;
 }
 
@@ -175,6 +188,9 @@ export async function readSchedule(id) {
     const schedule = await prisma.Schedule.findUnique({
       where: {
         id: id,
+      },
+      include: {
+        sessions: true,
       },
     });
   
@@ -315,13 +331,16 @@ export async function readSessions(scheduleId) {
     const schedule = await prisma.Schedule.findUnique({
       where: {
         id: scheduleId,
-      },
+      }
     });
   
     if (schedule) {
       const sessions = await prisma.Session.findMany({
         where: {
           scheduleId: scheduleId,
+        },
+        include: {
+          events: true,
         },
       });
   
@@ -342,6 +361,9 @@ export async function readSession(scheduleId, sessionId) {
       const session = await prisma.Session.findUnique({
         where: {
           id: sessionId,
+        },
+        include: {
+          sessions: true,
         },
       });
   
@@ -571,4 +593,3 @@ export async function deleteEvent(scheduleid, sessionid, id) {
     return null;
 }
 //------------------------------------------------------------------------------------------------------------//
-

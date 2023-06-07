@@ -9,6 +9,7 @@ Table User {
   first_name String [not null]
   last_name String [not null]
   role String [not null]
+  Reviewer Reviewer
 }
 
 Table Schedule {
@@ -33,7 +34,7 @@ Table Session {
 Table Event {
   id String [pk]
   title String [not null]
-  presenter Boolean [not null]
+  presenter String [not null]
   startTime DateTime [not null]
   endTime DateTime [not null]
   Session Session
@@ -64,7 +65,8 @@ Table Author {
 }
 
 Table Reviewer {
-  id String [pk]
+  User User [not null]
+  userId String [unique, not null]
   evaluation Int [not null]
   contribution Boolean
   strengths String
@@ -100,5 +102,7 @@ Ref: Event.sessionId > Session.id
 Ref: Author.institutionId > Institution.id
 
 Ref: Author.paperId > Paper.id
+
+Ref: Reviewer.userId - User.id
 
 Ref: Reviewer.paperId > Paper.id

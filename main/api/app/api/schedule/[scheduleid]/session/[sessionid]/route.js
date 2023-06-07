@@ -21,6 +21,9 @@ export async function PUT(request, {params}) {
         const body = await request.json();
 
          if("events" in body && "location" in body && "title" in body && "date" in body) {
+            if(body.events == null) {
+                body.events = undefined;
+            }
             const session = await repo.updateSession(scheduleid, sessionid, body);
 
             if (session) {

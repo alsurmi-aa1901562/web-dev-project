@@ -31,7 +31,7 @@ CREATE TABLE "Session" (
 CREATE TABLE "Event" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
-    "presenter" BOOLEAN NOT NULL,
+    "presenter" TEXT NOT NULL,
     "startTime" DATETIME NOT NULL,
     "endTime" DATETIME NOT NULL,
     "sessionId" TEXT,
@@ -63,13 +63,14 @@ CREATE TABLE "Author" (
 
 -- CreateTable
 CREATE TABLE "Reviewer" (
-    "id" TEXT NOT NULL PRIMARY KEY,
+    "userId" TEXT NOT NULL,
     "evaluation" INTEGER NOT NULL,
     "contribution" BOOLEAN,
     "strengths" TEXT,
     "weaknesses" TEXT,
     "paperId" TEXT,
     "created" DATETIME NOT NULL,
+    CONSTRAINT "Reviewer_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Reviewer_paperId_fkey" FOREIGN KEY ("paperId") REFERENCES "Paper" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
@@ -116,7 +117,7 @@ CREATE UNIQUE INDEX "Paper_id_key" ON "Paper"("id");
 CREATE UNIQUE INDEX "Author_id_key" ON "Author"("id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Reviewer_id_key" ON "Reviewer"("id");
+CREATE UNIQUE INDEX "Reviewer_userId_key" ON "Reviewer"("userId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Institution_id_key" ON "Institution"("id");
