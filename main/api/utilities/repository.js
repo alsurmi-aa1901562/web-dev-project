@@ -96,6 +96,7 @@ export async function createPaper(paper) {
   const createdPaper = await prisma.Paper.create({
     data: {
       title: paper.title,
+      submitterId: paper.submitterId,
       abstract: paper.abstract,
       pdfPath: paper.pdfPath,
       created: new Date(),

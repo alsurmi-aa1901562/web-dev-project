@@ -3,8 +3,33 @@ const schedulesURL = "http://localhost:3000/api/schedule";
 
 // Default DOM
 document.addEventListener("DOMContentLoaded", async () =>{
+    
+
     const scheduleResponse = await fetch(schedulesURL);
     const schedules = await scheduleResponse.json();
+    console.log(schedules)
+
+    if(schedules[0].sessions != undefined && schedules[0].sessions != null){
+        const body = document.querySelector("body");
+        const nav = document.createElement("nav");
+        const select = document.createElement("select");
+        const mainDiv = document.createElement("main");
+        select.id = "day-selector";
+        select.name = "day";
+        mainDiv.id = "mainDiv";
+        
+        nav.appendChild(select);
+        body.appendChild(nav);
+        body.appendChild(mainDiv);   
+    }
+    else{
+        const body = document.querySelector("body");
+        const mainDiv = document.createElement("main");
+        const header = document.createElement("h1");
+        header.innerHTML = "No Schedules At the Current Moment";
+        mainDiv.appendChild(header);
+        body.appendChild(mainDiv);
+    }
 
     schedules.forEach((schedule) =>{
         schedule.sessions.forEach((session) => {

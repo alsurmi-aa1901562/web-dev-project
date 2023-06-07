@@ -15,7 +15,7 @@ async function createCard(type, paper, reviewerIndex) {
     
     paperTitle.setAttribute("class", "paper-title");
     paperTitle.setAttribute("id", `paper-title${count + 1}`);
-    paperTitle.innerHTML = `${paper.title} 🅾️`
+    paperTitle.innerHTML = `Paper Title: ${paper.title} 🅾️`
   }
   else{
     const innerCount = reviewedGroup.childElementCount;
@@ -24,7 +24,7 @@ async function createCard(type, paper, reviewerIndex) {
 
     paperTitle.setAttribute("class", "paper-title");
     paperTitle.setAttribute("id", `paper-title${innerCount + 1}`);
-    paperTitle.innerHTML = `${paper.title} &#x2705`
+    paperTitle.innerHTML = `Paper Title: ${paper.title} &#x2705`
   }
   
     // Go Through the Array of Authors
@@ -46,7 +46,7 @@ async function createCard(type, paper, reviewerIndex) {
     const paperAuthors = document.createElement("p");
     paperAuthors.setAttribute("class", "authors");
     paperAuthors.setAttribute("id", `authors${count + 1}`);
-    paperAuthors.innerHTML = `${authorList}`;
+    paperAuthors.innerHTML = `Authors: ${authorList}`;
 
     const abstractDiv = document.createElement("div");
     abstractDiv.setAttribute("class", "abstract");
@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 const deleteButton = document.getElementById("logout");
 deleteButton.addEventListener("click", function() {
-  window.location.href = "conference-schedule.html";
+  window.location.href = "/";
 });
 
 

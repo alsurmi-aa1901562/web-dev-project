@@ -44,6 +44,7 @@ Table Event {
 
 Table Paper {
   id String [pk]
+  submitterId String [not null]
   title String [not null]
   abstract String [not null]
   pdfPath String [not null]

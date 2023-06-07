@@ -169,6 +169,104 @@ function removeAuthor(author) {
   selector.remove();
 }
 
+function createCard(paper, count) {
+  const group = document.getElementById("SubmittedPaperGroup");
+  const paperSection = document.createElement("section");
+  const paperTitle = document.createElement("p");
+  paperSection.setAttribute("id", `paper-${paper.id}`);
+  paperSection.setAttribute("class", "paper-card");
+
+  paperTitle.innerHTML = "Paper Title: " + paper.title;
+  paperTitle.setAttribute("class", "paper-title");
+  paperTitle.setAttribute("id", `paper-title-${count + 1}`);
+
+  let authorList = "";
+  paper.authors.forEach((e, i) => {
+    // Styling
+    const fname = e.fname.charAt(0).toUpperCase() + e.fname.slice(1);
+    const lname = e.lname.charAt(0).toUpperCase() + e.lname.slice(1);
+
+    // Adding to String
+    if(i < paper.authors.length - 1) {
+      authorList += ` ${fname} ${lname},`
+    }
+    else{
+      authorList += ` ${fname} ${lname}`
+    }
+  });
+
+  const paperAuthors = document.createElement("p");
+  paperAuthors.setAttribute("class", "authors");
+  paperAuthors.setAttribute("id", `authors${count + 1}`);
+  paperAuthors.innerHTML = `Authors: ${authorList}`;
+
+  const abstractDiv = document.createElement("div");
+  abstractDiv.setAttribute("class", "abstract");
+  abstractDiv.setAttribute("id", `abstractDiv${count + 1}`);
+
+    const abstractBtn = document.createElement("button");
+    abstractBtn.setAttribute("type", "button");
+    abstractBtn.setAttribute("class", "abstract-collapsible");
+    abstractBtn.setAttribute("id", `abstractCollapse${count + 1}`)
+    abstractBtn.innerHTML = "Abstract";
+
+    const abstractContentDiv = document.createElement("div");
+    abstractContentDiv.setAttribute("class", "abstract-content");
+    abstractContentDiv.setAttribute("id", `abstractContent${count + 1}`);
+
+      const abstractContentParagraph = document.createElement("p");
+      abstractContentParagraph.innerHTML = `${paper.abstract}`;
+
+    abstractContentDiv.appendChild(abstractContentParagraph);
+
+    // Event Listener to Collapse and Uncollapse Abstract
+    abstractBtn.addEventListener("click", () =>{
+      if(abstractBtn.className.includes("active")){
+        abstractBtn.classList = "abstract-collapsible";
+      abstractContentDiv.style.display = "none";
+      }
+      else{
+        abstractBtn.classList = "abstract-collapsible active";
+        abstractContentDiv.style.display = "block";
+      }
+    });
+
+  abstractDiv.appendChild(abstractBtn);
+  abstractDiv.appendChild(abstractContentDiv);
+
+  const downloadDiv = document.createElement("div");
+  downloadDiv.setAttribute("class", "download");
+  downloadDiv.setAttribute("id", `downloadDiv${count + 1}`);
+
+    const downloadParagraph = document.createElement("p");
+    downloadParagraph.innerHTML = "Paper Link: "
+
+      const downloadAnchor = document.createElement("a");
+      downloadAnchor.setAttribute("class", "download-link");
+      downloadAnchor.innerHTML = "[DOWNLOAD PAPER]";
+
+      // Assigning urls To Download Papers
+      downloadAnchor.addEventListener("click", async ()=>{
+        const resp = await fetch(uploadURL+`?fileName=${paper.pdfPath}`);
+        const blobData = await resp.blob();
+        const url = window.URL.createObjectURL(blobData);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = paper.pdfPath;
+        a.click();
+        a.remove();
+      });
+
+    downloadParagraph.appendChild(downloadAnchor);
+  
+  downloadDiv.appendChild(downloadParagraph);
+  paperSection.appendChild(paperTitle);
+  paperSection.appendChild(paperAuthors);
+  paperSection.appendChild(abstractDiv);
+  paperSection.appendChild(downloadDiv);
+  group.appendChild(paperSection);
+}
+
 // Default DOM Method
 document.addEventListener("DOMContentLoaded", async () => {
   // Grabbing Saves From Login
@@ -191,6 +289,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   document.getElementById("Nav-userName").innerHTML = `Username: ${getLogInfo.username.replace("@author.com", "")}`
   document.getElementById("Nav-Id").innerHTML = `ID: ${getLogInfo.identity}`;
+
+  // Grab papers from database
+  const paperResponse = await fetch(paperURL);
+
+  const papers = await paperResponse.json();
+
+  papers.forEach((paper, i) => {
+    if(paper.submitterId == getLogInfo.identity) {
+      createCard(paper, i);
+    }});
+
 
   // Add One Author by Default
   const author = document.getElementById("author1");
@@ -279,6 +388,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         body: JSON.stringify({
           "title": `${title}`,
           "abstract": `${abstract}`,
+          "submitterId": `${getLogInfo.identity}`,
           "authors": authors,
           "pdfPath": `${getJson.fileName}`,
           "reviewers": [
@@ -328,5 +438,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 const deleteButton = document.getElementById("logout");
 deleteButton.addEventListener("click", function() {
-  window.location.href = "conference-schedule.html";
+  window.location.href = "/";
 });

@@ -29,6 +29,7 @@ export async function POST(request, {params}) {
             const paper = await repo.createPaper({
                 title: body.title,
                 abstract: body.abstract,
+                submitterId: body.submitterId,
                 authors: body.authors,
                 pdfPath: body.pdfPath,
                 reviewers: body.reviewers

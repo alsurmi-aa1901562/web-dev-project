@@ -42,6 +42,7 @@ CREATE TABLE "Event" (
 -- CreateTable
 CREATE TABLE "Paper" (
     "id" TEXT NOT NULL PRIMARY KEY,
+    "submitterId" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "abstract" TEXT NOT NULL,
     "pdfPath" TEXT NOT NULL,
