@@ -53,6 +53,7 @@ model Event {
 
 model Paper {
   id        String     @id @unique @default(cuid())
+  submitterId String
   title     String
   abstract  String
   pdfPath   String
