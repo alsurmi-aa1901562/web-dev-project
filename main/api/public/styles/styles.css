@@ -198,6 +198,15 @@ i {
 
 
 /*==================Submit Form page=================*/
+#mainSection_SubmitPaper{
+    display: block;
+}
+#submitted-papers-header{
+    font-family: Poppins-Bold;
+    font-size: 30px;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+}
 body{
     margin: 0%;
 }
@@ -238,24 +247,35 @@ nav{
     gap: 90px;
     padding: 10px;
 }
+.Nav_Butt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .logout{
     font-family: Poppins-Regular;
     font-size: 16px;
     color: white;
     border-radius: 20px;
-    padding: 10px;
+    padding: 0.75rem; /* Remove padding */
+    background-color: transparent; /* Use transparent background */
+    border: none;
 }
 
 .logout:hover {
-    transform: scale(1.005);
+    transform: scale(1.020);
     transition: 0.15s ease-in-out;
     background-color: rgba(0, 0, 0, 0.112);
     border: solid 1px;
+    border-color: white;
+    cursor: pointer;
 }
 
 .logout:not(:hover) {
     transform: scale(1);
     transition: 0.15s ease-in-out;
+    background: none;
 }
 
 

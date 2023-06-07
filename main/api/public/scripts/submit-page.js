@@ -324,3 +324,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       pointer.style.left = e.pageX + "px";
   });
 });
+
+
+const deleteButton = document.getElementById("logout");
+deleteButton.addEventListener("click", function() {
+  window.location.href = "conference-schedule.html";
+});

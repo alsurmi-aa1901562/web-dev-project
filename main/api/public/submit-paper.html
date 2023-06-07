@@ -18,7 +18,11 @@
       <p id="Nav-userName"> Username : ahmed</p>
       <p id="Nav-Id"> Id: 2018051600</p>
     </div>
-    <p id="logout" class="logout" ><a href="conference-schedule.html", onclick="logout()" >Logout</a></p>
+    <div class="Nav_Butt">
+    <button id="logout" class="logout" onclick="logout()">
+      Logout
+    </button>
+    </div>
 
   </nav>
 
@@ -29,7 +33,7 @@
   </aside>
 
   <main class="submission-page"> 
-    <section class="main-section">
+    <section class="main-section" id="mainSection_SubmitPaper">
       <form id="submission-form">
 
         <div id="Paper-information-form">
@@ -61,9 +65,14 @@
         <div id="submit-btn">
           <button type="submit" id="submit-paper-btn">submit</button>
         </div>
-
       </form>
+
+      <hr id="seperator">
+      <p id="submitted-papers-header">Previously Submitted Papers</p>
+
+      <div id="SubmittedPaperGroup"></div>
     </section>
+
 
   </main>
 
