@@ -1,3 +1,238 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Body styles */
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../public/fonts/poppins/Poppins-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: Poppins-Medium;
+    src: url('../public/fonts/poppins/Poppins-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: Poppins-Bold;
+    src: url('../public/fonts/poppins/Poppins-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../public/fonts/poppins/Poppins-Regular.ttf');
+  }
+  
+  body {
+    background-image: url("../public/images/bg.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+  }
+  
+  /* Header styles */
+  
+  header {
+    width: 97%;
+    margin: auto;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    height: 20vh;
+    /* padding: 20px; */
+  }
+  
+  header div {
+    padding: 12px 0px;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  
+  #login:hover {
+    transform: scale(1.005);
+    transition: 0.15s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.112);
+  }
+  
+  #login:not(:hover) {
+    transform: scale(1);
+    transition: 0.15s ease-in-out;
+  }
+  
+  header a {
+    font-size: 1.2rem;
+    font-family: Poppins-Regular;
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px;
+    border-radius: 2rem;
+    transition: 0.3s;
+  }
+  
+  header a:hover {
+    padding-left: 10%;
+    transform: scale(1.025);
+    transition: 0.25s ease;
+    background-color: rgba(0, 0, 0, 0.112);
+    border: solid 2px;
+  }
+  
+  header h1 {
+    font-family: Poppins-Bold;
+    margin: 0;
+  }
+  
+  /* Navigation styles */
+  nav {
+    text-align: center;
+    justify-content: space-evenly;
+    background-color: transparent;
+    color: #fff;
+    padding: 20px;
+    width: 97%;
+  }
+  
+  nav select {
+    font-family: Poppins-Regular;
+    padding: 5px 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+  }
+  
+  nav select:focus {
+    outline: none;
+  }
+  
+  nav select:hover {
+    transform: scale(1.065);
+    transition: 0.25s ease-in-out;
+  }
+  
+  /* Main styles */
+  main {
+    background-color: white;
+    margin: 5rem;
+    padding: 3rem;
+    border-radius: .5rem;
+    size: 80%;
+  }
+  
+  main h2:hover {
+    transform: scale(1.079);
+    transition: 0.3s;
+  
+  }
+  
+  section {
+    flex-basis: 100%;
+    margin-bottom: 80px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    /* align-self: center; */
+    text-align: center;
+  }
+  
+  
+  table th,
+  table td {
+    font-family: Poppins-Regular;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: hsl(253, 58%, 49%);
+    color: #fff;
+  }
+  
+  
+  table th:hover {
+    background-color: #622ce2;
+    transition: 0.2s;
+  }
+  
+  table tr:hover {
+    background-color: #85a8f3d2;
+    transform: scale(1.029);
+    transition: 0.25s ease-in-out;
+  }
+  
+  
+  footer {
+    text-align: center;
+  }
+  
+  @keyframes flicker {
+  
+    0%,
+    100% {
+      text-shadow: 0 0 10px white;
+    }
+  
+    50% {
+      text-shadow: 0 0 5px transparent;
+    }
+  }
+  
+  /* Aside styles */
+  aside {
+    text-align: center;
+    flex-basis: 30%;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-shadow: 0 0 5px white;
+    animation: flicker 1s infinite;
+  }
+  
+  /* Form styles */
+  form {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  section h2 {
+    text-align: center;
+  
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  form input,
+  form textarea {
+    display: block;
+    width: 95%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    
+  }
+  
+  form button {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #444;
+  }

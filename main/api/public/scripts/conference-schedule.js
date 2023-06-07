@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", async () =>{
     const scheduleResponse = await fetch(schedulesURL);
     const schedules = await scheduleResponse.json();
 
-    console.log(schedules)
-
     schedules.forEach((schedule) =>{
         schedule.sessions.forEach((session) => {
             const main = document.getElementById("mainDiv");
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", async () =>{
                     tableRowHeading.appendChild(tableRowTime);
                     tableRowHeading.appendChild(tableRowEvent);
                 table.appendChild(tableRowHeading);
-
                     session.events.forEach((e) => {
                         const tableRow = document.createElement("tr");
                         const eventDate = new Date(e.startTime);
