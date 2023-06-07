@@ -41,24 +41,14 @@
     text-align: center;
     height: 20vh;
     /* padding: 20px; */
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
   
   header div {
     padding: 12px 0px;
     display: flex;
     gap: 1rem;
-  }
-  
-  
-  #login:hover {
-    transform: scale(1.005);
-    transition: 0.15s ease-in-out;
-    background-color: rgba(0, 0, 0, 0.112);
-  }
-  
-  #login:not(:hover) {
-    transform: scale(1);
-    transition: 0.15s ease-in-out;
   }
   
   header a {
@@ -69,15 +59,16 @@
     padding: 7px 15px;
     border-radius: 2rem;
     transition: 0.3s;
+    
   }
   
-  header a:hover {
+  /* header a:hover {
     padding-left: 10%;
     transform: scale(1.025);
     transition: 0.25s ease;
     background-color: rgba(0, 0, 0, 0.112);
     border: solid 2px;
-  }
+  } */
   
   header h1 {
     font-family: Poppins-Bold;
@@ -113,11 +104,20 @@
   
   /* Main styles */
   main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .MainMessage{
+
     background-color: white;
-    margin: 5rem;
+    margin: 2rem;
     padding: 3rem;
-    border-radius: .5rem;
-    size: 80%;
+    border-radius: 3rem;
+    size: 50%;
+    width: 70%;
+    
   }
   
   main h2:hover {
@@ -169,70 +169,65 @@
     text-align: center;
   }
   
-  @keyframes flicker {
-  
-    0%,
-    100% {
-      text-shadow: 0 0 10px white;
-    }
-  
-    50% {
-      text-shadow: 0 0 5px transparent;
-    }
-  }
   
   /* Aside styles */
-  aside {
-    text-align: center;
-    flex-basis: 30%;
-    margin-bottom: 20px;
-    padding: 20px;
-    text-shadow: 0 0 5px white;
-    animation: flicker 1s infinite;
-  }
   
-  /* Form styles */
-  form {
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  section h2 {
-    text-align: center;
-  
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  form input,
-  form textarea {
-    display: block;
-    width: 95%;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    
-  }
-  
-  form button {
-    display: block;
-    background-color: #333;
-    color: #fff;
+  .navButton{
+    font-family: Poppins-Regular;
+    font-size: 16px;
+    color: white;
+    border-radius: 20px;
+    padding: 0.75rem; /* Remove padding */
+    background-color: transparent; /* Use transparent background */
     border: none;
-    border-radius: 3px;
-    padding: 10px 20px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
   }
-  
-  form button:hover {
-    background-color: #444;
+
+  .navButton:hover {
+      transform: scale(1.020);
+      transition: 0.15s ease-in-out;
+      background-color: rgba(0, 0, 0, 0.112);
+      border: solid 1px;
+      border-color: white;
+      cursor: pointer;
   }
+  .navButton:not(:hover) {
+    transform: scale(1);
+    transition: 0.15s ease-in-out;
+    background: none;
+} 
+
+.HeaderOfWelcomePage{
+  font-family: Poppins-Bold;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  /* margin-top: 5rem; */
+  margin-bottom: 5rem;
+}
+.welcomeMessageHeader{
+  font-family: Poppins-Bold;
+  font-size: 2rem;
+  color: black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.welcomeText{
+  font-family: Poppins-Regular;
+  font-size: 1.2rem;
+  color: black;
+  /* margin-top: 1rem; */
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+#pointer-follow {
+  width: 0.5em;
+  height: 0.5em;
+  background-color: #333333;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
