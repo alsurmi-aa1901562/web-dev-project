@@ -1,12 +1,5 @@
 
 export default async function Home() {
-  let res = await fetch('http://localhost:3000/api/schedule');
-  const schedules = await res.json();
-  
-  let res2 = await fetch(`http://localhost:3000/api/schedule/[${schedules[0].id}]/session`);
-  const sessions = res2.json()
-
-  console.log(sessions)
   return (
   <body >
     <header>
