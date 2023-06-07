@@ -248,8 +248,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           "fname": `${data.get(`author-first-name-${i}`)}`,
           "lname": `${data.get(`author-last-name-${i}`)}`,
           "email": `${data.get(`author-email-${i}`)}`,
-          "affiliation": `${data.get(`author-affiliation-${i}`)}`,
-          "isPresentor": `${presenterValidation}`
+          "institutionId": `${data.get(`author-affiliation-${i}`)}`,
+          "isPresenter": `${presenterValidation}`
         }
   
        authors.push(author);
@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       
       const shuffleReviewers = reviewers.sort(() => 0.5 - Math.random());
       shuffleReviewers.splice(2, shuffleReviewers.length);
-      
+      console.log(getJson);
       const request = await fetch(paperURL, {
         method: "POST",
         body: JSON.stringify({
@@ -283,18 +283,14 @@ document.addEventListener("DOMContentLoaded", async () => {
           "pdfPath": `${getJson.fileName}`,
           "reviewers": [
             {
-              "id": `${shuffleReviewers[0].id}`,
-              "evaluation": "-999",
-              "contribution": "",
-              "strengths": "",
-              "weaknesses": ""
+              "userId": `${shuffleReviewers[0].id}`,
+              "evaluation": -999,
+              "contribution": 0,
             },
             {
-              "id": `${shuffleReviewers[1].id}`,
-              "evaluation": "-999",
-              "contribution": "",
-              "strengths": "",
-              "weaknesses": ""
+              "userId": `${shuffleReviewers[1].id}`,
+              "evaluation": -999,
+              "contribution": 0,
             },
           ]
         })

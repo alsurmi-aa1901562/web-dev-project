@@ -110,8 +110,8 @@ async function createEvents(selectedEvent, scheduleID, session, underSessions) {
             body: JSON.stringify({
               "title":`${selectedEvent.title}`,
               "presenter":`${selectedEvent.presenter}`,
-              "startTime":`${startTime}`,
-              "endTime":`${endTime}`
+              "startTime":`${startTime.toISOString()}`,
+              "endTime":`${endTime.toISOString()}`
               })
             });
 
@@ -303,8 +303,8 @@ async function createDay(session, scheduleID, underSchedule) {
                           "id":"0",
                           "title":`${titleOfEvent.value}`,
                           "presenter":`${presenter}`,
-                          "startTime":`${startTime}`,
-                          "endTime":`${endTime}`
+                          "startTime":`${startTime.toISOString()}`,
+                          "endTime":`${endTime.toISOString()}`
                         })
                       });
                     }
@@ -376,10 +376,12 @@ async function createDay(session, scheduleID, underSchedule) {
           const allEventsDiv = document.createElement("div");
           allEventsDiv.id = "all-events";
 
+          if(session.events !== null && session.events !== undefined){
             session.events.forEach((e, i) => {
               createEvents(e, scheduleID, session, allEventsDiv);
             });
-        
+          }
+            
           const eventSessionBtnDiv = document.createElement("div");
           eventSessionBtnDiv.id = "session-btns";
 
@@ -433,9 +435,7 @@ async function createDay(session, scheduleID, underSchedule) {
                   method: "PUT",
                   body: JSON.stringify({
                     "title":`${editSessionTitle.value}`,
-                    "location":`${editSessionLocation.value}`,
-                    "events": session.events,
-                    "date": `${session.date}`,
+                    "location":`${editSessionLocation.value}`
                     })
                   })
                 })
@@ -497,7 +497,7 @@ async function loadSchedules(schedules) {
     scheduleDate.id = "schedule-heading";
     const fromDate = new Date(e.fromDate);
     const toDate = new Date(e.toDate);
-    scheduleDate.innerHTML = `Schedule: ${fromDate.getDate()}/${fromDate.getMonth() + 1}/${fromDate.getFullYear()} - ${toDate.getDate()}/${toDate.getMonth() + 1}/${toDate.getFullYear()}`;
+    scheduleDate.innerHTML = `Schedule: ${fromDate.getUTCDate()}/${fromDate.getUTCMonth() + 1}/${fromDate.getUTCFullYear()} - ${toDate.getUTCDate()}/${toDate.getUTCMonth() + 1}/${toDate.getUTCFullYear()}`;
 
     const daysList = document.createElement("div");
     daysList.id = "all-days";
@@ -577,11 +577,10 @@ async function loadSchedules(schedules) {
         const sessionResponse = await fetch(schedulesURL+`/${schedules[0].id}/session`, {
           method: "POST",
           body: JSON.stringify({
-              "id":"0",
               "title": `${sessionTitle.value}`,
               "location": `${locationsSelect.value}`,
               "date": `${conferences[dateSelection.selectedIndex].date}`,
-              "events":[]
+              "events":null
           })
         });
         location.reload();
@@ -628,19 +627,17 @@ async function loadCreateSchedule() {
     // Submit Button Event Listener
    createScheduleModal.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const fromDate = document.getElementById("startDate-schedule").value;
-      const toDate = document.getElementById("endDate-schedule").value;
+      const startDate = new Date(document.getElementById("startDate-schedule").value);
+      const endDate = new Date(document.getElementById("endDate-schedule").value);
+      
 
-      const startDate = new Date(fromDate);
-      const endDate = new Date(toDate);
-
-      const date = new Date(startDate);
-
+      let date = new Date(startDate);
+      
       while(date <= endDate) {
         const response = await fetch(conferenceDate, {
           method: "POST",
           body: JSON.stringify({
-            "date": `${date}`
+            "date": `${date.toISOString()}`
           })
         });
         date.setDate(date.getDate() + 1);
@@ -649,10 +646,9 @@ async function loadCreateSchedule() {
       const response = await fetch(schedulesURL, {
         method: "POST",
         body: JSON.stringify({
-          "id": 0,
-          "fromDate": `${startDate}`,
-          "toDate":`${endDate}`,
-          "sessions": []
+          "fromDate": `${startDate.toISOString()}`,
+          "toDate":`${endDate.toISOString()}`,
+          "sessions":null
         })
       })
       location.reload()

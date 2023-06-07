@@ -92,14 +92,49 @@ export async function readLocations() {
 //PAPER CRUD ---- DONE
 //creates a paper
 export async function createPaper(paper) {
-    const createdPaper = await prisma.Paper.create({
-      data: {
-        ...paper,
-        created: new Date(),
-      },
-    });
-  
-    return createdPaper;
+
+  const createdPaper = await prisma.Paper.create({
+    data: {
+      title: paper.title,
+      abstract: paper.abstract,
+      pdfPath: paper.pdfPath,
+      created: new Date(),
+    },
+  });
+
+  if(paper.authors !== null && paper.authors !== undefined) {
+    for (const author of paper.authors) {
+      const presenter = (author.isPresenter == true ? true : false)
+      const createdAuthor = await prisma.Author.create({
+        data: {
+          fname: author.fname,
+          lname: author.lname,
+          email: author.email,
+          paperId: createdPaper.id,
+          institutionId: author.institutionId,
+          isPresenter: presenter,
+          created: new Date(),
+        },
+      });
+    }
+  }
+
+  if(paper.reviewers !== null && paper.reviewers !== undefined) {
+    for(const reviewer of paper.reviewers) {
+      const createdReviewer = await prisma.Reviewer.create({
+        data: {
+          userId: reviewer.userId,
+          evaluation: parseInt(reviewer.evaluation),
+          contribution: parseInt(reviewer.contribution),
+          strengths: reviewer.strengths,
+          weaknesses: reviewer.weaknesses,
+          paperId: createdPaper.id,
+          created: new Date(),
+        },
+      });
+    }
+  }
+  return createdPaper;
 }
 
 //returns all papers
@@ -130,17 +165,25 @@ export async function readPaper(id) {
 
 ///updates a paper based on the id -- no need for validation as it has to exist to be updated
 export async function updatePaper(id, body) {
-    const updatedPaper = await prisma.Paper.update({
+
+    for(const reviewer of body.reviewers) {
+      const createdReviewer = await prisma.Reviewer.update({
+        where: {
+          id: reviewer.id,
+        },
+        data: {
+          evaluation: parseInt(reviewer.evaluation),
+          contribution: parseInt(reviewer.contribution),
+          strengths: reviewer.strengths,
+          weaknesses: reviewer.weaknesses,
+        },
+      });
+    }
+
+    const updatedPaper = await prisma.Paper.findUnique({
       where: {
         id: id,
-      },
-      data: {
-        title: body.title,
-        abstract: body.abstract,
-        authors: body.authors,
-        pdfPath: body.pdfPath,
-        reviewers: body.reviewers,
-      },
+      }
     });
     return updatedPaper;
 }
@@ -178,6 +221,11 @@ export async function readSchedules() {
     const schedules = await prisma.Schedule.findMany({
       include: {
         sessions: true,
+        sessions: {
+          include: {
+            events: true,
+          }
+        }
       },
     });
     return schedules;
@@ -379,26 +427,26 @@ export async function updateSession(scheduleId, sessionId, body) {
         id: scheduleId,
       },
     });
-  
+
     if (schedule) {
       const session = await prisma.Session.findUnique({
         where: {
           id: sessionId,
         },
       });
-  
+
       if (session) {
         const updatedSession = await prisma.Session.update({
           where: {
             id: sessionId,
           },
           data: {
-            events: body.events,
+        
             location: body.location,
             title: body.title,
           },
         });
-  
+
         return updatedSession;
       }
     }

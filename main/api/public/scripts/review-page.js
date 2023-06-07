@@ -267,12 +267,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   papers.forEach((e, i) => {
     let reviewerIndex = -1;
     let evaluation;
-
-    if(e.reviewers[0].id == getLogInfo.identity) {
+    
+    if(e.reviewers[0].userId == getLogInfo.identity) {
       reviewerIndex = 0;
       evaluation = e.reviewers[0].evaluation;
+      console.log(true)
     }
-    else if(e.reviewers[1].id == getLogInfo.identity) {
+    else if(e.reviewers[1].userId == getLogInfo.identity) {
       reviewerIndex = 1;
       evaluation = e.reviewers[1].evaluation;
     }

@@ -30,13 +30,9 @@ export async function POST(req, {params}) {
         name = name + `-${nanoid()}.pdf`;
 
         await fs.writeFile(`data/pdfs/${name}`, Buffer.from(buffer));
-
-        if(save) {
-            return Response.json({message: "File Uploaded!", fileName: `${name}`}, { status: 200 });
-        }
-        // await fs.writeFile(`data/pdfs/${name}`, Buffer.from(buffer));
-        
-        return Response.json({error: "Invalid Parameters Posted"}, {status: 400}); 
+  
+        return Response.json({message: "File Uploaded!", fileName: `${name}`}, { status: 200 });
+ 
     } catch (error) {
         console.error("error -", error.message);
         console.log(error)

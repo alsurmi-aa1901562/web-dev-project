@@ -56,6 +56,7 @@ CREATE TABLE "Author" (
     "email" TEXT NOT NULL,
     "paperId" TEXT,
     "institutionId" TEXT NOT NULL,
+    "isPresenter" BOOLEAN NOT NULL,
     "created" DATETIME NOT NULL,
     CONSTRAINT "Author_institutionId_fkey" FOREIGN KEY ("institutionId") REFERENCES "Institution" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Author_paperId_fkey" FOREIGN KEY ("paperId") REFERENCES "Paper" ("id") ON DELETE SET NULL ON UPDATE CASCADE
@@ -63,9 +64,10 @@ CREATE TABLE "Author" (
 
 -- CreateTable
 CREATE TABLE "Reviewer" (
+    "id" TEXT NOT NULL PRIMARY KEY,
     "userId" TEXT NOT NULL,
     "evaluation" INTEGER NOT NULL,
-    "contribution" BOOLEAN,
+    "contribution" INTEGER,
     "strengths" TEXT,
     "weaknesses" TEXT,
     "paperId" TEXT,
@@ -117,7 +119,7 @@ CREATE UNIQUE INDEX "Paper_id_key" ON "Paper"("id");
 CREATE UNIQUE INDEX "Author_id_key" ON "Author"("id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Reviewer_userId_key" ON "Reviewer"("userId");
+CREATE UNIQUE INDEX "Reviewer_id_key" ON "Reviewer"("id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Institution_id_key" ON "Institution"("id");

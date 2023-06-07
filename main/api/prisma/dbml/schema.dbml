@@ -9,7 +9,7 @@ Table User {
   first_name String [not null]
   last_name String [not null]
   role String [not null]
-  Reviewer Reviewer
+  Reviewer Reviewer [not null]
 }
 
 Table Schedule {
@@ -61,14 +61,16 @@ Table Author {
   Paper Paper
   paperId String
   institutionId String [not null]
+  isPresenter Boolean [not null]
   created DateTime [not null]
 }
 
 Table Reviewer {
+  id String [pk]
   User User [not null]
-  userId String [unique, not null]
+  userId String [not null]
   evaluation Int [not null]
-  contribution Boolean
+  contribution Int
   strengths String
   weaknesses String
   Paper Paper
@@ -103,6 +105,6 @@ Ref: Author.institutionId > Institution.id
 
 Ref: Author.paperId > Paper.id
 
-Ref: Reviewer.userId - User.id
+Ref: Reviewer.userId > User.id
 
 Ref: Reviewer.paperId > Paper.id

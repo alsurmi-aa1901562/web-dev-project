@@ -18,7 +18,7 @@ model User {
   first_name String
   last_name  String
   role       String
-  Reviewer   Reviewer?
+  Reviewer   Reviewer[]
 }
 
 model Schedule {
@@ -70,14 +70,16 @@ model Author {
   Paper         Paper?      @relation(fields: [paperId], references: [id])
   paperId       String?
   institutionId String
+  isPresenter   Boolean
   created       DateTime
 }
 
 model Reviewer {
+  id           String   @id @unique @default(cuid())
   User         User     @relation(fields: [userId], references: [id])
-  userId       String   @unique
+  userId       String   
   evaluation   Int
-  contribution Boolean?
+  contribution Int?
   strengths    String?
   weaknesses   String?
   Paper        Paper?   @relation(fields: [paperId], references: [id])
