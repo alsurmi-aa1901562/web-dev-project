@@ -290,8 +290,8 @@ async function createDay(session, scheduleID, underSchedule) {
                         "id":"0",
                         "title":`${paperOption[approvedPaper.selectedIndex].title}`,
                         "presenter":`${presenter}`,
-                        "startTime":`${startTime}`,
-                        "endTime":`${endTime}`
+                        "startTime":`${startTime.toISOString()}`,
+                        "endTime":`${endTime.toISOString()}`
                       })
                     });
                   }
