@@ -3,7 +3,6 @@ export default async function Home() {
   let report = [];
   const response = await fetch("http://localhost:3000/api/report", {cache: "no-store"});
   report = await response.json();
- console.log(report);
   return (
   <body>
     <header>
