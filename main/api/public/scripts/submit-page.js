@@ -295,12 +295,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const papers = await paperResponse.json();
 
-  papers.forEach((paper, i) => {
+  if(papers) {
+    let list =[];
+    papers.forEach((paper, i) => {
     if(paper.submitterId == getLogInfo.identity) {
-      createCard(paper, i);
+      list.push(paper);
     }});
 
-
+    list.reverse().forEach((paper, i) => {
+      createCard(paper, i);
+    });
+  }
+  
   // Add One Author by Default
   const author = document.getElementById("author1");
 
