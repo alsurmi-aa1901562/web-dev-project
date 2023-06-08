@@ -1,7 +1,15 @@
 
 export default async function Home() {
   const response = await fetch("http://localhost:3000/api/report");
-  const report = await response.json();
+  let report = await response.json();
+  if(report == null || report == undefined){
+    report = {
+      submit: 0,
+      accept: 0,
+      reject: 0,
+      
+    }
+  }
   return (
   <body >
     <header>
