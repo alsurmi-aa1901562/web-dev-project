@@ -1,17 +1,11 @@
 
 export default async function Home() {
-  const response = await fetch("http://localhost:3000/api/report");
-  let report = await response.json();
-  if(report == null || report == undefined){
-    report = {
-      submit: 0,
-      accept: 0,
-      reject: 0,
-      
-    }
-  }
+  let report = [];
+  const response = await fetch("http://localhost:3000/api/report", {cache: "no-store"});
+  report = await response.json();
+ console.log(report);
   return (
-  <body >
+  <body>
     <header>
         <div id="pointer-follow"></div>
 

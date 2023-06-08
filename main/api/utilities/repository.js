@@ -695,7 +695,12 @@ export async function readReport(){
     });
     pcounter++
   });
-  const averageAuthors = parseInt( acounter / pcounter);
+  let averageAuthors = 0;
+
+  if(pcounter != 0) {
+    averageAuthors = parseInt( acounter / pcounter);
+  }
+ 
 
   // create an aggregate to calculate the number of sessions there are
   const sessions = await prisma.Session.aggregate({
@@ -710,7 +715,20 @@ export async function readReport(){
       id: true,
     },
   });
-  const averageEvents = parseInt(events._count.id / sessions._count.id);
+
+  let averageEvents = 0;
+  if(events._count.id !== 0) {
+   averageEvents = parseInt(events._count.id / sessions._count.id);
+  }
+
+  if(averageAuthors === undefined) {
+    averageAuthors = 0;
+  }
+  console.log("averageEvents", averageAuthors)
+  
+  if(averageEvents === NaN) {
+    averageEvents = 0;
+  }
 
   return {
     "submit": submitted._count.id,
