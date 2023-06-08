@@ -63,5 +63,6 @@ export default async function Home() {
         </div>
       </div>
     </main>
+    <script src="./scripts/main.js"></script>
 </body>
   )}

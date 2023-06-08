@@ -47,7 +47,6 @@ header div {
   gap: 1rem;
 }
 
-
 #login:hover {
   transform: scale(1.020);
   transition: 0.15s ease-in-out;
@@ -109,7 +108,12 @@ header a:hover {
   
   nav select:hover {
     transform: scale(1.065);
-    transition: 0.25s ease-in-out;
+    transition: 0.25s ease;
+  }
+
+  nav select:not(:hover) {
+    transform: scale(1);
+    transition: 0.25s ease;
   }
 
 /* Main styles */
@@ -123,10 +127,47 @@ main {
   size: 80%;
 }
 
+main:hover {
+  background-color: white;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 5rem;
+  padding: 3rem;
+  border-radius: 2rem;
+  size: 80%;
+  transform: scale(1.002);
+  transition: 0.2s ease;
+}
+main:not(:hover) {
+  background-color: white;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 5rem;
+  padding: 3rem;
+  border-radius: 2rem;
+  size: 80%;
+  transform: scale(1);
+  transition: 0.2s ease;
+}
+
 main h2:hover {
   transform: scale(1.079);
-  transition: 0.3s;
+  transition: 0.2s ease;
+}
 
+main h2:not(:hover) {
+  transform: scale(1);
+  transition: 0.2s ease;
+}
+
+p:hover {
+  transform: scale(1.01);
+  transition: 0.2s ease;
+}
+
+p:not(:hover) {
+  transform: scale(1);
+  transition: 0.2s ease;
 }
 
 section {
@@ -161,11 +202,21 @@ table th:hover {
   transition: 0.2s;
 }
 
+table th:not(:hover) {
+  transition: 0.2s;
+}
+
 table tr:hover {
   background-color: #E1CBD7;
-  transform: scale(1.029);
-  transition: 0.25s ease-in-out;
+  transform: scale(1.015);
+  transition: 0.2s ease;
 }
+table tr:not(:hover ){
+  background-color: #E1CBD7;
+  transform: scale(1);
+  transition: 0.2s ease;
+}
+
 
 
 .HeaderOfWelcomePage{
@@ -239,10 +290,6 @@ form button {
   margin-top: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #444;
 }
 #pointer-follow {
   width: 0.5em;
