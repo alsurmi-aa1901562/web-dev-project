@@ -219,9 +219,9 @@
   margin-bottom: 1rem;
   text-align: justify;
 }
-#pointer-follow {
-  width: 0.5em;
-  height: 0.5em;
+.pointer-follow {
+  width: 25px;
+  height: 5px;
   background-color: #333333;
   position: absolute;
   transform: translate(-50%, -50%);
