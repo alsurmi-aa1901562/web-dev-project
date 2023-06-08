@@ -119,7 +119,7 @@ main {
   margin-right: 5rem;
   margin-bottom: 5rem;
   padding: 3rem;
-  border-radius: 1.5rem;
+  border-radius: 2rem;
   size: 80%;
 }
 
@@ -177,7 +177,6 @@ table tr:hover {
   /* margin-bottom: 5rem; */
 }
 
-<<<<<<< Updated upstream
 @keyframes flicker {
 
   0%,
@@ -245,7 +244,6 @@ form button {
 form button:hover {
   background-color: #444;
 }
-
 #pointer-follow {
   width: 0.5em;
   height: 0.5em;
@@ -256,13 +254,12 @@ form button:hover {
   z-index: 10;
   top: 0;
   left: 0;
-  pointer-events: none;
-}
-/* .Navbar {
-  background-color: rgba(0, 128, 128, 0.2);
-  border-radius: 10px;
-  padding-left: 1rem;
-  margin-left:3rem;
-  margin-right:3rem;
+  pointer-events: none;}
 
-} */
+  .NavBar {
+    background-color: rgba(0, 128, 128, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
