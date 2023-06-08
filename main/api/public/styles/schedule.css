@@ -38,6 +38,7 @@ header {
   text-align: center;
   height: 20vh;
   padding: 20px;
+  margin-top: 1rem;
 }
 
 header div {
@@ -48,9 +49,12 @@ header div {
 
 
 #login:hover {
-  transform: scale(1.005);
+  transform: scale(1.020);
   transition: 0.15s ease-in-out;
   background-color: rgba(0, 0, 0, 0.112);
+  border: solid 1px;
+  border-color: white;
+  cursor: pointer;
 }
 
 #login:not(:hover) {
@@ -75,44 +79,47 @@ header a:hover {
   border: solid 2px;
 }
 
-header h1 {
-  font-family: Poppins-Bold;
-  margin: 0;
-}
 
 /* Navigation styles */
-nav {
-  text-align: center;
-  justify-content: space-evenly;
-  background-color: transparent;
-  color: #fff;
-  padding: 20px;
-  width: 97%;
-}
-
-nav select {
-  font-family: Poppins-Regular;
-  padding: 5px 10px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.1s ease;
-}
-
-nav select:focus {
-  outline: none;
-}
-
-nav select:hover {
-  transform: scale(1.065);
-  transition: 0.25s ease-in-out;
-}
+  /* Navigation styles */
+  nav {
+    text-align: center;
+    justify-content: space-evenly;
+    background-color: transparent;
+    color: #fff;
+    padding: 20px;
+    width: 97%;
+  }
+  
+  nav select {
+    font-family: Poppins-Regular;
+    padding: 5px 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    width: 10rem;
+    height:3rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  nav select:focus {
+    outline: none;
+  }
+  
+  nav select:hover {
+    transform: scale(1.065);
+    transition: 0.25s ease-in-out;
+  }
 
 /* Main styles */
 main {
   background-color: white;
-  margin: 5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 5rem;
   padding: 3rem;
-  border-radius: .5rem;
+  border-radius: 1.5rem;
   size: 80%;
 }
 
@@ -144,27 +151,33 @@ table td {
 }
 
 table th {
-  background-color: hsl(253, 58%, 49%);
+  background-color: #aa83a4;
   color: #fff;
 }
 
 
 table th:hover {
-  background-color: #622ce2;
+  background-color: #aa83a4;
   transition: 0.2s;
 }
 
 table tr:hover {
-  background-color: #85a8f3d2;
+  background-color: #E1CBD7;
   transform: scale(1.029);
   transition: 0.25s ease-in-out;
 }
 
 
-footer {
+.HeaderOfWelcomePage{
+  font-family: Poppins-Bold;
+  font-size: 3rem;
+  color: white;
   text-align: center;
+  /* margin-top: 5rem; */
+  /* margin-bottom: 5rem; */
 }
 
+<<<<<<< Updated upstream
 @keyframes flicker {
 
   0%,
@@ -243,4 +256,12 @@ form button:hover {
   top: 0;
   left: 0;
   pointer-events: none;
+=======
+.Navbar {
+  background-color: rgba(0, 128, 128, 0.2);
+  border-radius: 10px;
+  padding-left: 1rem;
+  margin-left:3rem;
+  margin-right:3rem;
+>>>>>>> Stashed changes
 }
