@@ -249,3 +249,37 @@
   left: 0;
   pointer-events: none;
 }
+.Statistics{
+  font-family: Poppins-Bold;
+  font-size: 2rem;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.AcceptRejectList{
+  font-family: Poppins-Regular;
+  font-size: 1.5rem;
+  color: black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 9rem;
+  margin-bottom: 3rem;
+}
+
+.AvgAuthor,.SessionsAvailable,.AvgEvents{
+  font-family: Poppins-Bold;
+  font-size: 1.2rem;
+  color: black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}

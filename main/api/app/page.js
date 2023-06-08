@@ -42,8 +42,8 @@ export default async function Home() {
         </p>        
       </div>
     </main>
-    <div>
-      <p>Statistcs:</p>
+    <div className="Statistics">
+      <p>Statistics</p>
     </div>
     <main>
       <div className="MainMessage">
@@ -55,7 +55,7 @@ export default async function Home() {
           </ul>
         </div>
         <div>
-          <p className="AvgAuthor">Average Author Per Paper: {report.avgauthor}</p>
+          <p className="AvgAuthor">Average Authors Per Paper: {report.avgauthor}</p>
         </div>
         <div>
           <p className="SessionsAvailable">Sessions Currently Available: {report.session}</p>
