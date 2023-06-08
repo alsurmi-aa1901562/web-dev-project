@@ -49,7 +49,19 @@ export default async function Home() {
     <main>
       <div className="MainMessage">
         <p className="welcomeMessageHeader">We can proudly say we have had {report.submit} papers submitted to us!</p>
-        <p className="welcomeText"></p>
+        <div>
+          <ul className="AcceptRejectList">
+            <li><h3>Accepted: {report.accept}</h3></li>
+            <li><h3>Rejected: {report.reject}</h3></li>
+          </ul>
+        </div>
+        <div>
+          <p className="AvgAuthor">Average Author Per Paper: {report.avgauthor}</p>
+        </div>
+        <div>
+          <p className="SessionsAvailable">Sessions Currently Available: {report.session}</p>
+          <p className="AvgEvents">Average Number Of Events Per Session: {report.avgevent}</p>
+        </div>
       </div>
     </main>
 </body>

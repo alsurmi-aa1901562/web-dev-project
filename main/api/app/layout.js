@@ -8,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-[url('/main/api/public/images/bg.gif)]">{children}</body>
+      {children}
     </html>
   )
 }
