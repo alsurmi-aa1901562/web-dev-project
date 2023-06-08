@@ -1,5 +1,8 @@
 
 export default async function Home() {
+  const response = await fetch("http://localhost:3000/api/report");
+  const report = await response.json();
+  console.log(report);
   return (
   <body >
     <header>
@@ -40,6 +43,14 @@ export default async function Home() {
         </p>        
       </div>
     </main>
-
+    <div>
+      <h1>Statistcs:</h1>
+    </div>
+    <main>
+      <div className="MainMessage">
+        <p className="welcomeMessageHeader">We can proudly say we have had {report.submit} papers submitted to us!</p>
+        <p className="welcomeText"></p>
+      </div>
+    </main>
 </body>
   )}

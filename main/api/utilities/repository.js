@@ -642,3 +642,82 @@ export async function deleteEvent(scheduleid, sessionid, id) {
     return null;
 }
 //------------------------------------------------------------------------------------------------------------//
+//REPORT
+export async function readReport(){
+
+  const submitted = await prisma.Paper.aggregate({
+    _count: {
+      id: true,
+    },
+  });
+  
+  const accepted = await prisma.Paper.aggregate({
+    _count: {
+      id: true,
+    },
+    where: {
+      reviewers: {
+        some: {
+          evaluation: 2,
+        },
+      },
+    },
+  });
+
+  const rejected = await prisma.Paper.aggregate({
+    _count: {
+      id: true,
+    },
+    where: {
+      reviewers: {
+        some: {
+          evaluation: {
+            lt: 2,
+            not: -999,
+          },
+        },
+      },
+    },
+  });
+
+  // cannot use aggregate for average due to the list
+  const papers = await prisma.Paper.findMany({
+    include: {
+      authors: true,
+      reviewers: true,
+    },
+  });
+  let acounter = 0;
+  let pcounter = 0;
+  const totalAuthors = papers.forEach((paper) => {
+    paper.authors.forEach((author) => {
+      acounter++;
+    });
+    pcounter++
+  });
+  const averageAuthors = parseInt( acounter / pcounter);
+
+  // create an aggregate to calculate the number of sessions there are
+  const sessions = await prisma.Session.aggregate({
+    _count: {
+      id: true,
+    },
+  });
+
+  // create an aggregate to calculate the avg number of events per session
+  const events = await prisma.Event.aggregate({
+    _count: {
+      id: true,
+    },
+  });
+  const averageEvents = parseInt(events._count.id / sessions._count.id);
+
+  return {
+    "submit": submitted._count.id,
+    "accept": accepted._count.id,
+    "reject": rejected._count.id,
+    "avgauthor": averageAuthors,
+    "session": sessions._count.id,
+    "avgevent": averageEvents,
+  } ;
+}
