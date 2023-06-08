@@ -43,7 +43,7 @@ export default async function Home() {
       </div>
     </main>
     <div>
-      <h1>Statistcs:</h1>
+      <p>Statistcs:</p>
     </div>
     <main>
       <div className="MainMessage">

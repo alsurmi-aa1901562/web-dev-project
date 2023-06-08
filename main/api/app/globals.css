@@ -119,6 +119,15 @@
     width: 70%;
     
   }
+
+  .MainMessage:hover{
+    transform: scale(1.007);
+    transition: 0.2s ease;
+  }
+  .MainMessage:not(:hover){
+    transform: scale(1);
+    transition: 0.2s ease;
+  }
   
   main h2:hover {
     transform: scale(1.079);
@@ -167,6 +176,15 @@
   
   footer {
     text-align: center;
+  }
+
+  p:hover{
+    transform: scale(1.01);
+    transition: 0.2s ease;
+  }
+  p:not(:hover){
+    transform: scale(1);
+    transition: 0.2s ease;
   }
   
   
