@@ -232,15 +232,3 @@ form button {
 form button:hover {
   background-color: #444;
 }
-#pointer-follow {
-  width: 0.5em;
-  height: 0.5em;
-  background-color: #333333;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}

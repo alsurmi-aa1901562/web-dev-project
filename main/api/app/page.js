@@ -5,7 +5,7 @@ export default async function Home() {
   return (
   <body >
     <header>
-        <div id="pointer-follow" className="pointer-follow"></div>
+        <div id="pointer-follow"></div>
 
         <div className="bg-zinc-200/[0.2] rounded-xl">
           
@@ -63,6 +63,5 @@ export default async function Home() {
         </div>
       </div>
     </main>
-    <script src="./scripts/main.js"></script>
 </body>
   )}
