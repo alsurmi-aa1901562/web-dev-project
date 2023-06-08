@@ -1,16 +1,11 @@
 
 export default async function Home() {
-  let res = await fetch('http://localhost:3000/api/schedule');
-  const schedules = await res.json();
-  
-  let res2 = await fetch(`http://localhost:3000/api/schedule/[${schedules[0].id}]/session`);
-  const sessions = res2.json()
-
-  console.log(sessions)
+  const response = await fetch("http://localhost:3000/api/report");
+  const report = await response.json();
   return (
   <body >
     <header>
-        <div id="pointer-follow"></div>
+        <div id="pointer-follow" className="pointer-follow"></div>
 
         <div className="bg-zinc-200/[0.2] rounded-xl">
           
@@ -47,6 +42,27 @@ export default async function Home() {
         </p>        
       </div>
     </main>
-
+    <div>
+      <h1>Statistcs:</h1>
+    </div>
+    <main>
+      <div className="MainMessage">
+        <p className="welcomeMessageHeader">We can proudly say we have had {report.submit} papers submitted to us!</p>
+        <div>
+          <ul className="AcceptRejectList">
+            <li><h3>Accepted: {report.accept}</h3></li>
+            <li><h3>Rejected: {report.reject}</h3></li>
+          </ul>
+        </div>
+        <div>
+          <p className="AvgAuthor">Average Author Per Paper: {report.avgauthor}</p>
+        </div>
+        <div>
+          <p className="SessionsAvailable">Sessions Currently Available: {report.session}</p>
+          <p className="AvgEvents">Average Number Of Events Per Session: {report.avgevent}</p>
+        </div>
+      </div>
+    </main>
+    <script src="./scripts/main.js"></script>
 </body>
   )}
